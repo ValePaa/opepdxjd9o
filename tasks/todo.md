@@ -7,5 +7,5 @@ Obiettivo: prima versione della scheda, pubblicata su GitHub Pages.
 - [x] Pubblicazione su ValePaa con indirizzo casuale
 
 ## Backlog
-- [ ] Dopo il test dei 5 km (3/11): controllare che i ritmi ricalcolati siano sensati
+- [ ] Dopo il test dei 5 km (2/11): controllare che i ritmi ricalcolati siano sensati
 - [ ] Fine settimana 8: confrontare i test e preparare il blocco successivo
