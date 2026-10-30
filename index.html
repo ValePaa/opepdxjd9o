@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121314" media="(prefers-color-scheme: dark)">
+<title>Scheda forza e corsa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f2ee; --card:#ffffff; --card2:#faf9f6; --ink:#17181a; --muted:#62666d; --faint:#8b8f96; --line:#e6e3dd;
+  --accent:#1d6b57; --accent-ink:#ffffff; --accent-soft:#e2efea;
+  --run:#1d6b57; --run-soft:#e2efea;
+  --fa:#2456a6; --fa-soft:#e4ebf8;
+  --fb:#a3521c; --fb-soft:#f8eadf;
+  --fc:#6a4a9c; --fc-soft:#eee8f7;
+  --t25:#2456a6; --t25-soft:#e4ebf8; --zaino:#8a5a14; --zaino-soft:#f6ecd9;
+  --t3:#6a4a9c; --t3-soft:#eee8f7; --cl:#4c5661; --cl-soft:#eceef1; --bil:#9b2f52; --bil-soft:#f7e4ea;
+  --note:#fbf3df; --note-ink:#5c4708;
+  --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 16px rgba(20,20,20,.05);
+  --r:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#121314; --card:#1b1d1f; --card2:#202326; --ink:#ecebe7; --muted:#a5a9af; --faint:#7d8288; --line:#2c2f33;
+    --accent:#5cc4a5; --accent-ink:#0d1f19; --accent-soft:#1b302a;
+    --run:#5cc4a5; --run-soft:#1b302a;
+    --fa:#8fb2ee; --fa-soft:#1c2738;
+    --fb:#eba274; --fb-soft:#3a2619;
+    --fc:#c3a6ec; --fc-soft:#2b2338;
+    --t25:#8fb2ee; --t25-soft:#1c2738; --zaino:#e2b56e; --zaino-soft:#382b17;
+    --t3:#c3a6ec; --t3-soft:#2b2338; --cl:#b9c2cc; --cl-soft:#272b30; --bil:#ee9bb6; --bil-soft:#3a1f29;
+    --note:#2f2a1a; --note-ink:#f0d68c;
+    --shadow:none;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+h1,h2,h3,.display{font-family:"Inter Tight",Inter,-apple-system,sans-serif;letter-spacing:-.02em}
+h1{font-size:clamp(2.1rem,6vw,3.3rem);line-height:1.02;margin:0 0 14px;font-weight:800}
+h2{font-size:1.6rem;margin:0 0 6px;font-weight:700}
+h3{font-size:1.15rem;margin:0;font-weight:700}
+p{margin:0 0 12px}
+a{color:var(--accent)}
+.muted{color:var(--muted)} .small{font-size:.9rem}
+.eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+section{padding:44px 0 8px}
+.sechead{margin-bottom:18px}
+.sechead p{color:var(--muted);max-width:680px;margin-top:4px}
+
+/* hero */
+.hero{padding:40px 0 8px}
+.hero .lead{font-size:1.1rem;color:var(--muted);max-width:640px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.88rem;font-weight:600}
+.chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+/* oggi */
+.today{margin-top:26px;border-radius:24px;padding:22px;background:var(--ink);color:var(--bg);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.today .eyebrow{color:inherit;opacity:.7}
+.today .t{font-family:"Inter Tight",Inter,sans-serif;font-size:1.6rem;font-weight:700;line-height:1.15;margin-top:4px}
+.today .s{opacity:.75;font-size:.95rem;margin-top:2px}
+.btn{font:inherit;font-weight:600;font-size:.95rem;border:0;border-radius:12px;padding:11px 18px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-light{background:var(--bg);color:var(--ink)}
+.btn-acc{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+
+/* barra settimane */
+.weekbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line);margin:0 -16px;padding:10px 16px}
+.weeks{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.weeks::-webkit-scrollbar{display:none}
+.weeks button{flex:0 0 auto;font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:6px 12px;cursor:pointer;text-align:left;line-height:1.2}
+.weeks button b{display:block;font-size:.92rem}
+.weeks button small{color:var(--muted);font-size:.74rem}
+.weeks button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.weeks button.on small{color:inherit;opacity:.7}
+.weeks button.now:not(.on){border-color:var(--accent)}
+.weekinfo{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:22px 0 14px}
+.weekinfo h3{font-size:1.35rem}
+.pill{display:inline-block;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--note);color:var(--note-ink)}
+.deload{width:100%;font-size:.92rem;color:var(--muted)}
+
+/* giorni */
+.day{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin:0 0 12px;box-shadow:var(--shadow);overflow:hidden;position:relative}
+.day::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c,var(--line))}
+.day.run{--c:var(--run);--cs:var(--run-soft)} .day.fa{--c:var(--fa);--cs:var(--fa-soft)} .day.fb{--c:var(--fb);--cs:var(--fb-soft)} .day.fc{--c:var(--fc);--cs:var(--fc-soft)}
+.day>summary{list-style:none;cursor:pointer;padding:16px 18px 16px 22px;display:grid;grid-template-columns:auto 1fr auto;gap:2px 14px;align-items:center}
+.day>summary::-webkit-details-marker{display:none}
+.dnum{grid-row:span 2;width:46px;height:46px;border-radius:14px;background:var(--cs);color:var(--c);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;font-weight:700}
+.dnum small{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.dnum span{font-size:1.15rem;font-family:"Inter Tight",sans-serif}
+.dkind{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--c)}
+.dtitle{font-family:"Inter Tight",Inter,sans-serif;font-weight:700;font-size:1.15rem;line-height:1.25}
+.dmeta{grid-column:3;grid-row:1 / span 2;text-align:right;color:var(--muted);font-size:.88rem;white-space:nowrap}
+.dmeta .chev{display:inline-block;margin-left:8px;transition:transform .2s}
+.day[open] .chev{transform:rotate(180deg)}
+.todaybadge{display:inline-block;margin-left:8px;font-size:.68rem;font-weight:800;letter-spacing:.08em;background:var(--c);color:var(--card);padding:2px 7px;border-radius:6px;vertical-align:2px}
+.dbody{padding:0 18px 18px 22px}
+.restday{display:flex;align-items:center;gap:12px;padding:10px 18px 10px 22px;margin:0 0 12px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);font-size:.95rem}
+.restday b{color:var(--ink);font-weight:600}
+
+.config{border-radius:14px;background:var(--cs);padding:12px 14px;font-size:.93rem;margin-bottom:6px}
+.config b{color:var(--c)}
+.config .warm{display:block;color:var(--muted);margin-top:4px}
+.blk{margin:22px 0 2px;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--faint)}
+.ex{padding:14px 0;border-top:1px solid var(--line)}
+.blk+.ex{border-top:0}
+.extop{display:flex;gap:12px;align-items:flex-start}
+.code{flex:0 0 auto;min-width:36px;height:28px;padding:0 6px;border-radius:8px;background:var(--card2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;font-variant-numeric:tabular-nums}
+.exname{font-weight:650;font-size:1.04rem;line-height:1.3}
+.tags{margin-top:4px}
+.tag{display:inline-block;font-size:.74rem;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap;margin:0 4px 2px 0}
+.t-25{color:var(--t25);background:var(--t25-soft)} .t-zaino{color:var(--zaino);background:var(--zaino-soft)}
+.t-3{color:var(--t3);background:var(--t3-soft)} .t-cl{color:var(--cl);background:var(--cl-soft)}
+.t-bil{color:var(--bil);background:var(--bil-soft)} .t-run{color:var(--run);background:var(--run-soft)}
+.stats{display:grid;grid-template-columns:70px minmax(0,1.6fr) 70px minmax(0,1fr);gap:6px;margin:12px 0 8px 48px}
+.stat{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:8px 10px;min-width:0}
+.stat small{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);font-weight:700}
+.stat b{font-size:.98rem;font-variant-numeric:tabular-nums;font-weight:650;line-height:1.3;display:block}
+.stat.big b{font-size:1.35rem;font-family:"Inter Tight",sans-serif}
+.how{margin:0 0 0 48px;color:var(--muted);font-size:.93rem}
+.how i{font-style:normal;font-weight:650;color:var(--ink)}
+.note{margin:8px 0 0 48px;font-size:.92rem;padding:9px 12px;border-radius:12px;background:var(--note);color:var(--note-ink)}
+.note input{font:inherit;font-size:.92rem;width:100px;padding:4px 8px;margin:4px 4px 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+details.log{margin:10px 0 0 48px}
+details.log summary{cursor:pointer;color:var(--accent);font-size:.9rem;font-weight:650;list-style:none}
+details.log summary::-webkit-details-marker{display:none}
+details.log summary::before{content:"＋ ";}
+details.log[open] summary::before{content:"－ ";}
+.sets{display:grid;grid-template-columns:auto 1fr 1fr;gap:6px 8px;max-width:340px;margin-top:8px;align-items:center;font-size:.86rem;color:var(--muted)}
+input.f{font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card2);color:var(--ink);width:100%;min-width:0}
+input.f:focus,.note input:focus{outline:2px solid var(--accent);outline-offset:1px}
+
+.steps{margin:4px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{display:grid;grid-template-columns:32px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:0}
+.steps li::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--cs);color:var(--c);font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.steps .k{font-weight:650;display:block}
+.runlog{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:8px;max-width:560px}
+.runlog label{font-size:.76rem;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.dbody .note,.dbody details.log.r{margin-left:0}
+
+/* card generiche */
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.card h3{margin-bottom:6px}
+.card p{font-size:.94rem;color:var(--muted);margin:0}
+.card .tag{margin-bottom:8px}
+.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.kpi .v{font-family:"Inter Tight",sans-serif;font-weight:800;font-size:2rem;line-height:1.05;letter-spacing:-.02em}
+.kpi .l{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:700;margin-bottom:6px}
+.kpi p{margin-top:8px}
+
+.zones{display:grid;gap:8px}
+.zone{display:grid;grid-template-columns:10px 1.3fr 1fr 1fr;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.zone .bar{width:10px;height:36px;border-radius:5px}
+.zone b{display:block;font-weight:650}
+.zone small{color:var(--muted);font-size:.84rem;display:block}
+.zone .p{font-family:"Inter Tight",sans-serif;font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
+.calc{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:0 0 14px}
+.calc label{font-size:.78rem;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px}
+.calc input.f{width:130px}
+
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:.74rem;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.tablecard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow-x:auto;box-shadow:var(--shadow)}
+
+.refs{margin:0;padding:0;list-style:none}
+.refs li{padding:12px 0;border-top:1px solid var(--line);font-size:.94rem;color:var(--muted)}
+.refs li:first-child{border-top:0}
+.refs b{color:var(--ink)}
+ul.facts{margin:0;padding:0;list-style:none}
+ul.facts li{padding:12px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.96rem}
+ul.facts li:first-child{border-top:0}
+ul.facts b{color:var(--ink)}
+footer{padding:40px 0 60px;color:var(--faint);font-size:.85rem}
+
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-left:0}
+  .how,.note,details.log{margin-left:0}
+  .zone{grid-template-columns:8px 1fr auto}
+  .zone .fc{display:none}
+  .runlog{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .day>summary{padding:14px 14px 14px 18px}
+  .dbody{padding:0 14px 16px 18px}
+  .today .btn{width:100%;text-align:center}
+}
+@media print{
+  body{background:#fff;font-size:11pt}
+  .weekbar,.today,details.log,.calc,.noprint{display:none!important}
+  .day{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">2 novembre – 27 dicembre 2026</div>
+  <h1>Scheda forza<br>e corsa</h1>
+  <p class="lead">Otto settimane, cinque giorni a settimana: tre corse e tre sedute di forza. I manubri restano sempre a 25 kg per mano.</p>
+  <div class="chips">
+    <span class="chip"><i style="background:var(--run)"></i>3 corse</span>
+    <span class="chip"><i style="background:var(--fa)"></i>3 sedute di forza</span>
+    <span class="chip"><i style="background:var(--zaino)"></i>0 cambi di dischi</span>
+    <span class="chip"><i style="background:var(--fc)"></i>test in settimana 1 e 8</span>
+  </div>
+  <div class="today" id="today"></div>
+</header>
+
+<section id="programma" style="padding-top:28px">
+  <div class="weekbar"><div class="weeks" id="weeks"></div></div>
+  <div id="week"></div>
+</section>
+
+<section id="zone">
+  <div class="sechead"><div class="eyebrow">Corsa</div><h2>Zone e ritmi</h2>
+  <p>FC massima 190 (la più alta registrata) e FC a riposo 43. I ritmi sono stimati finché non fai il test dei 5 km: inserisci il tempo e si aggiornano in tutta la scheda.</p></div>
+  <div class="calc">
+    <div><label for="t5k">Tempo sui 5 km</label><input class="f" id="t5k" placeholder="26:30" inputmode="numeric"></div>
+    <button class="btn btn-acc" id="calcbtn">Ricalcola i ritmi</button>
+    <span class="small muted" id="vdotout"></span>
+  </div>
+  <div class="zones" id="zonetable"></div>
+  <p class="small muted" style="margin-top:14px">Nelle corse facili e nel lungo comanda la <b>FC</b>: se supera 150, rallenta anche se il ritmo sembra ridicolo. Nelle ripetute comanda il <b>ritmo</b>, perché la FC arriva in ritardo. Gli allunghi sono 20 s di accelerazione progressiva fino a un passo veloce ma sciolto, non uno sprint; tra uno e l'altro 60–90 s camminando.</p>
+</section>
+
+<section id="settimana">
+  <div class="sechead"><div class="eyebrow">Struttura</div><h2>La settimana tipo</h2></div>
+  <div class="tablecard"><table>
+    <tr><th>Giorno</th><th>Seduta</th><th>Durata</th></tr>
+    <tr><td>Lun</td><td class="muted">Riposo</td><td></td></tr>
+    <tr><td>Mar</td><td><b>Qualità</b> · ripetute o soglia <span class="tag t-run">corsa</span></td><td>45–60'</td></tr>
+    <tr><td>Mer</td><td><b>Forza A</b> · gambe e tirata <span class="tag t-25">25 kg</span><span class="tag t-zaino">zaino</span></td><td>~55'</td></tr>
+    <tr><td>Gio</td><td class="muted">Riposo</td><td></td></tr>
+    <tr><td>Ven</td><td><b>Forza B</b> · esplosività e spinta <span class="tag t-zaino">zaino</span><span class="tag t-25">25 kg</span><span class="tag t-3">3 kg</span></td><td>~60'</td></tr>
+    <tr><td>Sab</td><td><b>Facile + allunghi</b>, poi <b>Forza C</b> · parte alta corta <span class="tag t-run">corsa</span><span class="tag t-zaino">zaino</span><span class="tag t-3">3 kg</span><span class="tag t-bil">bilanciere</span></td><td>30–55' + 20'</td></tr>
+    <tr><td>Dom</td><td><b>Lungo facile</b> <span class="tag t-run">corsa</span></td><td>50–80'</td></tr>
+  </table></div>
+  <p class="small muted" style="margin-top:12px">I giorni si possono spostare rispettando tre vincoli: <b>mai Forza A il giorno prima della qualità</b>; <b>qualità e lungo non in giorni consecutivi</b>; <b>un giorno di riposo fra Forza B e la qualità</b>. Una seduta saltata non si recupera, si riparte dalla successiva. In ordine di importanza: qualità, lungo, Forza A, Forza B, sabato.</p>
+</section>
+
+<section id="attrezzi">
+  <div class="sechead"><div class="eyebrow">Attrezzatura</div><h2>Come si allena con quello che hai</h2></div>
+  <div class="grid">
+    <div class="card"><span class="tag t-25">manubri 25 + 25</span><h3>Montati una volta</h3><p>Non si toccano più. Si progredisce in quest'ordine: più ripetizioni, poi discesa lenta (3 s), poi pausa in basso, poi ripetizioni 1½. Con carichi leggeri portati vicino al cedimento il muscolo cresce quanto con carichi pesanti.</p></div>
+    <div class="card"><span class="tag t-zaino">zaino</span><h3>Il carico che sale</h3><p>Base: il tuo zaino da 8,5 kg. Per salire aggiungi una bottiglia d'acqua da 1,5 L alla volta. Lo stesso peso serve per trazioni, dip, push-up e jump squat: lo prepari una volta e non lo tocchi fino al prossimo aumento.</p></div>
+    <div class="card"><span class="tag t-3">2 × 3 kg</span><h3>Alzate</h3><p>Laterali e posteriori fino a 0–1 ripetizioni dal cedimento: con 3 kg servono 20–30 ripetizioni, ed è giusto così.</p></div>
+    <div class="card"><span class="tag t-bil">bilanciere 16 kg</span><h3>Rollout</h3><p>Lavoro di core in tenuta: i dischi fanno da ruota.</p></div>
+    <div class="card"><span class="tag t-cl">bici</span><h3>Riscaldamento e riserva</h3><p>5' all'inizio delle sedute di forza. Sostituisce una corsa facile se hai un fastidio da impatto (tibie, tendine d'Achille): stessa durata, stessa FC.</p></div>
+  </div>
+</section>
+
+<section id="regole">
+  <div class="sechead"><div class="eyebrow">Metodo</div><h2>Regole che valgono sempre</h2></div>
+  <div class="grid">
+    <div class="card"><h3>RIR: le ripetizioni di margine</h3><p>RIR 2 vuol dire fermarsi quando potresti farne ancora 2 pulite. Il RIR della settimana è in alto: scende fino alla settimana 3, poi c'è lo scarico, poi si riparte più duri.</p></div>
+    <div class="card"><h3>Quando aumentare</h3><p>Quando completi <b>tutte le serie al massimo del range</b> con il RIR indicato, la volta dopo rendi l'esercizio più difficile: una bottiglia in più nello zaino, oppure discesa lenta, pausa, ripetizioni 1½.</p></div>
+    <div class="card"><h3>Le coppie A1 → A2</h3><p>Si alternano: A1, recupero, A2, recupero, di nuovo A1. Tra due serie dello stesso esercizio passano 3–4 minuti, ma la seduta dura circa un terzo in meno.</p></div>
+    <div class="card"><h3>Prontezza di Forma</h3><p>Se la mattina è <b>sotto 40</b> o ci sono due segnali di malessere: la qualità diventa 30' facili, e nella forza fai una serie in meno con RIR +1. <b>Sotto 30</b>: riposo.</p></div>
+    <div class="card"><h3>Dolore</h3><p>Un fastidio che resta uguale o cala correndo si monitora. Uno che <b>peggiora correndo</b> ferma la corsa: per 3–5 giorni usi la bici con stessa durata e stessa FC.</p></div>
+    <div class="card"><h3>Sonno e proteine</h3><p>Sotto le 7 ore calano forza, resistenza e recupero: oggi sei a 6,4. Proteine: ~1,6 g/kg al giorno, circa <b>110 g</b>, su 3–4 pasti.</p></div>
+  </div>
+</section>
+
+<section id="dati">
+  <div class="sechead"><div class="eyebrow">Da Forma · gennaio–ottobre 2026</div><h2>Cosa dicono i tuoi dati</h2></div>
+  <div class="kpis">
+    <div class="card kpi"><div class="l">FC media nelle corse</div><div class="v">160–170</div><p>85–90% della massima: sempre in soglia. Nessuna corsa davvero facile, nessuna più veloce.</p></div>
+    <div class="card kpi"><div class="l">VO2max</div><div class="v">54,8 → 50</div><p>Da marzo a oggi, insieme al volume: 83 km ad aprile, ~50 al mese da maggio.</p></div>
+    <div class="card kpi"><div class="l">Sonno, ultimi 30 giorni</div><div class="v">6,4 h</div><p>FC a riposo ~43 e HRV ~74 sono ottime: il punto debole è il sonno.</p></div>
+  </div>
+  <div class="card" style="margin-top:12px"><ul class="facts">
+    <li><b>Il 27/10 hai corso 10 km a 5:42 con FC media 167:</b> di fatto una seduta di soglia lunga un'ora. Qui ogni settimana ha una sola seduta dura; le altre due sono davvero facili.</li>
+    <li><b>Con 25 kg alcuni esercizi sono al limite:</b> panca 25 × 20, trazioni × 15 a corpo libero, push-up con 8,5 kg × 35. Per la panca la soluzione è rallentare; per trazioni e dip, aggiungere peso allo zaino.</li>
+    <li><b>Le gambe sono le meno allenate:</b> il goblet squat con 25 kg (2 × 12) è leggero. Su una gamba con 2 × 25 hai 50 kg su un arto: è così che arriva il carico pesante.</li>
+  </ul></div>
+</section>
+
+<section id="test">
+  <div class="sechead"><div class="eyebrow">Risultati</div><h2>Prima e dopo</h2><p>Si compila con i valori che inserisci nelle sedute di test.</p></div>
+  <div class="tablecard"><table id="tests"></table></div>
+</section>
+
+<section id="evidenze">
+  <div class="sechead"><div class="eyebrow">Perché così</div><h2>Le evidenze dietro le scelte</h2></div>
+  <div class="card"><ul class="refs">
+    <li><b>Forza pesante e salti migliorano l'economia di corsa</b>; i carichi submassimali e gli isometrici molto meno. Per questo split squat bulgaro, step-up e salti invece di circuiti leggeri. <a href="https://repositorio.unab.cl/handle/ria/62074">Llanos-Lagos et al., Sports Medicine 2024</a></li>
+    <li><b>Forza e corsa insieme</b> non frenano né la crescita muscolare né la forza massima; frenano un po' l'esplosività, soprattutto nella stessa seduta. Per questo i salti stanno il venerdì, lontano dalle corse. <a href="https://researchonline.jcu.edu.au/71546/1/Schumann2021_Article_CompatibilityOfConcurrentAerob.pdf">Schumann et al., Sports Medicine 2022</a></li>
+    <li><b>Vicino al cedimento</b> la crescita muscolare aumenta, la forza molto meno. <a href="https://rke.abertay.ac.uk/en/publications/exploring-the-dose-response-relationship-between-estimated-resist/">Robinson et al., Sports Medicine 2024</a>. Con carichi leggeri vicino al cedimento si cresce quanto con quelli pesanti, mentre la forza massima segue il carico (Schoenfeld et al., J Strength Cond Res 2017): da qui i 25 kg fissi più lo zaino che sale.</li>
+    <li><b>Più serie, rendimenti decrescenti</b>, e per la forza calano prima: bastano ~10 serie settimanali per muscolo. <a href="https://bibbase.org/network/publication/joshuapelland-jacobremmert-zacrobinson-sethhinson-michaelzourdos-theresistancetrainingdoseresponsemetaregressionsexploringtheeectsofweeklyvolumeandfrequencyonmusclehypertrophyandstrengthgain-2024">Pelland et al., 2024</a> (preprint)</li>
+    <li><b>Recuperi</b>: oltre 60 s la crescita è un po' maggiore, oltre 90 s non cambia più. <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2024.1429789/abstract">Singer et al., Frontiers 2024</a></li>
+    <li><b>Esercizi in coppia</b>: sedute più brevi, stessi risultati di forza e massa. <a href="https://eprints.leedsbeckett.ac.uk/id/eprint/11908">Zhang et al., Sports Medicine 2025</a></li>
+    <li><b>Distribuzione dell'intensità</b>: il polarizzato dà un piccolo vantaggio sul VO2max nei blocchi brevi; per i dilettanti il piramidale va altrettanto bene. La scheda è piramidale. <a href="https://link.springer.com/content/pdf/10.1007/s40279-024-02034-z.pdf">Oliveira et al., Sports Medicine 2024</a>; Rosenblat et al., Sports Medicine 2025</li>
+    <li><b>Ripetute</b>: 4 × 4' alla massima intensità sostenibile alzano il VO2max più della corsa continua (Helgerud et al., Med Sci Sports Exerc 2007); nei dilettanti allenati 4 × 8' rendono più di 4 × 4' (Seiler et al., Scand J Med Sci Sports 2013).</li>
+    <li><b>Il lungo cresce poco</b>: il rischio di infortunio sale quando un'uscita supera di oltre il 10% la più lunga degli ultimi 30 giorni. Da qui il tetto in km di ogni lungo. <a href="https://researchportal.lih.lu/en/publications/how-much-running-is-too-much-identifying-high-risk-running-sessio/">Frandsen et al., British Journal of Sports Medicine 2025</a></li>
+    <li><b>Seguire la HRV</b> dà un piccolo vantaggio sul VO2max, maggiore nei dilettanti. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7663087/">Granero-Gallegos et al., IJERPH 2020</a></li>
+    <li><b>Ritmi</b>: formule VDOT di Jack Daniels. <b>Proteine</b>: Morton et al., BJSM 2018. <b>Sonno</b>: Craven et al., Sports Medicine 2022.</li>
+  </ul></div>
+</section>
+
+<section id="diario" class="noprint">
+  <div class="sechead"><div class="eyebrow">Diario</div><h2>I tuoi dati restano qui</h2>
+  <p>Quello che scrivi nei campi è salvato solo in questo browser, su questo dispositivo: non va su internet. Esporta ogni tanto una copia; con «Importa» la porti su un altro dispositivo.</p></div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+    <button class="btn btn-ghost" id="exp">Esporta il diario</button>
+    <label class="btn btn-ghost">Importa un diario<input type="file" id="imp" accept="application/json" hidden></label>
+    <span class="small muted" id="iomsg"></span>
+  </div>
+</section>
+
+<footer>Scheda costruita sui dati di Forma e sui carichi della scheda precedente. Non sostituisce un parere medico.</footer>
+</div>
+
+<script>
+// ---------- salvataggio locale ----------
+const KEY='scheda-fc-2026';
+let store={};
+try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){store={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
+const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+
+// ---------- ritmi (formule VDOT di Daniels) ----------
+const vo2=v=>-4.60+0.182258*v+0.000104*v*v;
+const pct=t=>0.8+0.1894393*Math.exp(-0.012778*t)+0.2989558*Math.exp(-0.1932605*t);
+const vAt=o=>(-0.182258+Math.sqrt(0.182258**2+4*0.000104*(o+4.60)))/(2*0.000104);
+const VDOT_PROVV=36.5; // stima da 10 km a 5:42 con FC 167 (27/10) e 5,2 km a 5:13 (16/04)
+const vdot=()=>store.vdot||VDOT_PROVV;
+function pace(f){const s=Math.round(60000/vAt(f*vdot()));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+const Z={
+  E:{n:'Facile',z:'Z2',fc:'135–150',p:()=>pace(.74)+'–'+pace(.65),d:'parli a frasi intere',c:'var(--run)'},
+  M:{n:'Medio',z:'Z3',fc:'151–165',p:()=>pace(.80),d:'solo nel finale di alcuni lunghi',c:'var(--zaino)'},
+  T:{n:'Soglia',z:'Z4',fc:'166–176',p:()=>pace(.88),d:'duro ma controllato, lo terresti un’ora',c:'var(--fb)'},
+  I:{n:'Ripetute',z:'Z5',fc:'≥177 a fine ripetuta',p:()=>pace(.975),d:'lo terresti 10–12 minuti',c:'var(--bil)'},
+  R:{n:'Allunghi',z:'',fc:'—',p:()=>pace(1.05),d:'veloce e sciolto, mai sprint',c:'var(--fc)'}
+};
+const zp=k=>`<b>${Z[k].p()}/km</b> · FC ${Z[k].fc}`;
+function renderZones(){
+  document.getElementById('zonetable').innerHTML=Object.values(Z).map(z=>
+    `<div class="zone"><span class="bar" style="background:${z.c}"></span><div><b>${z.n} ${z.z?'· '+z.z:''}</b><small>${z.d}</small></div><div class="fc"><small>FC</small>${z.fc}</div><div class="p">${z.p()}<small>/km</small></div></div>`).join('');
+  document.getElementById('vdotout').textContent=store.vdot?`VDOT ${store.vdot.toFixed(1)}, dal tuo 5 km`:`Ritmi stimati (VDOT ${VDOT_PROVV})`;
+  if(store.t5k)document.getElementById('t5k').value=store.t5k;
+}
+document.getElementById('calcbtn').onclick=()=>{
+  const m=document.getElementById('t5k').value.trim().match(/^(\d{1,2})[:.,](\d{2})$/);
+  if(!m){document.getElementById('vdotout').textContent='Scrivi il tempo come 26:30';return}
+  const t=+m[1]+(+m[2])/60; store.vdot=vo2(5000/t)/pct(t); store.t5k=document.getElementById('t5k').value.trim();
+  save(); renderZones(); renderWeek(cur);
+};
+
+// ---------- calendario ----------
+const START=new Date(2026,10,2); // lunedì 2 novembre 2026
+const RIR=['3','2','1–2','3–4','2','1–2','1','3–4'];
+const FASE=['Introduzione e test','Accumulo','Accumulo, più duro','Scarico','Intensificazione','Intensificazione, più duro','Picco','Scarico e test'];
+const dataDi=(w,d)=>{const x=new Date(START);x.setDate(x.getDate()+w*7+d);return x};
+const GG=['Lun','Mar','Mer','Gio','Ven','Sab','Dom'];
+const fmt=x=>x.toLocaleDateString('it-IT',{day:'numeric',month:'short'});
+function oggi(){const n=new Date();n.setHours(0,0,0,0);const d=Math.round((n-START)/864e5);return {w:Math.floor(d/7),d:((d%7)+7)%7,raw:d}}
+
+// ---------- esercizi ----------
+// s: serie per settimana (1→8); r1: ripetizioni settimane 1–4, r2: settimane 5–8
+const TAG={'25':'<span class="tag t-25">2 × 25 kg</span>','25x1':'<span class="tag t-25">1 × 25 kg</span>','zaino':'<span class="tag t-zaino">zaino</span>','3':'<span class="tag t-3">2 × 3 kg</span>','cl':'<span class="tag t-cl">corpo libero</span>','bil':'<span class="tag t-bil">bilanciere 16 kg</span>'};
+const A=[
+ {blk:'Coppia A · alterna A1 e A2'},
+ {c:'A1',id:'bss',n:'Split squat bulgaro',t:'25',s:[3,4,4,2,4,4,5,2],r1:'6–10 per gamba',r2:'6–8 per gamba, discesa 3 s',rec:'75 s, poi A2',
+  how:'Piede dietro sulla panca, busto leggermente in avanti, ginocchio dietro che sfiora il pavimento. Prima tutte le ripetizioni con la gamba debole, poi l\'altra.',
+  alt:'Se con 2 × 25 non arrivi a 6 ripetizioni, tieni un solo 25 al petto: niente cambio dischi.',
+  w1:'Serie 1 = TEST: massimo di ripetizioni pulite con la gamba più debole (scrivile nel riquadro del test). Poi le altre serie a RIR 3.',w8:'Serie 1 = TEST, come in settimana 1.',
+  prog:'Range pieno a RIR 2 in tutte le serie → aggiungi 1 s di pausa in basso; poi ripetizioni 1½.'},
+ {c:'A2',id:'pull',n:'Trazioni zavorrate, presa prona',t:'zaino',s:[3,4,4,2,5,5,5,2],r1:'5–8',r2:'4–6',rec:'90 s, poi A1',
+  how:'Partenza a braccia distese, mento sopra la sbarra, niente slanci. Prima seduta: zaino da 8,5 kg + 2 bottiglie da 1,5 L (circa 11,5 kg). Con 8,5 kg da soli hai già fatto 4 × 10, quindi per stare in 5–8 ripetizioni serve qualcosa in più.',
+  w1:'Prima della coppia A: TEST di trazioni a corpo libero, massime ripetizioni pulite. 3\' di recupero, poi inizi.',w8:'Prima della coppia A: TEST di trazioni massime a corpo libero.',
+  prog:'Tutte le serie al massimo del range con RIR ≥ 2 → una bottiglia da 1,5 L in più nello zaino.'},
+ {blk:'Coppia B · alterna B1 e B2'},
+ {c:'B1',id:'slrdl',n:'Stacco rumeno su una gamba',t:'25',s:[3,3,3,2,3,3,3,2],r1:'8–10 per gamba',r2:'6–8 per gamba, discesa 3 s + 1 s in basso',rec:'60 s, poi B2',
+  how:'Ginocchio d\'appoggio leggermente flesso, bacino parallelo al pavimento; scendi finché la schiena resta neutra.',
+  w1:'Prima seduta: impari il movimento con un solo 25 nella mano opposta e l\'altra mano appoggiata alla parallela.',
+  prog:'Range pieno a RIR 2 → discesa in 3 s.'},
+ {c:'B2',id:'dip',n:'Dip alle parallele zavorrati',t:'zaino',s:[3,3,3,2,4,4,4,2],r1:'6–10',r2:'5–8',rec:'90 s, poi B1',
+  how:'Stesso zaino delle trazioni. Scendi finché la spalla arriva all\'altezza del gomito, busto leggermente in avanti.',
+  prog:'Il peso dello zaino lo decidono le trazioni: qui, se superi il range, fai 1 s di pausa in basso.'},
+ {blk:'Coppia C · polpacci e adduttori'},
+ {c:'C1',id:'calf',n:'Polpaccio in piedi su una gamba',t:'25x1',s:[3,3,3,2,4,4,4,2],r1:'8–12 per gamba',r2:'8–12 per gamba',rec:'30 s, poi C2',
+  how:'Avampiede sul bordo di un gradino, tallone giù fino in fondo: 2 s di pausa in basso, 1 s in alto. Con l\'altra mano ti tieni al muro.',
+  prog:'Range pieno → pausa in basso di 3 s.'},
+ {c:'C2',id:'soleo',n:'Soleo seduto',t:'25',s:[2,3,3,2,3,3,3,2],r1:'12–20 per gamba',r2:'12–20 per gamba',rec:'30 s, poi C3',
+  how:'Seduto sulla panca, avampiede su un libro spesso, i due manubri sopra un ginocchio. Il soleo è il muscolo che lavora di più nella corsa.'},
+ {c:'C3',id:'cph',n:'Copenhagen plank',t:'cl',s:[2,2,2,1,3,3,3,1],r1:'15–25 s per lato, ginocchio sulla panca',r2:'20–30 s per lato, caviglia sulla panca',rec:'60 s, poi C1',
+  how:'Plank laterale con la gamba di sopra appoggiata sulla panca: lavorano gli adduttori. Il bacino resta alto.',unit:'s'}
+];
+const B=[
+ {blk:'Salti · massima intenzione, nessuna fatica'},
+ {c:'P1',id:'pogo',n:'Pogo jumps',t:'cl',s:[2,3,3,2,3,3,3,2],r1:'15 contatti',r2:'20 contatti (dalla 2ª serie: 10 per gamba)',rec:'60 s',
+  how:'Saltelli sugli avampiedi con ginocchia quasi rigide e contatto brevissimo, come una molla. Su un tappetino.'},
+ {c:'P2',id:'jsq',n:'Jump squat con zaino',t:'zaino',s:[4,4,5,3,5,5,6,3],r1:'5',r2:'4',rec:'90 s',
+  how:'Lo zaino delle trazioni, ben stretto. Scendi a un quarto di squat e salta più in alto che puoi; atterra morbido e riparti da fermo. Se il salto cala, la serie è finita.',
+  w1:'Settimana 1: senza zaino, per imparare l\'atterraggio.',
+  prog:'Se lo zaino supera 20 kg, qui salti a corpo libero.'},
+ {c:'P3',id:'hop',n:'Salto in avanti su una gamba, con arresto',t:'cl',s:[2,3,3,2,3,3,3,2],r1:'4 per gamba',r2:'5 per gamba',rec:'60 s',
+  how:'Salta in avanti su una gamba e atterra sulla stessa: ginocchio in linea con il piede, tieni 2 s. Poi riparti.'},
+ {blk:'Coppia A · alterna A1 e A2'},
+ {c:'A1',id:'bench',n:'Panca piana con manubri, lenta',t:'25',s:[3,3,3,2,4,4,4,2],r1:'10–15 · discesa 3 s, 1 s di pausa sul petto',r2:'8–12 · ripetizioni 1½',rec:'90 s, poi A2',
+  how:'A 25 kg arrivi a 20 ripetizioni: discesa lenta e pausa sul petto ti portano vicino al cedimento molto prima. 1½ = scendi, risali a metà, riscendi, poi sali fino in fondo.',
+  prog:'Più di 15 ripetizioni con discesa e pausa → passa alle 1½ anche prima della settimana 5.'},
+ {c:'A2',id:'row',n:'Rematore a busto flesso, due manubri',t:'25',s:[3,3,3,2,4,4,4,2],r1:'10–15',r2:'10–15, discesa 3 s',rec:'90 s, poi A1',
+  how:'Busto a circa 45°, schiena neutra. Porta i manubri verso i fianchi e tieni 1 s in alto.'},
+ {blk:'Coppia B · alterna B1 e B2'},
+ {c:'B1',id:'step',n:'Step-up sulla panca',t:'25',s:[3,3,3,2,3,3,3,2],r1:'6–8 per gamba',r2:'5–6 per gamba, salita più veloce possibile',rec:'60 s, poi B2',
+  how:'Panca stabile contro il muro. Spingi solo con la gamba sopra, senza slancio da quella a terra; scendi controllato.',
+  alt:'Se la panca oscilla: affondo indietro con 2 × 25, stesse ripetizioni.'},
+ {c:'B2',id:'slcurl',n:'Leg curl scivolato',t:'cl',s:[2,2,2,1,3,3,3,1],r1:'8–12 con due gambe',r2:'6–10 con una gamba',rec:'60 s, poi B1',
+  how:'Supino, talloni su un asciugamano o con le calze sul pavimento liscio, bacino alto: porta i talloni verso i glutei e torna lento.'},
+ {blk:'Coppia C · spalle e braccia'},
+ {c:'C1',id:'pike',n:'Pike push-up, piedi sulla panca',t:'cl',s:[3,3,3,2,3,3,3,2],r1:'6–12',r2:'6–12 con lo zaino',rec:'75 s, poi C2',
+  how:'Prende il posto del military press: corpo a V rovesciata, piedi sulla panca, testa verso il pavimento davanti alle mani.',
+  prog:'Più di 12 → aggiungi lo zaino anche prima della settimana 5.'},
+ {c:'C2',id:'gcurl',n:'Curl a due mani con un manubrio da 25',t:'25x1',s:[3,3,3,2,3,3,3,2],r1:'6–12',r2:'6–12, discesa 3 s',rec:'60 s, poi C3',
+  how:'Afferri un solo manubrio da 25 per i dischi, con le due mani: è come 12,5 kg per braccio, senza cambiare i dischi. Gomiti fermi.'},
+ {c:'C3',id:'lat',n:'Alzate laterali',t:'3',s:[2,2,2,1,3,3,3,1],r1:'20–30',r2:'20–30',rec:'60 s, poi C1',
+  how:'Fino all\'altezza delle spalle, scendi in 2 s. Arriva a 0–1 ripetizioni dal cedimento.'}
+];
+const C=[
+ {blk:'Subito dopo la corsa, o più tardi nella giornata'},
+ {c:'D1',id:'chin',n:'Chin-up, presa supina',t:'cl',s:[3,3,3,2,4,4,4,2],r1:'6–10, discesa 3 s',r2:'5–8 con lo zaino',rec:'75 s, poi D2',
+  how:'Mani alla larghezza delle spalle, palmi verso di te. La discesa lenta allena forza e bicipite.'},
+ {c:'D2',id:'pushup',n:'Push-up con zaino, piedi sulla panca',t:'zaino',s:[3,3,3,2,3,3,3,2],r1:'8–15',r2:'8–15',rec:'75 s, poi D1',
+  how:'Corpo rigido, petto fino a un pugno dal pavimento.',prog:'Oltre 15 → 1 s di pausa in basso.'},
+ {c:'D3',id:'rear',n:'Alzate posteriori + laterali',t:'3',s:[2,2,2,1,3,3,3,1],r1:'20–30 + 20–30',r2:'20–30 + 20–30',rec:'60 s',
+  how:'Prima le posteriori a busto flesso, poi senza pausa le laterali in piedi: contano come una serie.'},
+ {c:'D4',id:'roll',n:'Rollout con il bilanciere',t:'bil',s:[2,2,2,1,3,3,3,1],r1:'6–12 dalle ginocchia',r2:'8–12, più lontano',rec:'60 s',
+  how:'In ginocchio, mani sul bilanciere: fai rotolare i dischi in avanti finché la schiena resta neutra, poi torna.'}
+];
+
+// ---------- corse ----------
+const RISC='15\' facile + 4 allunghi';
+const RUN=[
+ {q:{n:'Test 5 km',st:[['Riscaldamento',RISC],['Test','5 km a tutta, su un percorso piatto che puoi ripetere. Il primo km non più veloce del secondo: finisci in crescendo.'],['Defaticamento','10\' molto facile']],dur:'~50\'',test:'t5k1'},
+  f:{n:'Facile + allunghi',st:[['Corsa','30\' in zona facile'],['Allunghi','4 × 20 s']],dur:'~35\''},
+  l:{n:'Lungo facile',st:[['Corsa','55\' in zona facile']],dur:'55\'',cap:10}},
+ {q:{n:'Ripetute 5 × 3\'',st:[['Riscaldamento',RISC],['Ripetute','5 × 3\' a ritmo I · recupero 2\' corricchiando'],['Defaticamento','10\'']],dur:'~50\''},
+  f:{n:'Facile + allunghi',st:[['Corsa','35\' in zona facile'],['Allunghi','6 × 20 s']],dur:'~40\''},
+  l:{n:'Lungo facile',st:[['Corsa','60\' in zona facile']],dur:'60\'',cap:10.5}},
+ {q:{n:'Soglia 4 × 6\'',st:[['Riscaldamento',RISC],['Soglia','4 × 6\' a ritmo T · recupero 1\'30" corricchiando'],['Defaticamento','10\'']],dur:'~55\''},
+  f:{n:'Facile + allunghi',st:[['Corsa','40\' in zona facile'],['Allunghi','6 × 20 s']],dur:'~45\''},
+  l:{n:'Lungo facile',st:[['Corsa','65\' in zona facile']],dur:'65\'',cap:11}},
+ {q:{n:'Ripetute 4 × 3\'',st:[['Riscaldamento',RISC],['Ripetute','4 × 3\' a ritmo I · recupero 2\''],['Defaticamento','10\'']],dur:'~45\''},
+  f:{n:'Facile + allunghi',st:[['Corsa','30\' in zona facile'],['Allunghi','4 × 20 s']],dur:'~35\''},
+  l:{n:'Lungo corto',st:[['Corsa','50\' in zona facile']],dur:'50\'',cap:9}},
+ {q:{n:'Ripetute 4 × 4\'',st:[['Riscaldamento',RISC],['Ripetute','4 × 4\' a ritmo I · recupero 3\' corricchiando'],['Defaticamento','10\'']],dur:'~55\''},
+  f:{n:'Facile + sprint in salita',st:[['Corsa','40\' in zona facile'],['Salite','6 × 10 s di sprint su una salita ripida, recupero camminando giù (90 s)']],dur:'~50\''},
+  l:{n:'Lungo facile',st:[['Corsa','70\' in zona facile']],dur:'70\'',cap:11.5}},
+ {q:{n:'Soglia 3 × 10\'',st:[['Riscaldamento',RISC],['Soglia','3 × 10\' a ritmo T · recupero 2\''],['Defaticamento','10\'']],dur:'~60\''},
+  f:{n:'Facile + allunghi',st:[['Corsa','40\' in zona facile'],['Allunghi','6 × 20 s']],dur:'~45\''},
+  l:{n:'Lungo con finale medio',st:[['Corsa','60\' in zona facile'],['Finale','15\' a ritmo M']],dur:'75\'',cap:12}},
+ {q:{n:'Ripetute 5 × 4\'',st:[['Riscaldamento',RISC],['Ripetute','5 × 4\' a ritmo I · recupero 3\''],['Defaticamento','10\'']],dur:'~60\''},
+  f:{n:'Facile + sprint in salita',st:[['Corsa','45\' in zona facile'],['Salite','8 × 10 s di sprint in salita, recupero camminando']],dur:'~55\''},
+  l:{n:'Lungo facile',st:[['Corsa','80\' in zona facile']],dur:'80\'',cap:12.5}},
+ {q:{n:'Richiamo 3 × 3\'',st:[['Riscaldamento',RISC],['Ripetute','3 × 3\' a ritmo I · recupero 2\''],['Defaticamento','10\'']],dur:'~40\''},
+  f:{n:'Facile + allunghi',st:[['Corsa','25\' in zona facile'],['Allunghi','4 × 20 s']],dur:'~30\''},
+  l:{n:'Test 5 km',st:[['Riscaldamento',RISC],['Test','5 km a tutta, sullo stesso percorso della settimana 1'],['Defaticamento','10\'']],dur:'~50\'',test:'t5k8'}}
+];
+
+// ---------- disegno ----------
+const inp=(k,ph,cls='f')=>`<input class="${cls}" data-k="${k}" placeholder="${ph}" value="${esc(store[k])}">`;
+const inpN=(k,ph)=>`<input data-k="${k}" placeholder="${ph}" value="${esc(store[k])}">`;
+function exHTML(e,w,sess){
+  if(e.blk)return `<div class="blk">${e.blk}</div>`;
+  const s=e.s[w], r=w<4?e.r1:e.r2, dl=(w===3||w===7);
+  const rir=['pogo','jsq','hop'].includes(e.id)?'—':((e.id==='lat'||e.id==='rear')&&!dl?'0–1':RIR[w]);
+  let notes='';
+  if(w===0&&e.w1)notes+=`<div class="note">${e.w1}</div>`;
+  if(w===7&&e.w8)notes+=`<div class="note">${e.w8}</div>`;
+  let extra='';
+  if(e.alt)extra+=` <i>Alternativa:</i> ${e.alt}`;
+  if(e.prog&&!dl)extra+=` <i>Progressione:</i> ${e.prog}`;
+  let rows='';for(let i=1;i<=s;i++){const b=`w${w+1}.${sess}.${e.id}.${i}`;
+    rows+=`<span>${i}</span>${inp(b+'.r',e.unit==='s'?'secondi':'ripetizioni')}${inp(b+'.kg',e.t==='zaino'?'kg zaino':(e.t==='cl'?'note':'kg'))}`}
+  return `<div class="ex"><div class="extop"><span class="code">${e.c}</span><div><div class="exname">${e.n}</div><div class="tags">${TAG[e.t]}</div></div></div>
+   <div class="stats"><div class="stat big"><small>Serie</small><b>${s}</b></div><div class="stat"><small>Ripetizioni</small><b>${r}</b></div><div class="stat big"><small>RIR</small><b>${rir}</b></div><div class="stat"><small>Recupero</small><b>${e.rec}</b></div></div>
+   <p class="how">${e.how}${extra}</p>${notes}
+   <details class="log"><summary>Registra le serie</summary><div class="sets">${rows}</div></details></div>`;
+}
+function dayShell(cls,w,d,kind,title,dur,body,id){
+  const t=oggi(), isToday=(t.w===w&&t.d===d), x=dataDi(w,d);
+  return `<details class="day ${cls}" id="${id}" ${isToday?'open':''}><summary>
+   <span class="dnum"><small>${GG[d]}</small><span>${x.getDate()}</span></span>
+   <span class="dkind">${kind}${isToday?'<span class="todaybadge">OGGI</span>':''}</span>
+   <span class="dmeta">${dur}<span class="chev">⌄</span></span>
+   <span class="dtitle">${title}</span></summary><div class="dbody">${body}</div></details>`;
+}
+function strength(w,d,sess,list,cls,kind,title,dur,cfg,warm,extra){
+  return dayShell(cls,w,d,kind,title,dur,`<div class="config">${cfg}${warm?`<span class="warm">${warm}</span>`:''}</div>${extra||''}${list.map(e=>exHTML(e,w,sess)).join('')}`,`d${w}${sess}`);
+}
+function runBody(w,k,r){
+  const steps=r.st.map(([a,b])=>`<li><div><span class="k">${a}</span>${b
+    .replace('ritmo I',`ritmo I (${zp('I')})`).replace('ritmo T',`ritmo T (${zp('T')})`).replace('ritmo M',`ritmo M (<b>${Z.M.p()}/km</b>)`)
+    .replace(/in zona facile/,`in zona facile (${zp('E')})`)}</div></li>`).join('');
+  const cap=r.cap?`<div class="note">Tetto: <b>${String(r.cap).replace('.',',')} km</b>. Se ci arrivi prima del tempo, ti fermi: conta più della durata.</div>`:'';
+  const test=r.test?`<div class="note">Test: scrivi il tempo qui sotto e in «Zone e ritmi» per ricalcolare i ritmi.</div>`:'';
+  const b=`w${w+1}.${k}`;
+  return `<ul class="steps">${steps}</ul>${cap}${test}
+  <details class="log r"><summary>Registra la corsa</summary><div class="runlog">
+   <div><label>km</label>${inp(b+'.km','km')}</div><div><label>Tempo</label>${inp(r.test?r.test:b+'.t','mm:ss')}</div>
+   <div><label>FC media</label>${inp(b+'.fc','bpm')}</div><div><label>Note</label>${inp(b+'.n','com\'è andata')}</div></div></details>`;
+}
+const rest=(w,d)=>`<div class="restday"><span class="dnum" style="--cs:var(--card2);--c:var(--faint)"><small>${GG[d]}</small><span>${dataDi(w,d).getDate()}</span></span><span><b>Riposo</b> · se vuoi muoverti, una camminata</span></div>`;
+let cur=0;
+function renderWeeks(){
+  const t=oggi();
+  document.getElementById('weeks').innerHTML=RUN.map((_,i)=>`<button class="${i===cur?'on':''} ${i===t.w?'now':''}" data-w="${i}"><b>Sett. ${i+1}</b><small>${fmt(dataDi(i,0))}</small></button>`).join('');
+  document.querySelectorAll('#weeks button').forEach(b=>b.onclick=()=>{cur=+b.dataset.w;try{localStorage.setItem(KEY+'-w',cur)}catch(e){};renderWeeks();renderWeek(cur)});
+  const on=document.querySelector('#weeks button.on'); if(on)on.scrollIntoView({block:'nearest',inline:'center'});
+}
+function renderWeek(w){
+  const r=RUN[w], dl=(w===3||w===7), test=(w===0||w===7), n=w?8:1;
+  const head=`<div class="weekinfo"><h3>Settimana ${w+1} · ${FASE[w]}</h3><span class="pill">RIR ${RIR[w]}</span>
+   ${dl?'<span class="deload">Scarico: meno serie e lontano dal cedimento. Serve a smaltire la fatica accumulata.</span>':''}</div>`;
+  const testA=test?`<div class="note">TEST · trazioni massime a corpo libero ${inpN('tpull'+n,'ripetizioni')} · split squat bulgaro 2 × 25, gamba debole ${inpN('tbss'+n,'ripetizioni')}</div>`:'';
+  const testB=test?`<div class="note">TEST nel riscaldamento · salto in lungo da fermo, il migliore di 3 ${inpN('tjump'+n,'cm')}</div>`:'';
+  document.getElementById('week').innerHTML=head+
+    rest(w,0)+
+    dayShell('run',w,1,'Corsa · qualità',r.q.n,r.q.dur,runBody(w,'q',r.q),`d${w}q`)+
+    strength(w,2,'A',A,'fa','Forza A','Gambe e tirata','~55\'',
+      '<b>Pesi:</b> manubri 25 + 25 · zaino. Nessun cambio di dischi.','Riscaldamento 8\': bici 5\' crescente, 10 oscillazioni per gamba, 10 squat a corpo libero, 6 split squat per gamba senza pesi, 5 trazioni scapolari.',testA)+
+    rest(w,3)+
+    strength(w,4,'B',B,'fb','Forza B','Esplosività e spinta','~60\'',
+      '<b>Pesi:</b> zaino → manubri 25 + 25 → coppia da 3 kg. Nessun cambio di dischi.','Riscaldamento 8\': bici 5\' con gli ultimi 30 s forti, skip, calciata, 2 × 3 salti a metà intensità.',testB)+
+    dayShell('run',w,5,'Corsa · facile',r.f.n,r.f.dur,runBody(w,'f',r.f),`d${w}f`)+
+    strength(w,5,'C',C,'fc','Forza C · dopo la corsa','Parte alta, versione corta','~20\'',
+      '<b>Pesi:</b> zaino · coppia da 3 kg · bilanciere 16 kg. I manubri da 25 restano montati per mercoledì.','')+
+    dayShell('run',w,6,r.l.test?'Corsa · test':'Corsa · lungo',r.l.n,r.l.dur,runBody(w,'l',r.l),`d${w}l`);
+  document.querySelectorAll('#week input[data-k]').forEach(i=>i.oninput=()=>{store[i.dataset.k]=i.value;save();renderTests()});
+}
+function renderToday(){
+  const t=oggi(), el=document.getElementById('today');
+  const SESS=[null,['q','Corsa di qualità'],['A','Forza A · gambe e tirata'],null,['B','Forza B · esplosività e spinta'],['f','Corsa facile + Forza C'],['l','Lungo']];
+  let ey,ti,su,go='';
+  if(t.raw<0){ey='Si comincia lunedì 2 novembre';ti='Prima seduta: martedì 3, test dei 5 km';su='Riscaldamento 15\', poi 5 km a tutta su un percorso piatto.';go=`<a class="btn btn-light" href="#programma" data-go="0">Vedi la settimana 1</a>`}
+  else if(t.w>7){ey='Programma concluso';ti='Confronta i test e decidi il prossimo blocco';su='';go=`<a class="btn btn-light" href="#test">Prima e dopo</a>`}
+  else{const s=SESS[t.d];ey=`Oggi · settimana ${t.w+1}, ${GG[t.d].toLowerCase()} ${dataDi(t.w,t.d).getDate()}`;
+    if(!s){ti='Riposo';su='Il recupero è parte dell\'allenamento.';go=`<a class="btn btn-light" href="#programma" data-go="${t.w}">Vedi la settimana</a>`}
+    else{const r=RUN[t.w];ti=s[0]==='q'?r.q.n:s[0]==='l'?r.l.n:s[0]==='f'?r.f.n+' + Forza C':s[1];su=s[1];
+      go=`<a class="btn btn-light" href="#d${t.w}${s[0]}" data-go="${t.w}" data-open="d${t.w}${s[0]}">Apri la seduta</a>`}}
+  el.innerHTML=`<div><div class="eyebrow">${ey}</div><div class="t">${ti}</div>${su?`<div class="s">${su}</div>`:''}</div>${go}`;
+  el.querySelectorAll('[data-go]').forEach(a=>a.onclick=ev=>{const w=+a.dataset.go;if(w!==cur){cur=w;renderWeeks();renderWeek(cur)}
+    if(a.dataset.open){const d=document.getElementById(a.dataset.open);if(d){d.open=true;ev.preventDefault();d.scrollIntoView({behavior:'smooth'})}}});
+}
+function renderTests(){
+  const T=[['5 km','t5k1','t5k8','mm:ss'],['Salto in lungo da fermo','tjump1','tjump8','cm'],['Trazioni a corpo libero','tpull1','tpull8','ripetizioni'],['Split squat bulgaro 2 × 25','tbss1','tbss8','ripetizioni, gamba debole']];
+  document.getElementById('tests').innerHTML='<tr><th>Test</th><th>Sett. 1</th><th>Sett. 8</th><th>Unità</th></tr>'+
+    T.map(([n,a,b,u])=>`<tr><td><b>${n}</b></td><td>${esc(store[a])||'—'}</td><td>${esc(store[b])||'—'}</td><td class="muted">${u}</td></tr>`).join('');
+}
+document.getElementById('exp').onclick=()=>{
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(store,null,1)],{type:'application/json'}));
+  a.download='diario-scheda-'+new Date().toISOString().slice(0,10)+'.json';a.click();
+};
+document.getElementById('imp').onchange=e=>{
+  const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{store=JSON.parse(t);save();renderZones();renderWeek(cur);renderTests();document.getElementById('iomsg').textContent='Diario importato.'}catch(x){document.getElementById('iomsg').textContent='File non valido.'}});
+};
+window.addEventListener('beforeprint',()=>document.querySelectorAll('details.day').forEach(d=>d.open=true));
+let saved=null;try{saved=localStorage.getItem(KEY+'-w')}catch(e){}
+{const t=oggi(); if(t.w>=0&&t.w<8)cur=t.w; else if(saved!==null&&+saved>=0&&+saved<8)cur=+saved;}
+renderZones();renderWeeks();renderWeek(cur);renderTests();renderToday();
+</script>
+</body>
+</html>
