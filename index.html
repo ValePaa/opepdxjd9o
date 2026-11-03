@@ -4,322 +4,274 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121314" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
 <title>Scheda forza e corsa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f4f2ee; --card:#ffffff; --card2:#faf9f6; --ink:#17181a; --muted:#62666d; --faint:#8b8f96; --line:#e6e3dd;
-  --accent:#1d6b57; --accent-ink:#ffffff; --accent-soft:#e2efea;
-  --run:#1d6b57; --run-soft:#e2efea;
+  --bg:#f3f1ec; --card:#ffffff; --card2:#f7f6f2; --ink:#16171a; --muted:#5d6168; --faint:#8a8e95; --line:#e3e0d9;
+  --accent:#1d6b57; --accent-ink:#ffffff; --accent-soft:#e1eee9;
+  --run:#1d6b57; --run-soft:#e1eee9;
   --fa:#2456a6; --fa-soft:#e4ebf8;
   --fb:#a3521c; --fb-soft:#f8eadf;
   --fc:#6a4a9c; --fc-soft:#eee8f7;
-  --t25:#2456a6; --t25-soft:#e4ebf8; --zaino:#8a5a14; --zaino-soft:#f6ecd9;
-  --t3:#6a4a9c; --t3-soft:#eee8f7; --cl:#4c5661; --cl-soft:#eceef1; --bil:#9b2f52; --bil-soft:#f7e4ea;
-  --note:#fbf3df; --note-ink:#5c4708;
-  --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 16px rgba(20,20,20,.05);
-  --r:18px;
+  --ok:#1d6b57; --ok-soft:#e1eee9;
+  --warn-soft:#fbf1d9; --warn-ink:#5c4708;
+  --bad:#a12a3a; --bad-soft:#f8e3e6;
+  --z1:#2f8f6f; --z2:#c49a1a; --z3:#d06a1f; --z4:#c0353f; --z5:#7a7f87;
+  --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 14px rgba(20,20,20,.05);
+  --r:18px; --tabh:62px;
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#121314; --card:#1b1d1f; --card2:#202326; --ink:#ecebe7; --muted:#a5a9af; --faint:#7d8288; --line:#2c2f33;
-    --accent:#5cc4a5; --accent-ink:#0d1f19; --accent-soft:#1b302a;
-    --run:#5cc4a5; --run-soft:#1b302a;
+    --bg:#111214; --card:#1a1c1f; --card2:#212428; --ink:#ecebe7; --muted:#a4a8ae; --faint:#7c8187; --line:#2c2f34;
+    --accent:#5cc4a5; --accent-ink:#0d1f19; --accent-soft:#1a2f29;
+    --run:#5cc4a5; --run-soft:#1a2f29;
     --fa:#8fb2ee; --fa-soft:#1c2738;
     --fb:#eba274; --fb-soft:#3a2619;
     --fc:#c3a6ec; --fc-soft:#2b2338;
-    --t25:#8fb2ee; --t25-soft:#1c2738; --zaino:#e2b56e; --zaino-soft:#382b17;
-    --t3:#c3a6ec; --t3-soft:#2b2338; --cl:#b9c2cc; --cl-soft:#272b30; --bil:#ee9bb6; --bil-soft:#3a1f29;
-    --note:#2f2a1a; --note-ink:#f0d68c;
+    --ok:#5cc4a5; --ok-soft:#1a2f29;
+    --warn-soft:#2f2a1a; --warn-ink:#f0d68c;
+    --bad:#ee8a98; --bad-soft:#3a1f24;
+    --z1:#5cc4a5; --z2:#e2c15a; --z3:#ef9a5a; --z4:#ee6f78; --z5:#9aa0a8;
     --shadow:none;
   }
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:84px}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:960px;margin:0 auto;padding:0 16px}
-h1,h2,h3,.display{font-family:"Inter Tight",Inter,-apple-system,sans-serif;letter-spacing:-.02em}
-h1{font-size:clamp(2.1rem,6vw,3.3rem);line-height:1.02;margin:0 0 14px;font-weight:800}
-h2{font-size:1.6rem;margin:0 0 6px;font-weight:700}
-h3{font-size:1.15rem;margin:0;font-weight:700}
-p{margin:0 0 12px}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom) + 96px)}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:"Inter Tight",Inter,-apple-system,sans-serif;letter-spacing:-.02em;margin:0}
+h1{font-size:2rem;line-height:1.08;font-weight:800}
+h2{font-size:1.35rem;line-height:1.2;font-weight:700}
+h3{font-size:1.08rem;font-weight:700}
+p{margin:0 0 10px}
 a{color:var(--accent)}
-.muted{color:var(--muted)} .small{font-size:.9rem}
-.eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent)}
-section{padding:44px 0 8px}
-.sechead{margin-bottom:18px}
-.sechead p{color:var(--muted);max-width:680px;margin-top:4px}
+.muted{color:var(--muted)} .small{font-size:.88rem}
+.eyebrow{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+button{font:inherit;color:inherit}
 
-/* hero */
-.hero{padding:40px 0 8px}
-.hero .lead{font-size:1.1rem;color:var(--muted);max-width:640px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.88rem;font-weight:600}
-.chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
+/* testata delle viste */
+.vhead{padding:22px 0 14px}
+.vhead h1{margin:4px 0 6px}
+.vhead p{color:var(--muted);margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.82rem;font-weight:600;color:var(--muted)}
+.chip b{color:var(--ink)}
+.prog{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:12px}
+.prog i{display:block;height:100%;background:var(--accent);border-radius:3px;transition:width .3s}
+.navrow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:14px}
 
-/* oggi */
-.today{margin-top:26px;border-radius:24px;padding:22px;background:var(--ink);color:var(--bg);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
-.today .eyebrow{color:inherit;opacity:.7}
-.today .t{font-family:"Inter Tight",Inter,sans-serif;font-size:1.6rem;font-weight:700;line-height:1.15;margin-top:4px}
-.today .s{opacity:.75;font-size:.95rem;margin-top:2px}
-.btn{font:inherit;font-weight:600;font-size:.95rem;border:0;border-radius:12px;padding:11px 18px;cursor:pointer;text-decoration:none;display:inline-block}
-.btn-light{background:var(--bg);color:var(--ink)}
+.btn{font-weight:600;font-size:.95rem;border:0;border-radius:12px;padding:11px 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px}
 .btn-acc{background:var(--accent);color:var(--accent-ink)}
 .btn-ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn-link{background:none;color:var(--accent);padding:8px 4px;min-height:0}
+.btn-wide{width:100%}
 
-/* barra settimane */
-.weekbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line);margin:0 -16px;padding:10px 16px}
-.weeks{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.weeks::-webkit-scrollbar{display:none}
-.weeks button{flex:0 0 auto;font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:6px 12px;cursor:pointer;text-align:left;line-height:1.2}
-.weeks button b{display:block;font-size:.92rem}
-.weeks button small{color:var(--muted);font-size:.74rem}
-.weeks button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.weeks button.on small{color:inherit;opacity:.7}
-.weeks button.now:not(.on){border-color:var(--accent)}
-.weekinfo{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:22px 0 14px}
-.weekinfo h3{font-size:1.35rem}
-.pill{display:inline-block;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--note);color:var(--note-ink)}
-.deload{width:100%;font-size:.92rem;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow);margin-bottom:12px}
+.note{font-size:.92rem;padding:10px 12px;border-radius:12px;background:var(--warn-soft);color:var(--warn-ink);margin:10px 0}
+.note input{font:inherit;font-size:16px;width:110px;padding:5px 8px;margin:4px 4px 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+.note.test{display:grid;gap:8px}
+.note.test label{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.note.test input{margin:0;flex:0 0 110px}
+.note.good{background:var(--ok-soft);color:var(--ok)}
+.note.bad{background:var(--bad-soft);color:var(--bad)}
 
-/* giorni */
-.day{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin:0 0 12px;box-shadow:var(--shadow);overflow:hidden;position:relative}
-.day::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c,var(--line))}
-.day.run{--c:var(--run);--cs:var(--run-soft)} .day.fa{--c:var(--fa);--cs:var(--fa-soft)} .day.fb{--c:var(--fb);--cs:var(--fb-soft)} .day.fc{--c:var(--fc);--cs:var(--fc-soft)}
-.day>summary{list-style:none;cursor:pointer;padding:16px 18px 16px 22px;display:grid;grid-template-columns:auto 1fr auto;gap:2px 14px;align-items:center}
-.day>summary::-webkit-details-marker{display:none}
-.dnum{grid-row:span 2;width:46px;height:46px;border-radius:14px;background:var(--cs);color:var(--c);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;font-weight:700}
-.dnum small{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
-.dnum span{font-size:1.15rem;font-family:"Inter Tight",sans-serif}
-.dkind{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--c)}
-.dtitle{font-family:"Inter Tight",Inter,sans-serif;font-weight:700;font-size:1.15rem;line-height:1.25}
-.dmeta{grid-column:3;grid-row:1 / span 2;text-align:right;color:var(--muted);font-size:.88rem;white-space:nowrap}
-.dmeta .chev{display:inline-block;margin-left:8px;transition:transform .2s}
-.day[open] .chev{transform:rotate(180deg)}
-.todaybadge{display:inline-block;margin-left:8px;font-size:.68rem;font-weight:800;letter-spacing:.08em;background:var(--c);color:var(--card);padding:2px 7px;border-radius:6px;vertical-align:2px}
-.dbody{padding:0 18px 18px 22px}
-.restday{display:flex;align-items:center;gap:12px;padding:10px 18px 10px 22px;margin:0 0 12px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);font-size:.95rem}
-.restday b{color:var(--ink);font-weight:600}
+/* prontezza */
+.ready{display:grid;grid-template-columns:1fr auto;gap:10px 12px;align-items:center}
+.ready label.l{font-weight:650}
+.ready label.l small{display:block;color:var(--muted);font-weight:500;font-size:.84rem}
+.ready input.f{width:84px;text-align:center;font-weight:700}
+.ready .sick{grid-column:1/-1;display:flex;gap:8px;align-items:center;font-size:.9rem;color:var(--muted)}
+.ready .sick input{width:20px;height:20px;accent-color:var(--accent)}
+.ready .out{grid-column:1/-1;margin:0}
 
-.config{border-radius:14px;background:var(--cs);padding:12px 14px;font-size:.93rem;margin-bottom:6px}
-.config b{color:var(--c)}
+/* seduta */
+.sess{--c:var(--line);--cs:var(--card2);background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden}
+.sess.run{--c:var(--run);--cs:var(--run-soft)} .sess.fa{--c:var(--fa);--cs:var(--fa-soft)} .sess.fb{--c:var(--fb);--cs:var(--fb-soft)} .sess.fc{--c:var(--fc);--cs:var(--fc-soft)}
+.shead{background:var(--cs);padding:16px 16px 14px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.skind{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--c)}
+.stitle{font-size:1.45rem;margin-top:2px}
+.smeta{color:var(--muted);font-size:.9rem;margin-top:2px}
+.shead .prog{background:color-mix(in srgb,var(--c) 18%,transparent);margin-top:10px}
+.shead .prog i{background:var(--c)}
+.badge{flex:0 0 auto;font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:8px;background:var(--c);color:var(--card)}
+.sbody{padding:4px 16px 16px}
+.config{font-size:.92rem;padding:12px 0;border-bottom:1px solid var(--line)}
 .config .warm{display:block;color:var(--muted);margin-top:4px}
-.blk{margin:22px 0 2px;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--faint)}
-.ex{padding:14px 0;border-top:1px solid var(--line)}
-.blk+.ex{border-top:0}
-.extop{display:flex;gap:12px;align-items:flex-start}
-.code{flex:0 0 auto;min-width:36px;height:28px;padding:0 6px;border-radius:8px;background:var(--card2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;font-variant-numeric:tabular-nums}
-.exname{font-weight:650;font-size:1.04rem;line-height:1.3}
-.tags{margin-top:4px}
-.tag{display:inline-block;font-size:.74rem;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap;margin:0 4px 2px 0}
-.t-25{color:var(--t25);background:var(--t25-soft)} .t-zaino{color:var(--zaino);background:var(--zaino-soft)}
-.t-3{color:var(--t3);background:var(--t3-soft)} .t-cl{color:var(--cl);background:var(--cl-soft)}
-.t-bil{color:var(--bil);background:var(--bil-soft)} .t-run{color:var(--run);background:var(--run-soft)}
-.stats{display:grid;grid-template-columns:70px minmax(0,1.6fr) 70px minmax(0,1fr);gap:6px;margin:12px 0 8px 48px}
-.stat{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:8px 10px;min-width:0}
-.stat small{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);font-weight:700}
-.stat b{font-size:.98rem;font-variant-numeric:tabular-nums;font-weight:650;line-height:1.3;display:block}
-.stat.big b{font-size:1.35rem;font-family:"Inter Tight",sans-serif}
-.how{margin:0 0 0 48px;color:var(--muted);font-size:.93rem}
-.how i{font-style:normal;font-weight:650;color:var(--ink)}
-.note{margin:8px 0 0 48px;font-size:.92rem;padding:9px 12px;border-radius:12px;background:var(--note);color:var(--note-ink)}
-.note input{font:inherit;font-size:.92rem;width:100px;padding:4px 8px;margin:4px 4px 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
-details.log{margin:10px 0 0 48px}
-details.log summary{cursor:pointer;color:var(--accent);font-size:.9rem;font-weight:650;list-style:none}
-details.log summary::-webkit-details-marker{display:none}
-details.log summary::before{content:"＋ ";}
-details.log[open] summary::before{content:"－ ";}
-.sets{display:grid;grid-template-columns:auto 1fr 1fr;gap:6px 8px;max-width:340px;margin-top:8px;align-items:center;font-size:.86rem;color:var(--muted)}
-input.f{font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card2);color:var(--ink);width:100%;min-width:0}
+
+.blk{margin:20px 0 0;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--faint)}
+.ex{padding:14px 0 12px;border-bottom:1px solid var(--line)}
+.extop{display:flex;gap:10px;align-items:flex-start}
+.code{flex:0 0 auto;min-width:38px;height:30px;padding:0 6px;border-radius:9px;background:var(--cs);color:var(--c);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.86rem}
+.exname{font-weight:700;font-size:1.06rem;line-height:1.3}
+.exsub{color:var(--muted);font-size:.86rem;margin-top:1px}
+.stats{display:grid;grid-template-columns:64px minmax(0,1fr) 64px;gap:6px;margin:10px 0 0}
+.stat{background:var(--card2);border-radius:12px;padding:7px 10px;min-width:0}
+.stat small{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);font-weight:700}
+.stat b{font-size:.98rem;font-weight:650;line-height:1.3;display:block;font-variant-numeric:tabular-nums}
+.stat.big b{font-size:1.35rem;font-family:"Inter Tight",sans-serif;font-weight:800}
+.prev{font-size:.86rem;color:var(--muted);margin-top:8px}
+.prev b{color:var(--ink);font-weight:650}
+.up{font-size:.88rem;margin-top:6px;padding:8px 10px;border-radius:10px;background:var(--ok-soft);color:var(--ok)}
+
+.sets{display:grid;grid-template-columns:44px minmax(0,1fr) minmax(0,1fr);gap:6px 8px;margin-top:10px;align-items:center}
+.sets .h{font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);font-weight:700}
+.chk{width:44px;height:44px;border-radius:12px;border:2px solid var(--line);background:var(--card);font-weight:800;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);-webkit-tap-highlight-color:transparent}
+.chk.on{background:var(--c);border-color:var(--c);color:var(--card)}
+.chk.on span{display:none}
+.chk.on::after{content:"✓";font-size:1.15rem}
+input.f{font:inherit;font-size:16px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card2);color:var(--ink);width:100%;min-width:0;min-height:44px}
 input.f:focus,.note input:focus{outline:2px solid var(--accent);outline-offset:1px}
+details.how{margin-top:10px}
+details.how summary{cursor:pointer;color:var(--accent);font-size:.9rem;font-weight:650;list-style:none;padding:4px 0}
+details.how summary::-webkit-details-marker{display:none}
+details.how summary::before{content:"＋ "}
+details.how[open] summary::before{content:"－ "}
+details.how p{font-size:.93rem;color:var(--muted);margin:6px 0 0}
+details.how p i{font-style:normal;font-weight:700;color:var(--ink)}
 
-.steps{margin:4px 0 0;padding:0;list-style:none;counter-reset:s}
-.steps li{display:grid;grid-template-columns:32px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.targets{display:grid;gap:6px;margin:14px 0 4px}
+.tg{display:grid;grid-template-columns:8px 1fr auto;gap:2px 10px;align-items:center;background:var(--card2);border-radius:12px;padding:9px 12px}
+.tg i{grid-row:span 2;width:8px;height:30px;border-radius:4px}
+.tg span{font-weight:650}
+.tg b{font-family:"Inter Tight",sans-serif;font-size:1.15rem;font-variant-numeric:tabular-nums;grid-row:span 2}
+.tg small{color:var(--muted);font-size:.8rem}
+.steps{margin:6px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
 .steps li:first-child{border-top:0}
-.steps li::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--cs);color:var(--c);font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
-.steps .k{font-weight:650;display:block}
-.runlog{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:8px;max-width:560px}
-.runlog label{font-size:.76rem;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-.dbody .note,.dbody details.log.r{margin-left:0}
+.steps li::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--cs);color:var(--c);font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.steps .k{font-weight:700;display:block}
+.runlog{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:6px}
+.runlog label,.lbl{font-size:.7rem;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:3px}
+.loghead{margin-top:16px;font-weight:700;font-size:.95rem}
+.donebtn{margin-top:16px}
+.donebtn.is{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+details.anyway>summary{cursor:pointer;color:var(--accent);font-weight:650;padding:6px 0 14px;list-style:none}
 
-/* card generiche */
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
-.card h3{margin-bottom:6px}
-.card p{font-size:.94rem;color:var(--muted);margin:0}
-.card .tag{margin-bottom:8px}
-.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.kpi .v{font-family:"Inter Tight",sans-serif;font-weight:800;font-size:2rem;line-height:1.05;letter-spacing:-.02em}
-.kpi .l{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:700;margin-bottom:6px}
-.kpi p{margin-top:8px}
+/* riposo e prossima seduta */
+.rest{text-align:center;padding:26px 16px}
+.rest .big{font-family:"Inter Tight",sans-serif;font-size:1.6rem;font-weight:800}
+.nextup{display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow);margin-bottom:12px}
+.nextup .tx{flex:1;min-width:0}
+.nextup .tx small{display:block;color:var(--muted);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.nextup .tx b{font-weight:700}
+.nextup .arr{color:var(--faint);font-size:1.3rem}
 
-.zones{display:grid;gap:8px}
-.zone{display:grid;grid-template-columns:10px 1.3fr 1fr 1fr;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
-.zone .bar{width:10px;height:36px;border-radius:5px}
-.zone b{display:block;font-weight:650}
-.zone small{color:var(--muted);font-size:.84rem;display:block}
-.zone .p{font-family:"Inter Tight",sans-serif;font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
-.calc{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:0 0 14px}
-.calc label{font-size:.78rem;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px}
-.calc input.f{width:130px}
+/* settimana */
+.wpick{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;margin:16px 0 4px}
+.wpick button{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:7px 0 6px;cursor:pointer;line-height:1.15;position:relative}
+.wpick button b{display:block;font-size:1rem;font-family:"Inter Tight",sans-serif}
+.wpick button small{font-size:.66rem;color:var(--muted)}
+.wpick button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.wpick button.on small{color:inherit;opacity:.7}
+.wpick button.now:not(.on){border-color:var(--accent);border-width:2px}
+.wpick button .dots{display:flex;justify-content:center;gap:1px;margin-top:3px}
+.wpick button .dots i{width:3px;height:3px;border-radius:50%;background:var(--line)}
+.wpick button .dots i.y{background:var(--accent)}
+.wpick button.on .dots i{background:color-mix(in srgb,var(--bg) 35%,transparent)}
+.wpick button.on .dots i.y{background:var(--bg)}
+.wmeta{margin:14px 0 12px}
+.wmeta p{color:var(--muted);font-size:.92rem;margin:6px 0 0}
+.drow{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 12px;margin-bottom:8px;cursor:pointer;box-shadow:var(--shadow)}
+.drow.today{border:2px solid var(--accent)}
+.drow.restd{background:transparent;box-shadow:none;border-style:dashed;cursor:default;color:var(--muted)}
+.dnum{width:48px;height:48px;border-radius:13px;background:var(--card2);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;font-weight:700}
+.dnum small{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;color:var(--muted)}
+.dnum span{font-size:1.15rem;font-family:"Inter Tight",sans-serif}
+.dl{display:block;line-height:1.3}
+.dl+.dl{margin-top:4px}
+.dl i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}
+.dl b{font-weight:650}
+.dl small{color:var(--muted);font-size:.82rem}
+.dst{font-size:.82rem;color:var(--muted);text-align:right;white-space:nowrap;line-height:1.5}
+.dst .ok{color:var(--ok);font-weight:700}
+.dst .td{color:var(--accent);font-weight:800;text-transform:uppercase;font-size:.72rem;letter-spacing:.08em}
 
-table{border-collapse:collapse;width:100%}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-tr:last-child td{border-bottom:0}
-th{font-size:.74rem;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.tablecard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow-x:auto;box-shadow:var(--shadow)}
+/* ritmi */
+.calc{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.calc input.f{width:120px}
+.zones{display:grid;gap:8px;margin:14px 0}
+.zone{display:grid;grid-template-columns:10px 1fr auto;gap:2px 12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.zone .bar{grid-row:span 2;width:10px;height:40px;border-radius:5px}
+.zone b{font-weight:700}
+.zone small{color:var(--muted);font-size:.84rem}
+.zone .p{grid-row:span 2;text-align:right;font-family:"Inter Tight",sans-serif;font-weight:800;font-size:1.25rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.zone .p small{display:block;font-family:Inter,sans-serif;font-weight:500;font-size:.76rem}
 
-.refs{margin:0;padding:0;list-style:none}
-.refs li{padding:12px 0;border-top:1px solid var(--line);font-size:.94rem;color:var(--muted)}
-.refs li:first-child{border-top:0}
-.refs b{color:var(--ink)}
+/* guida */
+details.g{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:10px}
+details.g>summary{list-style:none;cursor:pointer;padding:16px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+details.g>summary::-webkit-details-marker{display:none}
+details.g>summary small{display:block;color:var(--muted);font-size:.86rem;font-weight:500;margin-top:2px}
+details.g>summary::after{content:"⌄";color:var(--faint);font-size:1.2rem;transition:transform .2s}
+details.g[open]>summary::after{transform:rotate(180deg)}
+.gb{padding:0 16px 16px}
+.gb p{color:var(--muted);font-size:.94rem}
 ul.facts{margin:0;padding:0;list-style:none}
-ul.facts li{padding:12px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.96rem}
+ul.facts li{padding:11px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.94rem}
 ul.facts li:first-child{border-top:0}
 ul.facts b{color:var(--ink)}
-footer{padding:40px 0 60px;color:var(--faint);font-size:.85rem}
+.kpis{display:grid;gap:8px;grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:10px}
+.kpi{background:var(--card2);border-radius:14px;padding:12px}
+.kpi .l{font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);font-weight:700}
+.kpi .v{font-family:"Inter Tight",sans-serif;font-weight:800;font-size:1.4rem;line-height:1.15;margin-top:2px}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:.7rem;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+td i.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
 
-@media (max-width:640px){
-  body{font-size:16.5px}
-  .stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-left:0}
-  .how,.note,details.log{margin-left:0}
-  .zone{grid-template-columns:8px 1fr auto}
-  .zone .fc{display:none}
-  .runlog{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .day>summary{padding:14px 14px 14px 18px}
-  .dbody{padding:0 14px 16px 18px}
-  .today .btn{width:100%;text-align:center}
+/* timer di recupero */
+.timer{position:fixed;left:12px;right:12px;bottom:calc(var(--tabh) + env(safe-area-inset-bottom) + 10px);max-width:696px;margin:0 auto;z-index:40;background:var(--ink);color:var(--bg);border-radius:18px;padding:10px 10px 10px 16px;display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:center;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.timer[hidden]{display:none}
+.timer small{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7;font-weight:700}
+.timer b{font-family:"Inter Tight",sans-serif;font-size:1.6rem;font-variant-numeric:tabular-nums;line-height:1}
+.timer .tn{font-size:.86rem;opacity:.85;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.timer button{border:0;border-radius:10px;padding:10px 12px;font-weight:700;font-size:.85rem;cursor:pointer;background:color-mix(in srgb,var(--bg) 16%,transparent);color:var(--bg)}
+.timer.go{background:var(--accent);color:var(--accent-ink)}
+.timer.go button{color:var(--accent-ink);background:color-mix(in srgb,var(--accent-ink) 14%,transparent)}
+
+.toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top) + 14px);transform:translate(-50%,-200%);visibility:hidden;transition:transform .25s,visibility .25s;z-index:60;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-weight:600;font-size:.92rem;max-width:calc(100% - 32px)}
+.toast.on{transform:translate(-50%,0);visibility:visible}
+
+/* barra in basso */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+.tabs .in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);height:var(--tabh)}
+.tabs button{border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.72rem;font-weight:650;color:var(--faint);-webkit-tap-highlight-color:transparent}
+.tabs button svg{width:24px;height:24px}
+.tabs button.on{color:var(--accent)}
+
+@media (max-width:420px){
+  h1{font-size:1.75rem}
+  .kpis{grid-template-columns:1fr}
 }
 @media print{
-  body{background:#fff;font-size:11pt}
-  .weekbar,.today,details.log,.calc,.noprint{display:none!important}
-  .day{break-inside:avoid;box-shadow:none}
+  .tabs,.timer,.toast{display:none!important}
+  body{padding:0;background:#fff}
 }
 </style>
 </head>
 <body>
-<div class="wrap">
+<main class="wrap" id="view"></main>
 
-<header class="hero">
-  <div class="eyebrow">2 novembre – 27 dicembre 2026</div>
-  <h1>Scheda forza<br>e corsa</h1>
-  <p class="lead">Otto settimane, cinque giorni a settimana e la domenica libera: tre corse e tre sedute di forza. I manubri restano sempre a 25 kg per mano.</p>
-  <div class="chips">
-    <span class="chip"><i style="background:var(--run)"></i>3 corse</span>
-    <span class="chip"><i style="background:var(--fa)"></i>3 sedute di forza</span>
-    <span class="chip"><i style="background:var(--zaino)"></i>0 cambi di dischi</span>
-    <span class="chip"><i style="background:var(--fc)"></i>test in settimana 1 e 8</span>
-  </div>
-  <div class="today" id="today"></div>
-</header>
-
-<section id="programma" style="padding-top:28px">
-  <div class="weekbar"><div class="weeks" id="weeks"></div></div>
-  <div id="week"></div>
-</section>
-
-<section id="zone">
-  <div class="sechead"><div class="eyebrow">Corsa</div><h2>Zone e ritmi</h2>
-  <p>FC massima 190 (la più alta registrata) e FC a riposo 43. I ritmi sono stimati finché non fai il test dei 5 km: inserisci il tempo e si aggiornano in tutta la scheda.</p></div>
-  <div class="calc">
-    <div><label for="t5k">Tempo sui 5 km</label><input class="f" id="t5k" placeholder="26:30" inputmode="numeric"></div>
-    <button class="btn btn-acc" id="calcbtn">Ricalcola i ritmi</button>
-    <span class="small muted" id="vdotout"></span>
-  </div>
-  <div class="zones" id="zonetable"></div>
-  <p class="small muted" style="margin-top:14px">Nelle corse facili e nel lungo comanda la <b>FC</b>: se supera 150, rallenta anche se il ritmo sembra ridicolo. Nelle ripetute comanda il <b>ritmo</b>, perché la FC arriva in ritardo. Gli allunghi sono 20 s di accelerazione progressiva fino a un passo veloce ma sciolto, non uno sprint; tra uno e l'altro 60–90 s camminando.</p>
-</section>
-
-<section id="settimana">
-  <div class="sechead"><div class="eyebrow">Struttura</div><h2>La settimana tipo</h2></div>
-  <div class="tablecard"><table>
-    <tr><th>Giorno</th><th>Seduta</th><th>Durata</th></tr>
-    <tr><td>Lun</td><td><b>Qualità</b> · ripetute o soglia <span class="tag t-run">corsa</span></td><td>45–60'</td></tr>
-    <tr><td>Mar</td><td><b>Forza A</b> · gambe e parte alta <span class="tag t-25">25 kg</span><span class="tag t-zaino">zaino</span></td><td>~55'</td></tr>
-    <tr><td>Mer</td><td><b>Facile + allunghi</b>, poi <b>Forza C</b> · parte alta corta <span class="tag t-run">corsa</span><span class="tag t-zaino">zaino</span><span class="tag t-3">3 kg</span><span class="tag t-bil">bilanciere</span></td><td>30–55' + 20'</td></tr>
-    <tr><td>Gio</td><td><b>Lungo facile</b> <span class="tag t-run">corsa</span></td><td>50–80'</td></tr>
-    <tr><td>Ven</td><td class="muted">Riposo</td><td></td></tr>
-    <tr><td>Sab</td><td><b>Forza B</b> · esplosività e spinta <span class="tag t-zaino">zaino</span><span class="tag t-25">25 kg</span><span class="tag t-3">3 kg</span></td><td>~60'</td></tr>
-    <tr><td>Dom</td><td class="muted">Riposo</td><td></td></tr>
-  </table></div>
-  <p class="small muted" style="margin-top:12px">La domenica è sempre libera. Gli altri giorni si possono spostare rispettando quattro vincoli: <b>mai Forza A il giorno prima della qualità</b>; <b>qualità e lungo non in giorni consecutivi</b>; <b>mai il lungo il giorno prima di Forza B</b>, perché i salti vogliono gambe fresche; <b>un giorno di riposo fra Forza B e la qualità</b>. Una seduta saltata non si recupera, si riparte dalla successiva. In ordine di importanza: qualità, lungo, Forza A, Forza B, sabato.</p>
-</section>
-
-<section id="attrezzi">
-  <div class="sechead"><div class="eyebrow">Attrezzatura</div><h2>Come si allena con quello che hai</h2></div>
-  <div class="grid">
-    <div class="card"><span class="tag t-25">manubri 25 + 25</span><h3>Montati una volta</h3><p>Non si toccano più. Si progredisce in quest'ordine: più ripetizioni, poi discesa lenta (3 s), poi pausa in basso, poi ripetizioni 1½. Con carichi leggeri portati vicino al cedimento il muscolo cresce quanto con carichi pesanti.</p></div>
-    <div class="card"><span class="tag t-zaino">zaino</span><h3>Il carico che sale</h3><p>Base: il tuo zaino da 8,5 kg. Per salire aggiungi una bottiglia d'acqua da 1,5 L alla volta. Lo stesso peso serve per trazioni, dip, push-up e jump squat: lo prepari una volta e non lo tocchi fino al prossimo aumento.</p></div>
-    <div class="card"><span class="tag t-3">2 × 3 kg</span><h3>Alzate</h3><p>Laterali e posteriori fino a 0–1 ripetizioni dal cedimento: con 3 kg servono 20–30 ripetizioni, ed è giusto così.</p></div>
-    <div class="card"><span class="tag t-bil">bilanciere 16 kg</span><h3>Rollout</h3><p>Lavoro di core in tenuta: i dischi fanno da ruota.</p></div>
-    <div class="card"><span class="tag t-cl">bici</span><h3>Riscaldamento e riserva</h3><p>5' all'inizio delle sedute di forza. Sostituisce una corsa facile se hai un fastidio da impatto (tibie, tendine d'Achille): stessa durata, stessa FC.</p></div>
-  </div>
-</section>
-
-<section id="regole">
-  <div class="sechead"><div class="eyebrow">Metodo</div><h2>Regole che valgono sempre</h2></div>
-  <div class="grid">
-    <div class="card"><h3>RIR: le ripetizioni di margine</h3><p>RIR 2 vuol dire fermarsi quando potresti farne ancora 2 pulite. Il RIR della settimana è in alto: scende fino alla settimana 3, poi c'è lo scarico, poi si riparte più duri.</p></div>
-    <div class="card"><h3>Quando aumentare</h3><p>Quando completi <b>tutte le serie al massimo del range</b> con il RIR indicato, la volta dopo rendi l'esercizio più difficile: una bottiglia in più nello zaino, oppure discesa lenta, pausa, ripetizioni 1½.</p></div>
-    <div class="card"><h3>Le coppie A1 → A2</h3><p>Si alternano: A1, recupero, A2, recupero, di nuovo A1. Tra due serie dello stesso esercizio passano 3–4 minuti, ma la seduta dura circa un terzo in meno.</p></div>
-    <div class="card"><h3>Prontezza di Forma</h3><p>Se la mattina è <b>sotto 40</b> o ci sono due segnali di malessere: la qualità diventa 30' facili, e nella forza fai una serie in meno con RIR +1. <b>Sotto 30</b>: riposo.</p></div>
-    <div class="card"><h3>Dolore</h3><p>Un fastidio che resta uguale o cala correndo si monitora. Uno che <b>peggiora correndo</b> ferma la corsa: per 3–5 giorni usi la bici con stessa durata e stessa FC.</p></div>
-    <div class="card"><h3>Sonno e proteine</h3><p>Sotto le 7 ore calano forza, resistenza e recupero: oggi sei a 6,4. Proteine: ~1,6 g/kg al giorno, circa <b>110 g</b>, su 3–4 pasti.</p></div>
-  </div>
-</section>
-
-<section id="dati">
-  <div class="sechead"><div class="eyebrow">Da Forma · gennaio–ottobre 2026</div><h2>Cosa dicono i tuoi dati</h2></div>
-  <div class="kpis">
-    <div class="card kpi"><div class="l">FC media nelle corse</div><div class="v">160–170</div><p>85–90% della massima: sempre in soglia. Nessuna corsa davvero facile, nessuna più veloce.</p></div>
-    <div class="card kpi"><div class="l">VO2max</div><div class="v">54,8 → 50</div><p>Da marzo a oggi, insieme al volume: 83 km ad aprile, ~50 al mese da maggio.</p></div>
-    <div class="card kpi"><div class="l">Sonno, ultimi 30 giorni</div><div class="v">6,4 h</div><p>FC a riposo ~43 e HRV ~74 sono ottime: il punto debole è il sonno.</p></div>
-  </div>
-  <div class="card" style="margin-top:12px"><ul class="facts">
-    <li><b>Il 27/10 hai corso 10 km a 5:42 con FC media 167:</b> di fatto una seduta di soglia lunga un'ora. Qui ogni settimana ha una sola seduta dura; le altre due sono davvero facili.</li>
-    <li><b>Con 25 kg alcuni esercizi sono al limite:</b> panca 25 × 20, trazioni × 15 a corpo libero, push-up con 8,5 kg × 35. Per la panca la soluzione è rallentare; per trazioni e dip, aggiungere peso allo zaino.</li>
-    <li><b>Per le gambe bastano pochi esercizi, ma pesanti.</b> Corri su sterrato, quindi polpacci, caviglie e stabilizzatori lavorano già lì: con i pesi niente polpacci, e il grosso del volume va alla parte alta. Restano split squat bulgaro, stacco su una gamba e step-up con 2 × 25 (50 kg su un arto), più due salti: il goblet squat con 25 kg (2 × 12) era troppo leggero per servire.</li>
-  </ul></div>
-</section>
-
-<section id="test">
-  <div class="sechead"><div class="eyebrow">Risultati</div><h2>Prima e dopo</h2><p>Si compila con i valori che inserisci nelle sedute di test.</p></div>
-  <div class="tablecard"><table id="tests"></table></div>
-</section>
-
-<section id="evidenze">
-  <div class="sechead"><div class="eyebrow">Perché così</div><h2>Le evidenze dietro le scelte</h2></div>
-  <div class="card"><ul class="refs">
-    <li><b>Forza pesante e salti migliorano l'economia di corsa</b>; i carichi submassimali e gli isometrici molto meno. Per questo split squat bulgaro, step-up e salti invece di circuiti leggeri. <a href="https://repositorio.unab.cl/handle/ria/62074">Llanos-Lagos et al., Sports Medicine 2024</a></li>
-    <li><b>Forza e corsa insieme</b> non frenano né la crescita muscolare né la forza massima; frenano un po' l'esplosività, soprattutto nella stessa seduta. Per questo i salti stanno il sabato, dopo un giorno di riposo e lontano dalle corse. <a href="https://researchonline.jcu.edu.au/71546/1/Schumann2021_Article_CompatibilityOfConcurrentAerob.pdf">Schumann et al., Sports Medicine 2022</a></li>
-    <li><b>Vicino al cedimento</b> la crescita muscolare aumenta, la forza molto meno. <a href="https://rke.abertay.ac.uk/en/publications/exploring-the-dose-response-relationship-between-estimated-resist/">Robinson et al., Sports Medicine 2024</a>. Con carichi leggeri vicino al cedimento si cresce quanto con quelli pesanti, mentre la forza massima segue il carico (Schoenfeld et al., J Strength Cond Res 2017): da qui i 25 kg fissi più lo zaino che sale.</li>
-    <li><b>Più serie, rendimenti decrescenti</b>, e per la forza calano prima: bastano ~10 serie settimanali per muscolo. <a href="https://bibbase.org/network/publication/joshuapelland-jacobremmert-zacrobinson-sethhinson-michaelzourdos-theresistancetrainingdoseresponsemetaregressionsexploringtheeectsofweeklyvolumeandfrequencyonmusclehypertrophyandstrengthgain-2024">Pelland et al., 2024</a> (preprint)</li>
-    <li><b>Recuperi</b>: oltre 60 s la crescita è un po' maggiore, oltre 90 s non cambia più. <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2024.1429789/abstract">Singer et al., Frontiers 2024</a></li>
-    <li><b>Esercizi in coppia</b>: sedute più brevi, stessi risultati di forza e massa. <a href="https://eprints.leedsbeckett.ac.uk/id/eprint/11908">Zhang et al., Sports Medicine 2025</a></li>
-    <li><b>Distribuzione dell'intensità</b>: il polarizzato dà un piccolo vantaggio sul VO2max nei blocchi brevi; per i dilettanti il piramidale va altrettanto bene. La scheda è piramidale. <a href="https://link.springer.com/content/pdf/10.1007/s40279-024-02034-z.pdf">Oliveira et al., Sports Medicine 2024</a>; Rosenblat et al., Sports Medicine 2025</li>
-    <li><b>Ripetute</b>: 4 × 4' alla massima intensità sostenibile alzano il VO2max più della corsa continua (Helgerud et al., Med Sci Sports Exerc 2007); nei dilettanti allenati 4 × 8' rendono più di 4 × 4' (Seiler et al., Scand J Med Sci Sports 2013).</li>
-    <li><b>Il lungo cresce poco</b>: il rischio di infortunio sale quando un'uscita supera di oltre il 10% la più lunga degli ultimi 30 giorni. Da qui il tetto in km di ogni lungo. <a href="https://researchportal.lih.lu/en/publications/how-much-running-is-too-much-identifying-high-risk-running-sessio/">Frandsen et al., British Journal of Sports Medicine 2025</a></li>
-    <li><b>Seguire la HRV</b> dà un piccolo vantaggio sul VO2max, maggiore nei dilettanti. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7663087/">Granero-Gallegos et al., IJERPH 2020</a></li>
-    <li><b>Ritmi</b>: formule VDOT di Jack Daniels. <b>Proteine</b>: Morton et al., BJSM 2018. <b>Sonno</b>: Craven et al., Sports Medicine 2022.</li>
-  </ul></div>
-</section>
-
-<section id="diario" class="noprint">
-  <div class="sechead"><div class="eyebrow">Diario</div><h2>I tuoi dati restano qui</h2>
-  <p>Quello che scrivi nei campi è salvato solo in questo browser, su questo dispositivo: non va su internet. Esporta ogni tanto una copia; con «Importa» la porti su un altro dispositivo.</p></div>
-  <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
-    <button class="btn btn-ghost" id="exp">Esporta il diario</button>
-    <label class="btn btn-ghost">Importa un diario<input type="file" id="imp" accept="application/json" hidden></label>
-    <span class="small muted" id="iomsg"></span>
-  </div>
-</section>
-
-<footer>Scheda costruita sui dati di Forma e sui carichi della scheda precedente. Non sostituisce un parere medico.</footer>
+<div class="timer" id="timer" hidden>
+  <div><small id="tlab">Recupero</small><b id="tclock">0:00</b></div>
+  <div class="tn" id="tnext"></div>
+  <button id="tplus">+15 s</button>
+  <button id="tstop">Salta</button>
 </div>
+<div class="toast" id="toast"></div>
+
+<nav class="tabs"><div class="in">
+  <button data-tab="oggi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Oggi</button>
+  <button data-tab="sett"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Settimana</button>
+  <button data-tab="ritmi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a8 8 0 1 1 16 0"/><path d="M12 18l4-6"/></svg>Ritmi</button>
+  <button data-tab="guida"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M8 7h7"/></svg>Guida</button>
+</div></nav>
 
 <script>
 // ---------- salvataggio locale ----------
@@ -328,6 +280,8 @@ let store={};
 try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){store={}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+const $=s=>document.querySelector(s);
+const num=v=>String(v).replace('.',',');
 
 // ---------- ritmi (formule VDOT di Daniels) ----------
 const vo2=v=>-4.60+0.182258*v+0.000104*v*v;
@@ -337,25 +291,17 @@ const VDOT_PROVV=36.5; // stima da 10 km a 5:42 con FC 167 (27/10) e 5,2 km a 5:
 const vdot=()=>store.vdot||VDOT_PROVV;
 function pace(f){const s=Math.round(60000/vAt(f*vdot()));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
 const Z={
-  E:{n:'Facile',z:'Z2',fc:'135–150',p:()=>pace(.74)+'–'+pace(.65),d:'parli a frasi intere',c:'var(--run)'},
-  M:{n:'Medio',z:'Z3',fc:'151–165',p:()=>pace(.80),d:'solo nel finale di alcuni lunghi',c:'var(--zaino)'},
-  T:{n:'Soglia',z:'Z4',fc:'166–176',p:()=>pace(.88),d:'duro ma controllato, lo terresti un’ora',c:'var(--fb)'},
-  I:{n:'Ripetute',z:'Z5',fc:'≥177 a fine ripetuta',p:()=>pace(.975),d:'lo terresti 10–12 minuti',c:'var(--bil)'},
-  R:{n:'Allunghi',z:'',fc:'—',p:()=>pace(1.05),d:'veloce e sciolto, mai sprint',c:'var(--fc)'}
+  E:{n:'Facile',z:'Z2',fc:'135–150',p:()=>pace(.74)+'–'+pace(.65),d:'parli a frasi intere',c:'var(--z1)'},
+  M:{n:'Medio',z:'Z3',fc:'151–165',p:()=>pace(.80),d:'solo nel finale di alcuni lunghi',c:'var(--z2)'},
+  T:{n:'Soglia',z:'Z4',fc:'166–176',p:()=>pace(.88),d:'duro ma controllato, lo terresti un’ora',c:'var(--z3)'},
+  I:{n:'Ripetute',z:'Z5',fc:'≥177 a fine ripetuta',p:()=>pace(.975),d:'lo terresti 10–12 minuti',c:'var(--z4)'},
+  R:{n:'Allunghi',z:'',fc:'—',p:()=>pace(1.05),d:'veloce e sciolto, mai sprint',c:'var(--z5)'}
 };
 const zp=k=>`<b>${Z[k].p()}/km</b> · FC ${Z[k].fc}`;
-function renderZones(){
-  document.getElementById('zonetable').innerHTML=Object.values(Z).map(z=>
-    `<div class="zone"><span class="bar" style="background:${z.c}"></span><div><b>${z.n} ${z.z?'· '+z.z:''}</b><small>${z.d}</small></div><div class="fc"><small>FC</small>${z.fc}</div><div class="p">${z.p()}<small>/km</small></div></div>`).join('');
-  document.getElementById('vdotout').textContent=store.vdot?`VDOT ${store.vdot.toFixed(1)}, dal tuo 5 km`:`Ritmi stimati (VDOT ${VDOT_PROVV})`;
-  if(store.t5k)document.getElementById('t5k').value=store.t5k;
-}
-document.getElementById('calcbtn').onclick=()=>{
-  const m=document.getElementById('t5k').value.trim().match(/^(\d{1,2})[:.,](\d{2})$/);
-  if(!m){document.getElementById('vdotout').textContent='Scrivi il tempo come 26:30';return}
-  const t=+m[1]+(+m[2])/60; store.vdot=vo2(5000/t)/pct(t); store.t5k=document.getElementById('t5k').value.trim();
-  save(); renderZones(); renderWeek(cur);
-};
+function parseT(s){const m=String(s||'').trim().match(/^(\d{1,2})[:.,](\d{2})$/);if(!m)return null;const t=+m[1]+(+m[2])/60;return (t>=13&&t<=50)?t:null}
+function setVdotFrom(str){const t=parseT(str);if(!t)return false;store.vdot=vo2(5000/t)/pct(t);store.t5k=String(str).trim();save();return true}
+// il test registrato nella corsa aggiorna i ritmi anche se non l'hai ricopiato in «Ritmi»
+if(!store.vdot){const s=parseT(store.t5k8)?store.t5k8:store.t5k1;if(parseT(s))setVdotFrom(s)}
 
 // ---------- calendario ----------
 const START=new Date(2026,10,2); // lunedì 2 novembre 2026
@@ -363,12 +309,15 @@ const RIR=['3','2','1–2','3–4','2','1–2','1','3–4'];
 const FASE=['Introduzione e test','Accumulo','Accumulo, più duro','Scarico','Intensificazione','Intensificazione, più duro','Picco','Scarico e test'];
 const dataDi=(w,d)=>{const x=new Date(START);x.setDate(x.getDate()+w*7+d);return x};
 const GG=['Lun','Mar','Mer','Gio','Ven','Sab','Dom'];
+const GGL=['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica'];
 const fmt=x=>x.toLocaleDateString('it-IT',{day:'numeric',month:'short'});
+const fmtL=x=>x.toLocaleDateString('it-IT',{day:'numeric',month:'long'});
+const isoOf=x=>x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');
 function oggi(){const n=new Date();n.setHours(0,0,0,0);const d=Math.round((n-START)/864e5);return {w:Math.floor(d/7),d:((d%7)+7)%7,raw:d}}
 
 // ---------- esercizi ----------
 // s: serie per settimana (1→8); r1: ripetizioni settimane 1–4, r2: settimane 5–8
-const TAG={'25':'<span class="tag t-25">2 × 25 kg</span>','25x1':'<span class="tag t-25">1 × 25 kg</span>','zaino':'<span class="tag t-zaino">zaino</span>','3':'<span class="tag t-3">2 × 3 kg</span>','cl':'<span class="tag t-cl">corpo libero</span>','bil':'<span class="tag t-bil">bilanciere 16 kg</span>'};
+const EQ={'25':'2 × 25 kg','25x1':'1 × 25 kg','zaino':'zaino','3':'2 × 3 kg','cl':'corpo libero','bil':'bilanciere 16 kg'};
 const A=[
  {blk:'Coppia A · alterna A1 e A2'},
  {c:'A1',id:'bss',n:'Split squat bulgaro',t:'25',s:[3,4,4,2,4,4,5,2],r1:'6–10 per gamba',r2:'6–8 per gamba, discesa 3 s',rec:'75 s, poi A2',
@@ -467,107 +416,397 @@ const RUN=[
   l:{n:'Test 5 km',st:[['Riscaldamento',RISC],['Test','5 km a tutta, sullo stesso percorso della settimana 1'],['Defaticamento','10\'']],dur:'~50\'',test:'t5k8'}}
 ];
 
-// ---------- disegno ----------
-const inp=(k,ph,cls='f')=>`<input class="${cls}" data-k="${k}" placeholder="${ph}" value="${esc(store[k])}">`;
-const inpN=(k,ph)=>`<input data-k="${k}" placeholder="${ph}" value="${esc(store[k])}">`;
-function exHTML(e,w,sess){
+// ---------- il programma: quali sedute in quale giorno ----------
+const PLAN=[['q'],['A'],['f','C'],['l'],[],['B'],[]];
+const SMETA={
+  A:{list:A,cls:'fa',kind:'Forza A',title:'Gambe e parte alta',short:'Forza A · gambe e parte alta',dur:'~55\'',
+     cfg:'<b>Pesi:</b> manubri 25 + 25 · zaino. Nessun cambio di dischi.',
+     warm:'Riscaldamento 8\': bici 5\' crescente, 10 oscillazioni per gamba, 10 squat a corpo libero, 6 split squat per gamba senza pesi, 5 trazioni scapolari.'},
+  B:{list:B,cls:'fb',kind:'Forza B',title:'Esplosività e spinta',short:'Forza B · esplosività e spinta',dur:'~60\'',
+     cfg:'<b>Pesi:</b> zaino → manubri 25 + 25 → coppia da 3 kg. Nessun cambio di dischi.',
+     warm:'Riscaldamento 8\': bici 5\' con gli ultimi 30 s forti, skip, calciata, 2 × 3 salti a metà intensità.'},
+  C:{list:C,cls:'fc',kind:'Forza C · dopo la corsa',title:'Parte alta, versione corta',short:'Forza C',dur:'~20\'',
+     cfg:'<b>Pesi:</b> zaino · coppia da 3 kg · bilanciere 16 kg. I manubri da 25 restano montati per sabato.',
+     warm:'È il giorno dopo Forza A: se braccia e dorso sono ancora stanchi, tieni 1 ripetizione di margine in più.'}
+};
+function sessInfo(w,k){
+  if(SMETA[k]){const m=SMETA[k];return {k,type:'str',cls:m.cls,kind:m.kind,title:m.title,short:m.short,dur:m.dur}}
+  const r=RUN[w][k];
+  return {k,type:'run',cls:'run',kind:k==='q'?'Corsa · qualità':k==='f'?'Corsa · facile':(r.test?'Corsa · test':'Corsa · lungo'),title:r.n,short:r.n,dur:r.dur};
+}
+const dayOf=k=>PLAN.findIndex(p=>p.includes(k));
+const doneKey=(w,k)=>`done.w${w+1}.${k}`;
+const isDone=(w,k)=>!!store[doneKey(w,k)];
+const isDeload=w=>w===3||w===7;
+function doneCount(){let n=0;for(let w=0;w<8;w++)PLAN.forEach(p=>p.forEach(k=>{if(isDone(w,k))n++}));return n}
+const TOTAL=8*PLAN.flat().length;
+
+// prontezza di Forma: 0 normale · 1 giornata leggera · 2 riposo
+function readyLevel(iso){
+  const v=parseFloat(String(store['ready.'+iso]||'').replace(',','.'));
+  if(!isNaN(v)&&v<30)return 2;
+  if((!isNaN(v)&&v<40)||store['sick.'+iso])return 1;
+  return 0;
+}
+const lowFor=(w,k)=>readyLevel(isoOf(dataDi(w,dayOf(k))))>=1;
+const setsOf=(e,w,low)=>low?Math.max(1,e.s[w]-1):e.s[w];
+const setKey=(w,k,id,i)=>`w${w+1}.${k}.${id}.${i}`;
+
+// ---------- forza ----------
+function prevLog(e,k,w){
+  for(let pw=w-1;pw>=0;pw--){
+    const reps=[],kgs=[];
+    for(let i=1;i<=8;i++){const b=setKey(pw,k,e.id,i);if(store[b+'.r'])reps.push(store[b+'.r']);if(store[b+'.kg'])kgs.push(store[b+'.kg'])}
+    if(reps.length||kgs.length)return {w:pw,reps,kgs};
+  }
+  return null;
+}
+function closedRange(e,p){
+  if(!p||!p.reps.length)return false;
+  const r=p.w<4?e.r1:e.r2, m=r.match(/(\d+)\s*–\s*(\d+)/);
+  if(!m)return false;
+  const top=+m[2], vals=p.reps.map(x=>parseInt(x,10));
+  return vals.length>=e.s[p.w]&&vals.every(v=>!isNaN(v)&&v>=top);
+}
+const inp=(k,ph,mode='text')=>`<input class="f" data-k="${k}" placeholder="${ph}" inputmode="${mode}" value="${esc(store[k])}">`;
+const inpN=(k,ph)=>`<input data-k="${k}" placeholder="${ph}" inputmode="numeric" value="${esc(store[k])}">`;
+function exHTML(e,w,k,low){
   if(e.blk)return `<div class="blk">${e.blk}</div>`;
-  const s=e.s[w], r=w<4?e.r1:e.r2, dl=(w===3||w===7);
-  const rir=['pogo','jsq','hop'].includes(e.id)?'—':((e.id==='lat'||e.id==='rear')&&!dl?'0–1':RIR[w]);
+  const dl=isDeload(w), s=setsOf(e,w,low), r=w<4?e.r1:e.r2;
+  let rir=['pogo','jsq','hop'].includes(e.id)?'—':((e.id==='lat'||e.id==='rear')&&!dl?'0–1':RIR[w]);
+  if(low&&rir!=='—')rir=rir.replace(/\d+/g,x=>+x+1);
   let notes='';
   if(w===0&&e.w1)notes+=`<div class="note">${e.w1}</div>`;
   if(w===7&&e.w8)notes+=`<div class="note">${e.w8}</div>`;
-  let extra='';
-  if(e.alt)extra+=` <i>Alternativa:</i> ${e.alt}`;
-  if(e.prog&&!dl)extra+=` <i>Progressione:</i> ${e.prog}`;
-  let rows='';for(let i=1;i<=s;i++){const b=`w${w+1}.${sess}.${e.id}.${i}`;
-    rows+=`<span>${i}</span>${inp(b+'.r',e.unit==='s'?'secondi':'ripetizioni')}${inp(b+'.kg',e.t==='zaino'?'kg zaino':(e.t==='cl'?'note':'kg'))}`}
-  return `<div class="ex"><div class="extop"><span class="code">${e.c}</span><div><div class="exname">${e.n}</div><div class="tags">${TAG[e.t]}</div></div></div>
-   <div class="stats"><div class="stat big"><small>Serie</small><b>${s}</b></div><div class="stat"><small>Ripetizioni</small><b>${r}</b></div><div class="stat big"><small>RIR</small><b>${rir}</b></div><div class="stat"><small>Recupero</small><b>${e.rec}</b></div></div>
-   <p class="how">${e.how}${extra}</p>${notes}
-   <details class="log"><summary>Registra le serie</summary><div class="sets">${rows}</div></details></div>`;
+  const p=prevLog(e,k,w);
+  let prev='';
+  if(p){const kg=[...new Set(p.kgs)].join(' / ');
+    prev=`<div class="prev">Settimana ${p.w+1}: <b>${p.reps.map(esc).join(' · ')||'—'}</b>${p.reps.length?' rip.':''}${kg?` · ${esc(kg)}${e.t==='zaino'?' kg di zaino':''}`:''}</div>`;
+    if(!dl&&closedRange(e,p))prev+=`<div class="up">▲ La volta scorsa hai chiuso il range in tutte le serie: oggi rendilo più difficile.${e.prog?' '+e.prog:''}</div>`;}
+  const second=e.t==='zaino'?['kg zaino','decimal']:['note','text'];
+  let rows=`<span class="h">Serie</span><span class="h">Ripetizioni</span><span class="h">${second[0]==='note'?'Note':'Kg zaino'}</span>`;
+  for(let i=1;i<=s;i++){const b=setKey(w,k,e.id,i);
+    rows+=`<button class="chk ${store[b+'.ok']?'on':''}" data-ok="${w}|${k}|${e.id}|${i}" aria-label="Serie ${i} fatta"><span>${i}</span></button>${inp(b+'.r','rip.','numeric')}${inp(b+'.kg',second[0],second[1])}`}
+  let how=e.how;
+  if(e.alt)how+=` <i>Alternativa:</i> ${e.alt}`;
+  if(e.prog&&!dl)how+=` <i>Progressione:</i> ${e.prog}`;
+  return `<div class="ex"><div class="extop"><span class="code">${e.c}</span><div><div class="exname">${e.n}</div><div class="exsub">${EQ[e.t]} · recupero ${e.rec}</div></div></div>
+   <div class="stats"><div class="stat big"><small>Serie</small><b>${s}</b></div><div class="stat"><small>Ripetizioni</small><b>${r}</b></div><div class="stat big"><small>RIR</small><b>${rir}</b></div></div>
+   ${notes}${prev}<div class="sets">${rows}</div>
+   <details class="how"><summary>Come si fa</summary><p>${how}</p></details></div>`;
 }
-function dayShell(cls,w,d,kind,title,dur,body,id){
-  const t=oggi(), isToday=(t.w===w&&t.d===d), x=dataDi(w,d);
-  return `<details class="day ${cls}" id="${id}" ${isToday?'open':''}><summary>
-   <span class="dnum"><small>${GG[d]}</small><span>${x.getDate()}</span></span>
-   <span class="dkind">${kind}${isToday?'<span class="todaybadge">OGGI</span>':''}</span>
-   <span class="dmeta">${dur}<span class="chev">⌄</span></span>
-   <span class="dtitle">${title}</span></summary><div class="dbody">${body}</div></details>`;
+function strProgress(w,k){
+  const low=lowFor(w,k);let tot=0,done=0;
+  SMETA[k].list.forEach(e=>{if(e.blk)return;const s=setsOf(e,w,low);tot+=s;for(let i=1;i<=s;i++)if(store[setKey(w,k,e.id,i)+'.ok'])done++});
+  return {tot,done};
 }
-function strength(w,d,sess,list,cls,kind,title,dur,cfg,warm,extra){
-  return dayShell(cls,w,d,kind,title,dur,`<div class="config">${cfg}${warm?`<span class="warm">${warm}</span>`:''}</div>${extra||''}${list.map(e=>exHTML(e,w,sess)).join('')}`,`d${w}${sess}`);
+function strBody(w,k,lvl){
+  const m=SMETA[k], low=lvl>=1, test=(w===0||w===7), n=w?8:1;
+  let h=`<div class="config">${m.cfg}<span class="warm">${m.warm}</span></div>`;
+  if(low)h+=`<div class="note bad">Prontezza bassa: una serie in meno per esercizio e una ripetizione di margine in più (RIR +1). È già applicato qui sotto.</div>`;
+  if(test&&k==='A')h+=`<div class="note test"><b>Test di oggi</b><label>Trazioni massime a corpo libero ${inpN('tpull'+n,'ripetizioni')}</label><label>Split squat bulgaro 2 × 25, gamba debole ${inpN('tbss'+n,'ripetizioni')}</label></div>`;
+  if(test&&k==='B')h+=`<div class="note test"><b>Test nel riscaldamento</b><label>Salto in lungo da fermo, il migliore di 3 ${inpN('tjump'+n,'cm')}</label></div>`;
+  return h+m.list.map(e=>exHTML(e,w,k,low)).join('');
 }
-function runBody(w,k,r){
-  const steps=r.st.map(([a,b])=>`<li><div><span class="k">${a}</span>${b
+
+// ---------- corsa ----------
+function runBody(w,k,lvl){
+  const r=RUN[w][k], all=r.st.map(x=>x.join(' ')).join(' ');
+  const zs=['E'];
+  ['I','T','M'].forEach(z=>{if(all.includes('ritmo '+z))zs.push(z)});
+  if(/allungh/i.test(all))zs.push('R');
+  const targets=`<div class="targets">${zs.map(z=>`<div class="tg"><i style="background:${Z[z].c}"></i><span>${Z[z].n}${z==='E'?' · comanda la FC':z==='R'?'':' · comanda il ritmo'}</span><b>${Z[z].p()}</b><small>${z==='R'?Z[z].d:'FC '+Z[z].fc}</small></div>`).join('')}</div>`;
+  const steps=`<ul class="steps">${r.st.map(([a,b])=>`<li><div><span class="k">${a}</span>${b
     .replace('ritmo I',`ritmo I (${zp('I')})`).replace('ritmo T',`ritmo T (${zp('T')})`).replace('ritmo M',`ritmo M (<b>${Z.M.p()}/km</b>)`)
-    .replace(/in zona facile/,`in zona facile (${zp('E')})`)}</div></li>`).join('');
-  const cap=r.cap?`<div class="note">Tetto: <b>${String(r.cap).replace('.',',')} km</b>. Se ci arrivi prima del tempo, ti fermi: conta più della durata.</div>`:'';
-  const test=r.test?`<div class="note">Test: scrivi il tempo qui sotto e in «Zone e ritmi» per ricalcolare i ritmi.</div>`:'';
+    .replace(/in zona facile/,`in zona facile (${zp('E')})`)}</div></li>`).join('')}</ul>`;
+  let main;
+  if(lvl>=1&&k==='q'){
+    main=`<div class="note bad">Prontezza bassa: oggi la qualità diventa <b>30' facili</b> (${zp('E')}).</div><details class="how"><summary>La seduta originale</summary>${steps}</details>`;
+  }else main=targets+steps;
+  const cap=r.cap?`<div class="note">Tetto: <b>${num(r.cap)} km</b>. Se ci arrivi prima del tempo, ti fermi: conta più della durata.</div>`:'';
+  const test=r.test?`<div class="note">Test: scrivi il tempo dei 5 km qui sotto. I ritmi di tutta la scheda si aggiornano da soli.</div>`:'';
   const b=`w${w+1}.${k}`;
-  return `<ul class="steps">${steps}</ul>${cap}${test}
-  <details class="log r"><summary>Registra la corsa</summary><div class="runlog">
-   <div><label>km</label>${inp(b+'.km','km')}</div><div><label>Tempo</label>${inp(r.test?r.test:b+'.t','mm:ss')}</div>
-   <div><label>FC media</label>${inp(b+'.fc','bpm')}</div><div><label>Note</label>${inp(b+'.n','com\'è andata')}</div></div></details>`;
+  return `${main}${cap}${test}<div class="loghead">Com'è andata</div><div class="runlog">
+   <div><label>km</label>${inp(b+'.km','km','decimal')}</div><div><label>${r.test?'Tempo sui 5 km':'Tempo'}</label>${inp(r.test?r.test:b+'.t','mm:ss','numeric')}</div>
+   <div><label>FC media</label>${inp(b+'.fc','bpm','numeric')}</div><div><label>Note</label>${inp(b+'.n','sensazioni')}</div></div>`;
 }
-const rest=(w,d)=>`<div class="restday"><span class="dnum" style="--cs:var(--card2);--c:var(--faint)"><small>${GG[d]}</small><span>${dataDi(w,d).getDate()}</span></span><span><b>Riposo</b> · se vuoi muoverti, una camminata</span></div>`;
-let cur=0;
-function renderWeeks(){
+
+// ---------- una seduta ----------
+function sessionHTML(w,k,lvl){
+  const si=sessInfo(w,k), done=isDone(w,k);
+  let meta=si.dur, bar='';
+  if(si.type==='str'){const p=strProgress(w,k);meta+=` · <span data-prog="${w}|${k}">${p.done}/${p.tot} serie</span>`;bar=`<div class="prog"><i data-bar="${w}|${k}" style="width:${p.tot?p.done/p.tot*100:0}%"></i></div>`}
+  const body=si.type==='str'?strBody(w,k,lvl):runBody(w,k,lvl);
+  return `<section class="sess ${si.cls}"><div class="shead"><div style="flex:1;min-width:0"><div class="skind">${si.kind}</div><h2 class="stitle">${si.title}</h2><div class="smeta">${meta}</div>${bar}</div>${done?'<span class="badge">Fatta</span>':''}</div>
+   <div class="sbody">${body}<button class="btn btn-ghost btn-wide donebtn ${done?'is':''}" data-done="${w}|${k}">${done?'✓ Seduta fatta · tocca per annullare':'Segna la seduta come fatta'}</button></div></section>`;
+}
+
+// ---------- viste ----------
+let S={tab:'oggi',w:0,day:null};
+function nextSession(w,d){
+  let x=w*7+d+1;
+  while(x<56){const ww=Math.floor(x/7),dd=x%7;if(PLAN[dd].length)return {w:ww,d:dd};x++}
+  return null;
+}
+function dayTitle(w,d){return PLAN[d].map(k=>sessInfo(w,k).short).join(' + ')}
+function nextCard(w,d,label){
+  const n=nextSession(w,d);if(!n)return '';
+  const x=dataDi(n.w,n.d), t=oggi(), diff=n.w*7+n.d-t.raw;
+  const when=diff===1?'Domani':`${GGL[n.d]} ${x.getDate()}`;
+  return `<button class="nextup" data-day="${n.w}|${n.d}"><span class="tx"><small>${label||'Prossima seduta'} · ${when}</small><b>${dayTitle(n.w,n.d)}</b></span><span class="arr">›</span></button>`;
+}
+function hasData(){return Object.keys(store).some(k=>/^(w\d|t)/.test(k)&&store[k])}
+function exportReminder(){
+  if(!hasData())return '';
+  const last=store.lastExport?Math.round((new Date()-new Date(store.lastExport))/864e5):null;
+  if(last!==null&&last<14)return '';
+  return `<div class="card"><b>Fai una copia del diario</b><p class="small muted" style="margin:4px 0 10px">I dati stanno solo in questo browser. ${last===null?'Non hai mai esportato.':`Ultima copia ${last} giorni fa.`}</p><button class="btn btn-ghost" data-exp>Esporta il diario</button></div>`;
+}
+function readyCard(iso){
+  const v=store['ready.'+iso]||'', lvl=readyLevel(iso);
+  const out=v===''&&!store['sick.'+iso]?'<p class="out small muted">Scrivi il valore di stamattina: la seduta si adatta da sola.</p>'
+    :lvl===2?'<div class="out note bad">Sotto 30: oggi riposo.</div>'
+    :lvl===1?'<div class="out note bad">Giornata leggera: la qualità diventa 30\' facili; nella forza una serie in meno con RIR +1.</div>'
+    :'<div class="out note good">Via libera: seduta come da programma.</div>';
+  return `<div class="card ready"><label class="l" for="rd">Prontezza di Forma<small>stamattina, da 0 a 100</small></label>
+   <input class="f" id="rd" data-ready="${iso}" inputmode="numeric" placeholder="—" value="${esc(v)}">
+   <label class="sick"><input type="checkbox" data-sick="${iso}" ${store['sick.'+iso]?'checked':''}>Ho due segnali di malessere</label>${out}</div>`;
+}
+function dayContent(w,d,isToday){
+  const iso=isoOf(dataDi(w,d)), ks=PLAN[d], lvl=readyLevel(iso);
+  if(!ks.length){
+    return `<div class="card rest"><div class="big">Riposo</div><p class="muted" style="margin:6px 0 0">Il recupero è parte dell'allenamento. Se vuoi muoverti, una camminata.</p></div>`+nextCard(w,d);
+  }
+  let h=isToday?readyCard(iso):'';
+  const sess=ks.map(k=>sessionHTML(w,k,lvl)).join('');
+  if(lvl===2)h+=`<details class="anyway"><summary>Mostra comunque la seduta</summary>${sess}</details>`;
+  else h+=sess;
+  return h+(isToday?nextCard(w,d):'');
+}
+function viewToday(){
   const t=oggi();
-  document.getElementById('weeks').innerHTML=RUN.map((_,i)=>`<button class="${i===cur?'on':''} ${i===t.w?'now':''}" data-w="${i}"><b>Sett. ${i+1}</b><small>${fmt(dataDi(i,0))}</small></button>`).join('');
-  document.querySelectorAll('#weeks button').forEach(b=>b.onclick=()=>{cur=+b.dataset.w;try{localStorage.setItem(KEY+'-w',cur)}catch(e){};renderWeeks();renderWeek(cur)});
-  const on=document.querySelector('#weeks button.on'); if(on)on.scrollIntoView({block:'nearest',inline:'center'});
+  if(t.raw<0){
+    return `<header class="vhead"><div class="eyebrow">Si comincia lunedì 2 novembre</div><h1>Manca poco</h1><p>Prima seduta: il test dei 5 km.</p></header>`+nextCard(0,-1,'Prima seduta');
+  }
+  if(t.w>7){
+    return `<header class="vhead"><div class="eyebrow">Programma concluso</div><h1>Otto settimane fatte</h1><p>${doneCount()} sedute su ${TOTAL}. Confronta i test e decidi il prossimo blocco.</p></header><div class="card">${testsTable()}</div>`+exportReminder();
+  }
+  const x=dataDi(t.w,t.d), dc=doneCount();
+  return `<header class="vhead"><div class="eyebrow">Settimana ${t.w+1} di 8 · ${FASE[t.w]}</div><h1>${GGL[t.d]} ${fmtL(x)}</h1>
+    <div class="chips"><span class="chip">RIR <b>${RIR[t.w]}</b></span><span class="chip">Sedute fatte <b>${dc}/${TOTAL}</b></span>${isDeload(t.w)?'<span class="chip"><b>Settimana di scarico</b></span>':''}</div>
+    <div class="prog"><i style="width:${(t.raw+1)/56*100}%"></i></div></header>`+dayContent(t.w,t.d,true)+exportReminder();
 }
-function renderWeek(w){
-  const r=RUN[w], dl=(w===3||w===7), test=(w===0||w===7), n=w?8:1;
-  const head=`<div class="weekinfo"><h3>Settimana ${w+1} · ${FASE[w]}</h3><span class="pill">RIR ${RIR[w]}</span>
-   ${dl?'<span class="deload">Scarico: meno serie e lontano dal cedimento. Serve a smaltire la fatica accumulata.</span>':''}</div>`;
-  const testA=test?`<div class="note">TEST · trazioni massime a corpo libero ${inpN('tpull'+n,'ripetizioni')} · split squat bulgaro 2 × 25, gamba debole ${inpN('tbss'+n,'ripetizioni')}</div>`:'';
-  const testB=test?`<div class="note">TEST nel riscaldamento · salto in lungo da fermo, il migliore di 3 ${inpN('tjump'+n,'cm')}</div>`:'';
-  document.getElementById('week').innerHTML=head+
-    dayShell('run',w,0,'Corsa · qualità',r.q.n,r.q.dur,runBody(w,'q',r.q),`d${w}q`)+
-    strength(w,1,'A',A,'fa','Forza A','Gambe e parte alta','~55\'',
-      '<b>Pesi:</b> manubri 25 + 25 · zaino. Nessun cambio di dischi.','Riscaldamento 8\': bici 5\' crescente, 10 oscillazioni per gamba, 10 squat a corpo libero, 6 split squat per gamba senza pesi, 5 trazioni scapolari.',testA)+
-    dayShell('run',w,2,'Corsa · facile',r.f.n,r.f.dur,runBody(w,'f',r.f),`d${w}f`)+
-    strength(w,2,'C',C,'fc','Forza C · dopo la corsa','Parte alta, versione corta','~20\'',
-      '<b>Pesi:</b> zaino · coppia da 3 kg · bilanciere 16 kg. I manubri da 25 restano montati per sabato.','È il giorno dopo Forza A: se braccia e dorso sono ancora stanchi, tieni 1 ripetizione di margine in più.')+
-    dayShell('run',w,3,r.l.test?'Corsa · test':'Corsa · lungo',r.l.n,r.l.dur,runBody(w,'l',r.l),`d${w}l`)+
-    rest(w,4)+
-    strength(w,5,'B',B,'fb','Forza B','Esplosività e spinta','~60\'',
-      '<b>Pesi:</b> zaino → manubri 25 + 25 → coppia da 3 kg. Nessun cambio di dischi.','Riscaldamento 8\': bici 5\' con gli ultimi 30 s forti, skip, calciata, 2 × 3 salti a metà intensità.',testB)+
-    rest(w,6);
-  document.querySelectorAll('#week input[data-k]').forEach(i=>i.oninput=()=>{store[i.dataset.k]=i.value;save();renderTests()});
+function viewDay(w,d){
+  const t=oggi(), isToday=t.w===w&&t.d===d, x=dataDi(w,d), p=w*7+d;
+  const prev=p>0?`<button class="btn btn-ghost" data-day="${Math.floor((p-1)/7)}|${(p-1)%7}">‹ ${GG[(p+6)%7]}</button>`:'<span></span>';
+  const next=p<55?`<button class="btn btn-ghost" data-day="${Math.floor((p+1)/7)}|${(p+1)%7}">${GG[(p+1)%7]} ›</button>`:'<span></span>';
+  return `<div class="navrow"><button class="btn btn-link" data-back>‹ Settimana ${w+1}</button><span style="display:flex;gap:6px">${prev}${next}</span></div>
+   <header class="vhead" style="padding-top:8px"><div class="eyebrow">Settimana ${w+1} · ${FASE[w]}${isToday?' · oggi':''}</div><h1>${GGL[d]} ${fmtL(x)}</h1>
+   <div class="chips"><span class="chip">RIR <b>${RIR[w]}</b></span></div></header>`+dayContent(w,d,isToday);
 }
-function renderToday(){
-  const t=oggi(), el=document.getElementById('today');
-  const SESS=[['q','Corsa di qualità'],['A','Forza A · gambe e parte alta'],['f','Corsa facile + Forza C'],['l','Lungo'],null,['B','Forza B · esplosività e spinta'],null];
-  let ey,ti,su,go='';
-  if(t.raw<0){ey='Si comincia lunedì 2 novembre';ti='Prima seduta: lunedì 2, test dei 5 km';su='Riscaldamento 15\', poi 5 km a tutta su un percorso piatto.';go=`<a class="btn btn-light" href="#programma" data-go="0">Vedi la settimana 1</a>`}
-  else if(t.w>7){ey='Programma concluso';ti='Confronta i test e decidi il prossimo blocco';su='';go=`<a class="btn btn-light" href="#test">Prima e dopo</a>`}
-  else{const s=SESS[t.d];ey=`Oggi · settimana ${t.w+1}, ${GG[t.d].toLowerCase()} ${dataDi(t.w,t.d).getDate()}`;
-    if(!s){ti='Riposo';su='Il recupero è parte dell\'allenamento.';go=`<a class="btn btn-light" href="#programma" data-go="${t.w}">Vedi la settimana</a>`}
-    else{const r=RUN[t.w];ti=s[0]==='q'?r.q.n:s[0]==='l'?r.l.n:s[0]==='f'?r.f.n+' + Forza C':s[1];su=s[1];
-      go=`<a class="btn btn-light" href="#d${t.w}${s[0]}" data-go="${t.w}" data-open="d${t.w}${s[0]}">Apri la seduta</a>`}}
-  el.innerHTML=`<div><div class="eyebrow">${ey}</div><div class="t">${ti}</div>${su?`<div class="s">${su}</div>`:''}</div>${go}`;
-  el.querySelectorAll('[data-go]').forEach(a=>a.onclick=ev=>{const w=+a.dataset.go;if(w!==cur){cur=w;renderWeeks();renderWeek(cur)}
-    if(a.dataset.open){const d=document.getElementById(a.dataset.open);if(d){d.open=true;ev.preventDefault();d.scrollIntoView({behavior:'smooth'})}}});
+function viewWeek(w){
+  const t=oggi();
+  const pick=RUN.map((_,i)=>{const dots=PLAN.flat().length;let y=0;PLAN.forEach(p=>p.forEach(k=>{if(isDone(i,k))y++}));
+    return `<button class="${i===w?'on':''} ${i===t.w?'now':''}" data-w="${i}"><b>${i+1}</b><small>${fmt(dataDi(i,0)).replace(' ',' ')}</small><span class="dots">${Array.from({length:dots},(_,j)=>`<i class="${j<y?'y':''}"></i>`).join('')}</span></button>`}).join('');
+  const rows=PLAN.map((ks,d)=>{
+    const x=dataDi(w,d), isT=t.w===w&&t.d===d, past=(w*7+d)<t.raw;
+    const dn=`<span class="dnum"><small>${GG[d]}</small><span>${x.getDate()}</span></span>`;
+    if(!ks.length)return `<div class="drow restd">${dn}<span class="dl">Riposo</span><span class="dst">${isT?'<span class="td">Oggi</span>':''}</span></div>`;
+    const lines=ks.map(k=>{const si=sessInfo(w,k);return `<span class="dl"><i style="background:var(--${si.cls})"></i><b>${si.title}</b> <small>${si.kind}</small></span>`}).join('');
+    const st=ks.map(k=>{const si=sessInfo(w,k);return isDone(w,k)?'<span class="ok">✓ fatta</span>':(past?'non segnata':si.dur)}).join('<br>');
+    return `<button class="drow ${isT?'today':''}" data-day="${w}|${d}">${dn}<span>${lines}</span><span class="dst">${isT?'<span class="td">Oggi</span><br>':''}${st}</span></button>`;
+  }).join('');
+  let y=0;PLAN.forEach(p=>p.forEach(k=>{if(isDone(w,k))y++}));
+  return `<header class="vhead"><div class="eyebrow">2 novembre – 27 dicembre 2026</div><h1>Il programma</h1></header>
+   <div class="wpick">${pick}</div>
+   <div class="wmeta"><h2>Settimana ${w+1} · ${FASE[w]}</h2>
+    <div class="chips"><span class="chip">RIR <b>${RIR[w]}</b></span><span class="chip">Fatte <b>${y}/${PLAN.flat().length}</b></span></div>
+    <p>RIR ${RIR[w]}: ti fermi quando potresti fare ancora ${RIR[w]} ripetizioni pulite.${isDeload(w)?' <b>Scarico:</b> meno serie e lontano dal cedimento. Serve a smaltire la fatica accumulata.':''}</p></div>
+   ${rows}<p class="small muted" style="margin-top:12px">Una seduta saltata non si recupera: si riparte dalla successiva.</p>`;
 }
-function renderTests(){
+function viewZones(){
+  return `<header class="vhead"><div class="eyebrow">Corsa</div><h1>Zone e ritmi</h1>
+   <p>FC massima 190 (la più alta registrata) e FC a riposo 43. ${store.vdot?`Ritmi calcolati dal tuo 5 km in <b>${esc(store.t5k)}</b> (VDOT ${num(store.vdot.toFixed(1))}).`:`Ritmi stimati (VDOT ${num(VDOT_PROVV)}) finché non registri il test dei 5 km.`}</p></header>
+   <div class="card"><div class="calc"><div><label class="lbl" for="t5k">Tempo sui 5 km</label><input class="f" id="t5k" placeholder="26:30" inputmode="numeric" value="${esc(store.t5k)}"></div>
+    <button class="btn btn-acc" data-calc>Ricalcola i ritmi</button></div><p class="small muted" id="vdotout" style="margin:8px 0 0">Il tempo del test registrato nella corsa li aggiorna da solo.</p></div>
+   <div class="zones">${Object.values(Z).map(z=>`<div class="zone"><span class="bar" style="background:${z.c}"></span><b>${z.n}${z.z?' · '+z.z:''}</b><span class="p">${z.p()}<small>/km</small></span><small>FC ${z.fc} · ${z.d}</small></div>`).join('')}</div>
+   <p class="small muted">Nelle corse facili e nel lungo comanda la <b>FC</b>: se supera 150, rallenta anche se il ritmo sembra ridicolo. Nelle ripetute comanda il <b>ritmo</b>, perché la FC arriva in ritardo. Gli allunghi sono 20 s di accelerazione progressiva fino a un passo veloce ma sciolto, non uno sprint; tra uno e l'altro 60–90 s camminando.</p>`;
+}
+function testsTable(){
   const T=[['5 km','t5k1','t5k8','mm:ss'],['Salto in lungo da fermo','tjump1','tjump8','cm'],['Trazioni a corpo libero','tpull1','tpull8','ripetizioni'],['Split squat bulgaro 2 × 25','tbss1','tbss8','ripetizioni, gamba debole']];
-  document.getElementById('tests').innerHTML='<tr><th>Test</th><th>Sett. 1</th><th>Sett. 8</th><th>Unità</th></tr>'+
-    T.map(([n,a,b,u])=>`<tr><td><b>${n}</b></td><td>${esc(store[a])||'—'}</td><td>${esc(store[b])||'—'}</td><td class="muted">${u}</td></tr>`).join('');
+  return '<table><tr><th>Test</th><th>Sett. 1</th><th>Sett. 8</th><th>Unità</th></tr>'+
+    T.map(([n,a,b,u])=>`<tr><td><b>${n}</b></td><td>${esc(store[a])||'—'}</td><td>${esc(store[b])||'—'}</td><td class="muted">${u}</td></tr>`).join('')+'</table>';
 }
-document.getElementById('exp').onclick=()=>{
+const g=(t,sub,body,open)=>`<details class="g" ${open?'open':''}><summary><span><h3>${t}</h3><small>${sub}</small></span></summary><div class="gb">${body}</div></details>`;
+const dot=v=>`<i class="dot" style="background:var(--${v})"></i>`;
+function viewGuide(){
+  const last=store.lastExport?new Date(store.lastExport).toLocaleDateString('it-IT'):'mai';
+  return `<header class="vhead"><div class="eyebrow">2 novembre – 27 dicembre 2026</div><h1>Guida alla scheda</h1>
+   <p>Otto settimane, cinque giorni a settimana e la domenica libera: tre corse e tre sedute di forza. I manubri restano sempre a 25 kg per mano.</p></header>`+
+  g('La settimana tipo','Cosa si fa ogni giorno e come spostare le sedute',`<table>
+    <tr><th>Giorno</th><th>Seduta</th><th>Durata</th></tr>
+    <tr><td>Lun</td><td>${dot('run')}<b>Qualità</b> · ripetute o soglia</td><td>45–60'</td></tr>
+    <tr><td>Mar</td><td>${dot('fa')}<b>Forza A</b> · gambe e parte alta</td><td>~55'</td></tr>
+    <tr><td>Mer</td><td>${dot('run')}<b>Facile + allunghi</b>, poi ${dot('fc')}<b>Forza C</b> · parte alta corta</td><td>30–55' + 20'</td></tr>
+    <tr><td>Gio</td><td>${dot('run')}<b>Lungo facile</b></td><td>50–80'</td></tr>
+    <tr><td>Ven</td><td class="muted">Riposo</td><td></td></tr>
+    <tr><td>Sab</td><td>${dot('fb')}<b>Forza B</b> · esplosività e spinta</td><td>~60'</td></tr>
+    <tr><td>Dom</td><td class="muted">Riposo</td><td></td></tr></table>
+   <p style="margin-top:12px">La domenica è sempre libera. Gli altri giorni si possono spostare rispettando quattro vincoli: <b>mai Forza A il giorno prima della qualità</b>; <b>qualità e lungo non in giorni consecutivi</b>; <b>mai il lungo il giorno prima di Forza B</b>, perché i salti vogliono gambe fresche; <b>un giorno di riposo fra Forza B e la qualità</b>. Una seduta saltata non si recupera, si riparte dalla successiva. In ordine di importanza: qualità, lungo, Forza A, Forza B, sabato.</p>`,true)+
+  g('Regole che valgono sempre','RIR, quando aumentare, coppie, prontezza, dolore, sonno',`<ul class="facts">
+    <li><b>RIR: le ripetizioni di margine.</b> RIR 2 vuol dire fermarsi quando potresti farne ancora 2 pulite. Il RIR della settimana è in alto: scende fino alla settimana 3, poi c'è lo scarico, poi si riparte più duri.</li>
+    <li><b>Quando aumentare.</b> Quando completi <b>tutte le serie al massimo del range</b> con il RIR indicato, la volta dopo rendi l'esercizio più difficile: una bottiglia in più nello zaino, oppure discesa lenta, pausa, ripetizioni 1½. La scheda te lo segnala con ▲ se hai registrato le ripetizioni.</li>
+    <li><b>Le coppie A1 → A2.</b> Si alternano: A1, recupero, A2, recupero, di nuovo A1. Tra due serie dello stesso esercizio passano 3–4 minuti, ma la seduta dura circa un terzo in meno. Quando spunti una serie parte il timer del recupero e ti dice cosa viene dopo.</li>
+    <li><b>Prontezza di Forma.</b> Se la mattina è <b>sotto 40</b> o ci sono due segnali di malessere: la qualità diventa 30' facili, e nella forza fai una serie in meno con RIR +1. <b>Sotto 30</b>: riposo. Scrivi il valore in «Oggi» e la seduta si adatta.</li>
+    <li><b>Dolore.</b> Un fastidio che resta uguale o cala correndo si monitora. Uno che <b>peggiora correndo</b> ferma la corsa: per 3–5 giorni usi la bici con stessa durata e stessa FC.</li>
+    <li><b>Sonno e proteine.</b> Sotto le 7 ore calano forza, resistenza e recupero: oggi sei a 6,4. Proteine: ~1,6 g/kg al giorno, circa <b>110 g</b>, su 3–4 pasti.</li></ul>`)+
+  g('L\'attrezzatura','Come si allena con quello che hai',`<ul class="facts">
+    <li><b>Manubri 25 + 25, montati una volta.</b> Non si toccano più. Si progredisce in quest'ordine: più ripetizioni, poi discesa lenta (3 s), poi pausa in basso, poi ripetizioni 1½. Con carichi leggeri portati vicino al cedimento il muscolo cresce quanto con carichi pesanti.</li>
+    <li><b>Zaino: il carico che sale.</b> Base: il tuo zaino da 8,5 kg. Per salire aggiungi una bottiglia d'acqua da 1,5 L alla volta. Lo stesso peso serve per trazioni, dip, push-up e jump squat: lo prepari una volta e non lo tocchi fino al prossimo aumento.</li>
+    <li><b>2 × 3 kg: alzate.</b> Laterali e posteriori fino a 0–1 ripetizioni dal cedimento: con 3 kg servono 20–30 ripetizioni, ed è giusto così.</li>
+    <li><b>Bilanciere 16 kg: rollout.</b> Lavoro di core in tenuta: i dischi fanno da ruota.</li>
+    <li><b>Bici: riscaldamento e riserva.</b> 5' all'inizio delle sedute di forza. Sostituisce una corsa facile se hai un fastidio da impatto (tibie, tendine d'Achille): stessa durata, stessa FC.</li></ul>`)+
+  g('Cosa dicono i tuoi dati','Da Forma · gennaio–ottobre 2026',`<div class="kpis">
+    <div class="kpi"><div class="l">FC media corse</div><div class="v">160–170</div></div>
+    <div class="kpi"><div class="l">VO2max</div><div class="v">54,8 → 50</div></div>
+    <div class="kpi"><div class="l">Sonno, 30 giorni</div><div class="v">6,4 h</div></div></div>
+   <ul class="facts">
+    <li><b>FC media 160–170:</b> 85–90% della massima: sempre in soglia. Nessuna corsa davvero facile, nessuna più veloce.</li>
+    <li><b>VO2max da 54,8 a 50</b> da marzo a oggi, insieme al volume: 83 km ad aprile, ~50 al mese da maggio.</li>
+    <li><b>Sonno 6,4 h:</b> FC a riposo ~43 e HRV ~74 sono ottime: il punto debole è il sonno.</li>
+    <li><b>Il 27/10 hai corso 10 km a 5:42 con FC media 167:</b> di fatto una seduta di soglia lunga un'ora. Qui ogni settimana ha una sola seduta dura; le altre due sono davvero facili.</li>
+    <li><b>Con 25 kg alcuni esercizi sono al limite:</b> panca 25 × 20, trazioni × 15 a corpo libero, push-up con 8,5 kg × 35. Per la panca la soluzione è rallentare; per trazioni e dip, aggiungere peso allo zaino.</li>
+    <li><b>Per le gambe bastano pochi esercizi, ma pesanti.</b> Corri su sterrato, quindi polpacci, caviglie e stabilizzatori lavorano già lì: con i pesi niente polpacci, e il grosso del volume va alla parte alta. Restano split squat bulgaro, stacco su una gamba e step-up con 2 × 25 (50 kg su un arto), più due salti: il goblet squat con 25 kg (2 × 12) era troppo leggero per servire.</li></ul>`)+
+  g('Prima e dopo','I test di settimana 1 e 8',testsTable())+
+  g('Le evidenze dietro le scelte','Perché la scheda è fatta così',`<ul class="facts">
+    <li><b>Forza pesante e salti migliorano l'economia di corsa</b>; i carichi submassimali e gli isometrici molto meno. Per questo split squat bulgaro, step-up e salti invece di circuiti leggeri. <a href="https://repositorio.unab.cl/handle/ria/62074">Llanos-Lagos et al., Sports Medicine 2024</a></li>
+    <li><b>Forza e corsa insieme</b> non frenano né la crescita muscolare né la forza massima; frenano un po' l'esplosività, soprattutto nella stessa seduta. Per questo i salti stanno il sabato, dopo un giorno di riposo e lontano dalle corse. <a href="https://researchonline.jcu.edu.au/71546/1/Schumann2021_Article_CompatibilityOfConcurrentAerob.pdf">Schumann et al., Sports Medicine 2022</a></li>
+    <li><b>Vicino al cedimento</b> la crescita muscolare aumenta, la forza molto meno. <a href="https://rke.abertay.ac.uk/en/publications/exploring-the-dose-response-relationship-between-estimated-resist/">Robinson et al., Sports Medicine 2024</a>. Con carichi leggeri vicino al cedimento si cresce quanto con quelli pesanti, mentre la forza massima segue il carico (Schoenfeld et al., J Strength Cond Res 2017): da qui i 25 kg fissi più lo zaino che sale.</li>
+    <li><b>Più serie, rendimenti decrescenti</b>, e per la forza calano prima: bastano ~10 serie settimanali per muscolo. <a href="https://bibbase.org/network/publication/joshuapelland-jacobremmert-zacrobinson-sethhinson-michaelzourdos-theresistancetrainingdoseresponsemetaregressionsexploringtheeectsofweeklyvolumeandfrequencyonmusclehypertrophyandstrengthgain-2024">Pelland et al., 2024</a> (preprint)</li>
+    <li><b>Recuperi</b>: oltre 60 s la crescita è un po' maggiore, oltre 90 s non cambia più. <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2024.1429789/abstract">Singer et al., Frontiers 2024</a></li>
+    <li><b>Esercizi in coppia</b>: sedute più brevi, stessi risultati di forza e massa. <a href="https://eprints.leedsbeckett.ac.uk/id/eprint/11908">Zhang et al., Sports Medicine 2025</a></li>
+    <li><b>Distribuzione dell'intensità</b>: il polarizzato dà un piccolo vantaggio sul VO2max nei blocchi brevi; per i dilettanti il piramidale va altrettanto bene. La scheda è piramidale. <a href="https://link.springer.com/content/pdf/10.1007/s40279-024-02034-z.pdf">Oliveira et al., Sports Medicine 2024</a>; Rosenblat et al., Sports Medicine 2025</li>
+    <li><b>Ripetute</b>: 4 × 4' alla massima intensità sostenibile alzano il VO2max più della corsa continua (Helgerud et al., Med Sci Sports Exerc 2007); nei dilettanti allenati 4 × 8' rendono più di 4 × 4' (Seiler et al., Scand J Med Sci Sports 2013).</li>
+    <li><b>Il lungo cresce poco</b>: il rischio di infortunio sale quando un'uscita supera di oltre il 10% la più lunga degli ultimi 30 giorni. Da qui il tetto in km di ogni lungo. <a href="https://researchportal.lih.lu/en/publications/how-much-running-is-too-much-identifying-high-risk-running-sessio/">Frandsen et al., British Journal of Sports Medicine 2025</a></li>
+    <li><b>Seguire la HRV</b> dà un piccolo vantaggio sul VO2max, maggiore nei dilettanti. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7663087/">Granero-Gallegos et al., IJERPH 2020</a></li>
+    <li><b>Ritmi</b>: formule VDOT di Jack Daniels. <b>Proteine</b>: Morton et al., BJSM 2018. <b>Sonno</b>: Craven et al., Sports Medicine 2022.</li></ul>`)+
+  g('Il diario','Ultima copia: '+last,`<p>Quello che scrivi nei campi è salvato solo in questo browser, su questo dispositivo: non va su internet. Esporta ogni tanto una copia; con «Importa» la porti su un altro dispositivo.</p>
+   <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center"><button class="btn btn-ghost" data-exp>Esporta il diario</button>
+   <label class="btn btn-ghost">Importa un diario<input type="file" data-imp accept="application/json" hidden></label></div>`)+
+  `<p class="small muted" style="margin:20px 0">Scheda costruita sui dati di Forma e sui carichi della scheda precedente. Non sostituisce un parere medico.</p>`;
+}
+
+// ---------- disegno ----------
+let renderedDay='';
+function render(keepScroll){
+  const y=window.scrollY;
+  let h;
+  if(S.tab==='oggi')h=viewToday();
+  else if(S.tab==='sett')h=S.day?viewDay(S.day[0],S.day[1]):viewWeek(S.w);
+  else if(S.tab==='ritmi')h=viewZones();
+  else h=viewGuide();
+  $('#view').innerHTML=h;
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===S.tab));
+  renderedDay=isoOf(new Date());
+  window.scrollTo(0,keepScroll?y:0);
+}
+function go(tab){S.tab=tab;if(tab==='sett')S.day=null;render(false)}
+
+// ---------- feedback ----------
+let toastId=0;
+function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('on');clearTimeout(toastId);toastId=setTimeout(()=>el.classList.remove('on'),2600)}
+let actx=null;
+function unlockAudio(){try{if(!actx){const AC=window.AudioContext||window.webkitAudioContext;if(AC)actx=new AC()}if(actx&&actx.state==='suspended')actx.resume()}catch(e){}}
+function beep(){try{if(!actx)return;[0,.25,.5].forEach(o=>{const os=actx.createOscillator(),gn=actx.createGain();os.frequency.value=880;gn.gain.setValueAtTime(.0001,actx.currentTime+o);gn.gain.exponentialRampToValueAtTime(.3,actx.currentTime+o+.02);gn.gain.exponentialRampToValueAtTime(.0001,actx.currentTime+o+.18);os.connect(gn).connect(actx.destination);os.start(actx.currentTime+o);os.stop(actx.currentTime+o+.2)})}catch(e){}}
+let wl=null;
+async function keepAwake(){try{if('wakeLock' in navigator&&!wl){wl=await navigator.wakeLock.request('screen');wl.addEventListener('release',()=>{wl=null})}}catch(e){}}
+
+// ---------- timer di recupero ----------
+const T={end:0,next:'',id:0,fired:false};
+const mmss=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+function startRest(sec,next){T.end=Date.now()+sec*1000;T.next=next;T.fired=false;$('#timer').hidden=false;clearInterval(T.id);T.id=setInterval(tick,250);tick()}
+function stopRest(){clearInterval(T.id);$('#timer').hidden=true;$('#timer').classList.remove('go')}
+function tick(){
+  const left=Math.ceil((T.end-Date.now())/1000), el=$('#timer');
+  if(left>0){el.classList.remove('go');$('#tlab').textContent='Recupero';$('#tclock').textContent=mmss(left);$('#tnext').textContent=T.next?'Poi: '+T.next:'';$('#tstop').textContent='Salta';$('#tplus').hidden=false}
+  else{
+    if(!T.fired){T.fired=true;beep();try{navigator.vibrate&&navigator.vibrate([200,100,200])}catch(e){}}
+    el.classList.add('go');$('#tlab').textContent='Recupero finito';$('#tclock').textContent='Vai';$('#tnext').textContent=T.next||'';$('#tstop').textContent='OK';$('#tplus').hidden=true;
+    if(Date.now()-T.end>20000)stopRest();
+  }
+}
+$('#tplus').onclick=()=>{T.end+=15000;tick()};
+$('#tstop').onclick=stopRest;
+
+// cosa viene dopo una serie: la coppia indicata nel recupero, poi la stessa, poi il primo esercizio ancora da finire
+function nextUp(w,k,e){
+  const low=lowFor(w,k), list=SMETA[k].list.filter(x=>!x.blk);
+  const firstOpen=x=>{for(let i=1;i<=setsOf(x,w,low);i++)if(!store[setKey(w,k,x.id,i)+'.ok'])return i;return 0};
+  const lab=x=>`${x.c} · ${x.n}, serie ${firstOpen(x)}`;
+  const m=e.rec.match(/poi ([A-Z]\d)/), tgt=m&&list.find(x=>x.c===m[1]);
+  if(tgt&&firstOpen(tgt))return lab(tgt);
+  if(firstOpen(e))return lab(e);
+  const o=list.find(x=>firstOpen(x));
+  return o?lab(o):null;
+}
+function refreshProgress(w,k){
+  const p=strProgress(w,k), id=`${w}|${k}`;
+  document.querySelectorAll(`[data-prog="${id}"]`).forEach(el=>el.textContent=`${p.done}/${p.tot} serie`);
+  document.querySelectorAll(`[data-bar="${id}"]`).forEach(el=>el.style.width=(p.tot?p.done/p.tot*100:0)+'%');
+  return p;
+}
+function exportDiary(){
+  store.lastExport=new Date().toISOString();save();
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(store,null,1)],{type:'application/json'}));
-  a.download='diario-scheda-'+new Date().toISOString().slice(0,10)+'.json';a.click();
-};
-document.getElementById('imp').onchange=e=>{
-  const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{store=JSON.parse(t);save();renderZones();renderWeek(cur);renderTests();document.getElementById('iomsg').textContent='Diario importato.'}catch(x){document.getElementById('iomsg').textContent='File non valido.'}});
-};
-window.addEventListener('beforeprint',()=>document.querySelectorAll('details.day').forEach(d=>d.open=true));
-let saved=null;try{saved=localStorage.getItem(KEY+'-w')}catch(e){}
-{const t=oggi(); if(t.w>=0&&t.w<8)cur=t.w; else if(saved!==null&&+saved>=0&&+saved<8)cur=+saved;}
-renderZones();renderWeeks();renderWeek(cur);renderTests();renderToday();
+  a.download='diario-scheda-'+isoOf(new Date())+'.json';document.body.appendChild(a);a.click();a.remove();
+  toast('Diario esportato');if(S.tab==='oggi'||S.tab==='guida')render(true);
+}
+
+// ---------- eventi ----------
+document.addEventListener('click',ev=>{
+  const el=ev.target.closest('[data-tab],[data-w],[data-day],[data-back],[data-ok],[data-done],[data-calc],[data-exp]');
+  if(!el)return;
+  const ds=el.dataset;
+  if(ds.tab){go(ds.tab);return}
+  if(ds.w!==undefined){S.w=+ds.w;render(true);return}
+  if(ds.day){const [w,d]=ds.day.split('|').map(Number);S.tab='sett';S.w=w;S.day=[w,d];render(false);return}
+  if(ds.back!==undefined){S.day=null;render(false);return}
+  if(ds.exp!==undefined){exportDiary();return}
+  if(ds.calc!==undefined){const v=$('#t5k').value;if(setVdotFrom(v)){render(true);toast(`Ritmi aggiornati · VDOT ${num(store.vdot.toFixed(1))}`)}else $('#vdotout').textContent='Scrivi il tempo come 26:30';return}
+  if(ds.done){const [w,k]=ds.done.split('|');const key=doneKey(+w,k);
+    if(store[key])delete store[key];else{store[key]=new Date().toISOString();toast('Seduta segnata come fatta')}
+    save();render(true);return}
+  if(ds.ok){
+    const [ws,k,id,is]=ds.ok.split('|'), w=+ws, i=+is, key=setKey(w,k,id,i), e=SMETA[k].list.find(x=>x.id===id);
+    const on=!store[key+'.ok'];
+    if(on){store[key+'.ok']=1;
+      // lo zaino non cambia tra una serie e l'altra: se non l'hai scritto, si ripete quello della serie prima
+      if(e.t==='zaino'&&!store[key+'.kg']&&i>1){const pk=store[setKey(w,k,id,i-1)+'.kg'];if(pk){store[key+'.kg']=pk;const f=document.querySelector(`input[data-k="${key}.kg"]`);if(f)f.value=pk}}
+    }else delete store[key+'.ok'];
+    el.classList.toggle('on',on);
+    const p=refreshProgress(w,k);
+    if(on){unlockAudio();keepAwake();
+      if(p.done===p.tot){stopRest();if(!isDone(w,k)){store[doneKey(w,k)]=new Date().toISOString()}save();toast('Seduta completata ✓');render(true);return}
+      save();
+      const sec=+(e.rec.match(/^(\d+)\s*s/)||[])[1];
+      if(sec)startRest(sec,nextUp(w,k,e));
+    }else save();
+  }
+});
+document.addEventListener('input',ev=>{const i=ev.target;if(i.dataset&&i.dataset.k){store[i.dataset.k]=i.value;save()}});
+document.addEventListener('change',ev=>{
+  const i=ev.target, ds=i.dataset||{};
+  if(ds.k==='t5k1'||ds.k==='t5k8'){if(setVdotFrom(i.value)){toast(`Ritmi aggiornati dal test · VDOT ${num(store.vdot.toFixed(1))}`);render(true)}return}
+  if(ds.ready!==undefined){store['ready.'+ds.ready]=i.value.trim();save();render(true);return}
+  if(ds.sick!==undefined){if(i.checked)store['sick.'+ds.sick]=1;else delete store['sick.'+ds.sick];save();render(true);return}
+  if(ds.imp!==undefined){const f=i.files[0];if(!f)return;f.text().then(t=>{try{const o=JSON.parse(t);if(!o||typeof o!=='object')throw 0;store=o;save();render(true);toast('Diario importato')}catch(x){toast('File non valido')}})}
+});
+// se riapri la pagina in un altro giorno, «Oggi» si aggiorna da solo
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&renderedDay!==isoOf(new Date())&&S.tab==='oggi')render(false)});
+
+// all'apertura: sempre la seduta di oggi
+{const t=oggi();S.w=(t.w>=0&&t.w<8)?t.w:(t.w>7?7:0)}
+render(false);
 </script>
 </body>
 </html>
