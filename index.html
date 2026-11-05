@@ -320,20 +320,18 @@ function oggi(){const n=new Date();n.setHours(0,0,0,0);const d=Math.round((n-STA
 const EQ={'25':'2 × 25 kg','25x1':'1 × 25 kg','zaino':'zaino','3':'2 × 3 kg','cl':'corpo libero','bil':'bilanciere 16 kg'};
 const A=[
  {blk:'Coppia A · alterna A1 e A2'},
- {c:'A1',id:'bss',n:'Split squat bulgaro',t:'25',s:[3,4,4,2,4,4,5,2],r1:'6–10 per gamba',r2:'6–8 per gamba, discesa 3 s',rec:'75 s, poi A2',
-  how:'Piede dietro sulla panca, busto leggermente in avanti, ginocchio dietro che sfiora il pavimento. Prima tutte le ripetizioni con la gamba debole, poi l\'altra.',
-  alt:'Se con 2 × 25 non arrivi a 6 ripetizioni, tieni un solo 25 al petto: niente cambio dischi.',
-  w1:'Serie 1 = TEST: massimo di ripetizioni pulite con la gamba più debole (scrivile nel riquadro del test). Poi le altre serie a RIR 3.',w8:'Serie 1 = TEST, come in settimana 1.',
-  prog:'Range pieno a RIR 2 in tutte le serie → aggiungi 1 s di pausa in basso; poi ripetizioni 1½.'},
+ {c:'A1',id:'gsq',n:'Goblet squat',t:'25x1',s:[3,4,4,2,4,4,5,2],r1:'12–20',r2:'10–15, discesa 3 s + 1 s in basso',rec:'75 s, poi A2',
+  how:'Un 25 tenuto in verticale contro il petto, le mani sotto i dischi in alto. Piedi poco più larghi delle spalle, punte un po\' in fuori: scendi tra i talloni finché la schiena resta neutra, gomiti dentro le ginocchia, e risali spingendo con tutto il piede.',
+  w1:'Serie 1 = TEST: massimo di ripetizioni pulite (scrivile nel riquadro del test). Poi le altre serie a RIR 3.',w8:'Serie 1 = TEST, come in settimana 1.',
+  prog:'Il peso resta 25 kg: si sale con le ripetizioni. Più di 20 a RIR 2 in tutte le serie → discesa in 3 s; poi 1 s di pausa in basso; poi ripetizioni 1½.'},
  {c:'A2',id:'pull',n:'Trazioni zavorrate, presa prona',t:'zaino',s:[3,4,4,2,5,5,5,2],r1:'5–8',r2:'4–6',rec:'90 s, poi A1',
   how:'Partenza a braccia distese, mento sopra la sbarra, niente slanci. Prima seduta: zaino da 8,5 kg + 2 bottiglie da 1,5 L (circa 11,5 kg). Con 8,5 kg da soli hai già fatto 4 × 10, quindi per stare in 5–8 ripetizioni serve qualcosa in più.',
   w1:'Prima della coppia A: TEST di trazioni a corpo libero, massime ripetizioni pulite. 3\' di recupero, poi inizi.',w8:'Prima della coppia A: TEST di trazioni massime a corpo libero.',
   prog:'Tutte le serie al massimo del range con RIR ≥ 2 → una bottiglia da 1,5 L in più nello zaino.'},
  {blk:'Coppia B · alterna B1 e B2'},
- {c:'B1',id:'slrdl',n:'Stacco rumeno su una gamba',t:'25',s:[3,3,3,2,3,3,3,2],r1:'8–10 per gamba',r2:'6–8 per gamba, discesa 3 s + 1 s in basso',rec:'60 s, poi B2',
-  how:'Ginocchio d\'appoggio leggermente flesso, bacino parallelo al pavimento; scendi finché la schiena resta neutra.',
-  w1:'Prima seduta: impari il movimento con un solo 25 nella mano opposta e l\'altra mano appoggiata alla parallela.',
-  prog:'Range pieno a RIR 2 → discesa in 3 s.'},
+ {c:'B1',id:'rdl',n:'Stacco rumeno con due manubri',t:'25',s:[3,3,3,2,3,3,3,2],r1:'10–15, discesa 3 s',r2:'10–15, discesa 3 s + 1 s in basso',rec:'60 s, poi B2',
+  how:'In piedi, un 25 per mano lungo le cosce, ginocchia appena flesse e ferme. Porta il bacino indietro e fai scorrere i manubri lungo le gambe finché la schiena resta neutra (di solito poco sotto il ginocchio), poi risali spingendo il bacino in avanti.',
+  prog:'Più di 15 a RIR 2 in tutte le serie → 1 s di pausa in basso anche prima della settimana 5; poi ripetizioni 1½.'},
  {c:'B2',id:'dip',n:'Dip alle parallele zavorrati',t:'zaino',s:[3,3,3,2,4,4,4,2],r1:'6–10',r2:'5–8',rec:'90 s, poi B1',
   how:'Stesso zaino delle trazioni. Scendi finché la spalla arriva all\'altezza del gomito, busto leggermente in avanti.',
   prog:'Il peso dello zaino lo decidono le trazioni: qui, se superi il range, fai 1 s di pausa in basso.'},
@@ -361,9 +359,10 @@ const B=[
  {c:'A2',id:'row',n:'Rematore a busto flesso, due manubri',t:'25',s:[3,3,3,2,4,4,4,2],r1:'10–15',r2:'10–15, discesa 3 s',rec:'90 s, poi A1',
   how:'Busto a circa 45°, schiena neutra. Porta i manubri verso i fianchi e tieni 1 s in alto.'},
  {blk:'Coppia B · alterna B1 e B2'},
- {c:'B1',id:'step',n:'Step-up sulla panca',t:'25',s:[3,3,3,2,3,3,3,2],r1:'6–8 per gamba',r2:'5–6 per gamba, salita più veloce possibile',rec:'60 s, poi B2',
-  how:'Panca stabile contro il muro. Spingi solo con la gamba sopra, senza slancio da quella a terra; scendi controllato.',
-  alt:'Se la panca oscilla: affondo indietro con 2 × 25, stesse ripetizioni.'},
+ {c:'B1',id:'hipt',n:'Hip thrust con due manubri',t:'25',s:[3,3,3,2,3,3,3,2],r1:'10–15, 2 s di tenuta in alto',r2:'8–12 · ripetizioni 1½ + 2 s in alto',rec:'60 s, poi B2',
+  how:'Parte alta della schiena sul lato lungo della panca, piedi a terra alla larghezza delle anche. I due 25 appoggiati di traverso sul bacino, tenuti con le mani. Spingi il bacino in alto finché busto e cosce sono in linea, stringi i glutei e tieni; il mento resta verso il petto.',
+  alt:'Se i due manubri scivolano: uno solo al centro del bacino, ripetizioni 15–20.',
+  prog:'Più di 15 con la tenuta → passa alle 1½ anche prima della settimana 5.'},
  {c:'B2',id:'pullover',n:'Pullover con un manubrio',t:'25x1',s:[3,3,3,2,3,3,3,2],r1:'10–15',r2:'10–15, discesa 3 s',rec:'60 s, poi B1',
   how:'Schiena di traverso sulla panca (solo le spalle appoggiate) o sdraiato lungo la panca. Un 25 a due mani, braccia quasi tese: porta il manubrio dietro la testa finché senti allungare dorsali e petto, poi torna sopra il petto.'},
  {blk:'Coppia C · spalle e braccia'},
@@ -376,7 +375,7 @@ const B=[
   how:'Fino all\'altezza delle spalle, scendi in 2 s. Arriva a 0–1 ripetizioni dal cedimento.'}
 ];
 const C=[
- {blk:'Subito dopo la corsa, o più tardi nella giornata'},
+ {blk:'Parte alta e core · seduta corta'},
  {c:'D1',id:'chin',n:'Chin-up, presa supina',t:'cl',s:[3,3,3,2,4,4,4,2],r1:'6–10, discesa 3 s',r2:'5–8 con lo zaino',rec:'75 s, poi D2',
   how:'Mani alla larghezza delle spalle, palmi verso di te. La discesa lenta allena forza e bicipite.'},
  {c:'D2',id:'pushup',n:'Push-up con zaino, piedi sulla panca',t:'zaino',s:[3,3,3,2,3,3,3,2],r1:'8–15',r2:'8–15',rec:'75 s, poi D1',
@@ -391,48 +390,40 @@ const C=[
 const RISC='15\' facile + 4 allunghi';
 const RUN=[
  {q:{n:'Test 5 km',st:[['Riscaldamento',RISC],['Test','5 km a tutta, su un percorso piatto che puoi ripetere. Il primo km non più veloce del secondo: finisci in crescendo.'],['Defaticamento','10\' molto facile']],dur:'~50\'',test:'t5k1'},
-  f:{n:'Facile + allunghi',st:[['Corsa','30\' in zona facile'],['Allunghi','4 × 20 s']],dur:'~35\''},
   l:{n:'Lungo facile',st:[['Corsa','55\' in zona facile']],dur:'55\'',cap:10}},
  {q:{n:'Ripetute 5 × 3\'',st:[['Riscaldamento',RISC],['Ripetute','5 × 3\' a ritmo I · recupero 2\' corricchiando'],['Defaticamento','10\'']],dur:'~50\''},
-  f:{n:'Facile + allunghi',st:[['Corsa','35\' in zona facile'],['Allunghi','6 × 20 s']],dur:'~40\''},
   l:{n:'Lungo facile',st:[['Corsa','60\' in zona facile']],dur:'60\'',cap:10.5}},
  {q:{n:'Soglia 4 × 6\'',st:[['Riscaldamento',RISC],['Soglia','4 × 6\' a ritmo T · recupero 1\'30" corricchiando'],['Defaticamento','10\'']],dur:'~55\''},
-  f:{n:'Facile + allunghi',st:[['Corsa','40\' in zona facile'],['Allunghi','6 × 20 s']],dur:'~45\''},
   l:{n:'Lungo facile',st:[['Corsa','65\' in zona facile']],dur:'65\'',cap:11}},
  {q:{n:'Ripetute 4 × 3\'',st:[['Riscaldamento',RISC],['Ripetute','4 × 3\' a ritmo I · recupero 2\''],['Defaticamento','10\'']],dur:'~45\''},
-  f:{n:'Facile + allunghi',st:[['Corsa','30\' in zona facile'],['Allunghi','4 × 20 s']],dur:'~35\''},
   l:{n:'Lungo corto',st:[['Corsa','50\' in zona facile']],dur:'50\'',cap:9}},
  {q:{n:'Ripetute 4 × 4\'',st:[['Riscaldamento',RISC],['Ripetute','4 × 4\' a ritmo I · recupero 3\' corricchiando'],['Defaticamento','10\'']],dur:'~55\''},
-  f:{n:'Facile + sprint in salita',st:[['Corsa','40\' in zona facile'],['Salite','6 × 10 s di sprint su una salita ripida, recupero camminando giù (90 s)']],dur:'~50\''},
   l:{n:'Lungo facile',st:[['Corsa','70\' in zona facile']],dur:'70\'',cap:11.5}},
  {q:{n:'Soglia 3 × 10\'',st:[['Riscaldamento',RISC],['Soglia','3 × 10\' a ritmo T · recupero 2\''],['Defaticamento','10\'']],dur:'~60\''},
-  f:{n:'Facile + allunghi',st:[['Corsa','40\' in zona facile'],['Allunghi','6 × 20 s']],dur:'~45\''},
   l:{n:'Lungo con finale medio',st:[['Corsa','60\' in zona facile'],['Finale','15\' a ritmo M']],dur:'75\'',cap:12}},
  {q:{n:'Ripetute 5 × 4\'',st:[['Riscaldamento',RISC],['Ripetute','5 × 4\' a ritmo I · recupero 3\''],['Defaticamento','10\'']],dur:'~60\''},
-  f:{n:'Facile + sprint in salita',st:[['Corsa','45\' in zona facile'],['Salite','8 × 10 s di sprint in salita, recupero camminando']],dur:'~55\''},
   l:{n:'Lungo facile',st:[['Corsa','80\' in zona facile']],dur:'80\'',cap:12.5}},
  {q:{n:'Richiamo 3 × 3\'',st:[['Riscaldamento',RISC],['Ripetute','3 × 3\' a ritmo I · recupero 2\''],['Defaticamento','10\'']],dur:'~40\''},
-  f:{n:'Facile + allunghi',st:[['Corsa','25\' in zona facile'],['Allunghi','4 × 20 s']],dur:'~30\''},
   l:{n:'Test 5 km',st:[['Riscaldamento',RISC],['Test','5 km a tutta, sullo stesso percorso della settimana 1'],['Defaticamento','10\'']],dur:'~50\'',test:'t5k8'}}
 ];
 
 // ---------- il programma: quali sedute in quale giorno ----------
-const PLAN=[['q'],['A'],['f','C'],['l'],[],['B'],[]];
+const PLAN=[['q'],['A'],['C'],['l'],[],['B'],[]];
 const SMETA={
   A:{list:A,cls:'fa',kind:'Forza A',title:'Gambe e parte alta',short:'Forza A · gambe e parte alta',dur:'~55\'',
      cfg:'<b>Pesi:</b> manubri 25 + 25 · zaino. Nessun cambio di dischi.',
-     warm:'Riscaldamento 8\': bici 5\' crescente, 10 oscillazioni per gamba, 10 squat a corpo libero, 6 split squat per gamba senza pesi, 5 trazioni scapolari.'},
+     warm:'Riscaldamento 8\': bici 5\' crescente, 10 oscillazioni per gamba, 10 squat a corpo libero, 5 goblet squat leggeri con il 25, 5 trazioni scapolari.'},
   B:{list:B,cls:'fb',kind:'Forza B',title:'Esplosività e spinta',short:'Forza B · esplosività e spinta',dur:'~60\'',
      cfg:'<b>Pesi:</b> zaino → manubri 25 + 25 → coppia da 3 kg. Nessun cambio di dischi.',
      warm:'Riscaldamento 8\': bici 5\' con gli ultimi 30 s forti, skip, calciata, 2 × 3 salti a metà intensità.'},
-  C:{list:C,cls:'fc',kind:'Forza C · dopo la corsa',title:'Parte alta, versione corta',short:'Forza C',dur:'~20\'',
+  C:{list:C,cls:'fc',kind:'Forza C',title:'Parte alta, versione corta',short:'Forza C · parte alta',dur:'~25\'',
      cfg:'<b>Pesi:</b> zaino · coppia da 3 kg · bilanciere 16 kg. I manubri da 25 restano montati per sabato.',
-     warm:'È il giorno dopo Forza A: se braccia e dorso sono ancora stanchi, tieni 1 ripetizione di margine in più.'}
+     warm:'Riscaldamento 5\': bici 3\', 10 circonduzioni delle braccia, 5 trazioni scapolari, 5 push-up. È il giorno dopo Forza A: se braccia e dorso sono ancora stanchi, tieni 1 ripetizione di margine in più.'}
 };
 function sessInfo(w,k){
   if(SMETA[k]){const m=SMETA[k];return {k,type:'str',cls:m.cls,kind:m.kind,title:m.title,short:m.short,dur:m.dur}}
   const r=RUN[w][k];
-  return {k,type:'run',cls:'run',kind:k==='q'?'Corsa · qualità':k==='f'?'Corsa · facile':(r.test?'Corsa · test':'Corsa · lungo'),title:r.n,short:r.n,dur:r.dur};
+  return {k,type:'run',cls:'run',kind:k==='q'?'Corsa · qualità':(r.test?'Corsa · test':'Corsa · lungo'),title:r.n,short:r.n,dur:r.dur};
 }
 const dayOf=k=>PLAN.findIndex(p=>p.includes(k));
 const doneKey=(w,k)=>`done.w${w+1}.${k}`;
@@ -504,7 +495,9 @@ function strBody(w,k,lvl){
   const m=SMETA[k], low=lvl>=1, test=(w===0||w===7), n=w?8:1;
   let h=`<div class="config">${m.cfg}<span class="warm">${m.warm}</span></div>`;
   if(low)h+=`<div class="note bad">Prontezza bassa: una serie in meno per esercizio e una ripetizione di margine in più (RIR +1). È già applicato qui sotto.</div>`;
-  if(test&&k==='A')h+=`<div class="note test"><b>Test di oggi</b><label>Trazioni massime a corpo libero ${inpN('tpull'+n,'ripetizioni')}</label><label>Split squat bulgaro 2 × 25, gamba debole ${inpN('tbss'+n,'ripetizioni')}</label></div>`;
+  if(test&&k==='A')h+=`<div class="note test"><b>Test di oggi</b><label>Trazioni massime a corpo libero ${inpN('tpull'+n,'ripetizioni')}</label><label>Goblet squat con un 25, massime ripetizioni ${inpN('tgsq'+n,'ripetizioni')}</label></div>`;
+  // il goblet squat è entrato a settimana 1 già iniziata: il test si può fare anche in settimana 2
+  if(w===1&&k==='A')h+=`<div class="note test"><b>Test del goblet squat</b> · solo se non l'hai fatto in settimana 1: serie 1 = massime ripetizioni pulite, poi le altre a RIR 2.<label>Goblet squat con un 25, massime ripetizioni ${inpN('tgsq1','ripetizioni')}</label></div>`;
   if(test&&k==='B')h+=`<div class="note test"><b>Test nel riscaldamento</b><label>Salto in lungo da fermo, il migliore di 3 ${inpN('tjump'+n,'cm')}</label></div>`;
   return h+m.list.map(e=>exHTML(e,w,k,low)).join('');
 }
@@ -630,10 +623,10 @@ function viewZones(){
    <div class="card"><div class="calc"><div><label class="lbl" for="t5k">Tempo sui 5 km</label><input class="f" id="t5k" placeholder="26:30" inputmode="numeric" value="${esc(store.t5k)}"></div>
     <button class="btn btn-acc" data-calc>Ricalcola i ritmi</button></div><p class="small muted" id="vdotout" style="margin:8px 0 0">Il tempo del test registrato nella corsa li aggiorna da solo.</p></div>
    <div class="zones">${Object.values(Z).map(z=>`<div class="zone"><span class="bar" style="background:${z.c}"></span><b>${z.n}${z.z?' · '+z.z:''}</b><span class="p">${z.p()}<small>/km</small></span><small>FC ${z.fc} · ${z.d}</small></div>`).join('')}</div>
-   <p class="small muted">Nelle corse facili e nel lungo comanda la <b>FC</b>: se supera 150, rallenta anche se il ritmo sembra ridicolo. Nelle ripetute comanda il <b>ritmo</b>, perché la FC arriva in ritardo. Gli allunghi sono 20 s di accelerazione progressiva fino a un passo veloce ma sciolto, non uno sprint; tra uno e l'altro 60–90 s camminando.</p>`;
+   <p class="small muted">Nel lungo e nei riscaldamenti comanda la <b>FC</b>: se supera 150, rallenta anche se il ritmo sembra ridicolo. Nelle ripetute comanda il <b>ritmo</b>, perché la FC arriva in ritardo. Gli allunghi sono 20 s di accelerazione progressiva fino a un passo veloce ma sciolto, non uno sprint; tra uno e l'altro 60–90 s camminando.</p>`;
 }
 function testsTable(){
-  const T=[['5 km','t5k1','t5k8','mm:ss'],['Salto in lungo da fermo','tjump1','tjump8','cm'],['Trazioni a corpo libero','tpull1','tpull8','ripetizioni'],['Split squat bulgaro 2 × 25','tbss1','tbss8','ripetizioni, gamba debole']];
+  const T=[['5 km','t5k1','t5k8','mm:ss'],['Salto in lungo da fermo','tjump1','tjump8','cm'],['Trazioni a corpo libero','tpull1','tpull8','ripetizioni'],['Goblet squat con un 25','tgsq1','tgsq8','ripetizioni']];
   return '<table><tr><th>Test</th><th>Sett. 1</th><th>Sett. 8</th><th>Unità</th></tr>'+
     T.map(([n,a,b,u])=>`<tr><td><b>${n}</b></td><td>${esc(store[a])||'—'}</td><td>${esc(store[b])||'—'}</td><td class="muted">${u}</td></tr>`).join('')+'</table>';
 }
@@ -642,17 +635,17 @@ const dot=v=>`<i class="dot" style="background:var(--${v})"></i>`;
 function viewGuide(){
   const last=store.lastExport?new Date(store.lastExport).toLocaleDateString('it-IT'):'mai';
   return `<header class="vhead"><div class="eyebrow">2 novembre – 27 dicembre 2026</div><h1>Guida alla scheda</h1>
-   <p>Otto settimane, cinque giorni a settimana e la domenica libera: tre corse e tre sedute di forza. I manubri restano sempre a 25 kg per mano.</p></header>`+
+   <p>Otto settimane, cinque giorni a settimana con venerdì e domenica liberi: due corse e tre sedute di forza, mai due nello stesso giorno. I manubri restano sempre a 25 kg per mano.</p></header>`+
   g('La settimana tipo','Cosa si fa ogni giorno e come spostare le sedute',`<table>
     <tr><th>Giorno</th><th>Seduta</th><th>Durata</th></tr>
     <tr><td>Lun</td><td>${dot('run')}<b>Qualità</b> · ripetute o soglia</td><td>45–60'</td></tr>
     <tr><td>Mar</td><td>${dot('fa')}<b>Forza A</b> · gambe e parte alta</td><td>~55'</td></tr>
-    <tr><td>Mer</td><td>${dot('run')}<b>Facile + allunghi</b>, poi ${dot('fc')}<b>Forza C</b> · parte alta corta</td><td>30–55' + 20'</td></tr>
+    <tr><td>Mer</td><td>${dot('fc')}<b>Forza C</b> · parte alta corta</td><td>~25'</td></tr>
     <tr><td>Gio</td><td>${dot('run')}<b>Lungo facile</b></td><td>50–80'</td></tr>
     <tr><td>Ven</td><td class="muted">Riposo</td><td></td></tr>
     <tr><td>Sab</td><td>${dot('fb')}<b>Forza B</b> · esplosività e spinta</td><td>~60'</td></tr>
     <tr><td>Dom</td><td class="muted">Riposo</td><td></td></tr></table>
-   <p style="margin-top:12px">La domenica è sempre libera. Gli altri giorni si possono spostare rispettando quattro vincoli: <b>mai Forza A il giorno prima della qualità</b>; <b>qualità e lungo non in giorni consecutivi</b>; <b>mai il lungo il giorno prima di Forza B</b>, perché i salti vogliono gambe fresche; <b>un giorno di riposo fra Forza B e la qualità</b>. Una seduta saltata non si recupera, si riparte dalla successiva. In ordine di importanza: qualità, lungo, Forza A, Forza B, sabato.</p>`,true)+
+   <p style="margin-top:12px">La domenica è sempre libera. Gli altri giorni si possono spostare rispettando quattro vincoli: <b>mai Forza A il giorno prima della qualità</b>; <b>qualità e lungo non in giorni consecutivi</b>; <b>mai il lungo il giorno prima di Forza B</b>, perché i salti vogliono gambe fresche; <b>un giorno di riposo fra Forza B e la qualità</b>. Una seduta saltata non si recupera, si riparte dalla successiva. In ordine di importanza: qualità, lungo, Forza A, Forza B, Forza C.</p>`,true)+
   g('Regole che valgono sempre','RIR, quando aumentare, coppie, prontezza, dolore, sonno',`<ul class="facts">
     <li><b>RIR: le ripetizioni di margine.</b> RIR 2 vuol dire fermarsi quando potresti farne ancora 2 pulite. Il RIR della settimana è in alto: scende fino alla settimana 3, poi c'è lo scarico, poi si riparte più duri.</li>
     <li><b>Quando aumentare.</b> Quando completi <b>tutte le serie al massimo del range</b> con il RIR indicato, la volta dopo rendi l'esercizio più difficile: una bottiglia in più nello zaino, oppure discesa lenta, pausa, ripetizioni 1½. La scheda te lo segnala con ▲ se hai registrato le ripetizioni.</li>
@@ -665,7 +658,7 @@ function viewGuide(){
     <li><b>Zaino: il carico che sale.</b> Base: il tuo zaino da 8,5 kg. Per salire aggiungi una bottiglia d'acqua da 1,5 L alla volta. Lo stesso peso serve per trazioni, dip, push-up e jump squat: lo prepari una volta e non lo tocchi fino al prossimo aumento.</li>
     <li><b>2 × 3 kg: alzate.</b> Laterali e posteriori fino a 0–1 ripetizioni dal cedimento: con 3 kg servono 20–30 ripetizioni, ed è giusto così.</li>
     <li><b>Bilanciere 16 kg: rollout.</b> Lavoro di core in tenuta: i dischi fanno da ruota.</li>
-    <li><b>Bici: riscaldamento e riserva.</b> 5' all'inizio delle sedute di forza. Sostituisce una corsa facile se hai un fastidio da impatto (tibie, tendine d'Achille): stessa durata, stessa FC.</li></ul>`)+
+    <li><b>Bici: riscaldamento e riserva.</b> 5' all'inizio delle sedute di forza. Sostituisce il lungo se hai un fastidio da impatto (tibie, tendine d'Achille): stessa durata, stessa FC.</li></ul>`)+
   g('Cosa dicono i tuoi dati','Da Forma · gennaio–ottobre 2026',`<div class="kpis">
     <div class="kpi"><div class="l">FC media corse</div><div class="v">160–170</div></div>
     <div class="kpi"><div class="l">VO2max</div><div class="v">54,8 → 50</div></div>
@@ -674,12 +667,12 @@ function viewGuide(){
     <li><b>FC media 160–170:</b> 85–90% della massima: sempre in soglia. Nessuna corsa davvero facile, nessuna più veloce.</li>
     <li><b>VO2max da 54,8 a 50</b> da marzo a oggi, insieme al volume: 83 km ad aprile, ~50 al mese da maggio.</li>
     <li><b>Sonno 6,4 h:</b> FC a riposo ~43 e HRV ~74 sono ottime: il punto debole è il sonno.</li>
-    <li><b>Il 27/10 hai corso 10 km a 5:42 con FC media 167:</b> di fatto una seduta di soglia lunga un'ora. Qui ogni settimana ha una sola seduta dura; le altre due sono davvero facili.</li>
+    <li><b>Il 27/10 hai corso 10 km a 5:42 con FC media 167:</b> di fatto una seduta di soglia lunga un'ora. Qui ogni settimana ha una sola corsa dura; l'altra, il lungo, è davvero facile.</li>
     <li><b>Con 25 kg alcuni esercizi sono al limite:</b> panca 25 × 20, trazioni × 15 a corpo libero, push-up con 8,5 kg × 35. Per la panca la soluzione è rallentare; per trazioni e dip, aggiungere peso allo zaino.</li>
-    <li><b>Per le gambe bastano pochi esercizi, ma pesanti.</b> Corri su sterrato, quindi polpacci, caviglie e stabilizzatori lavorano già lì: con i pesi niente polpacci, e il grosso del volume va alla parte alta. Restano split squat bulgaro, stacco su una gamba e step-up con 2 × 25 (50 kg su un arto), più due salti: il goblet squat con 25 kg (2 × 12) era troppo leggero per servire.</li></ul>`)+
+    <li><b>Per le gambe, pochi esercizi, con i pesi tutti a due gambe.</b> Corri su sterrato, quindi polpacci, caviglie e stabilizzatori lavorano già lì: con i pesi niente polpacci, e il grosso del volume va alla parte alta. Restano goblet squat con un 25, stacco rumeno e hip thrust con 2 × 25, più due salti. I 50 kg su una gamba sola (split squat bulgaro, step-up) erano troppi. Con 25 kg al petto il goblet squat è leggero per la forza massima: si porta vicino al cedimento e si sale con le ripetizioni e la discesa lenta.</li></ul>`)+
   g('Prima e dopo','I test di settimana 1 e 8',testsTable())+
   g('Le evidenze dietro le scelte','Perché la scheda è fatta così',`<ul class="facts">
-    <li><b>Forza pesante e salti migliorano l'economia di corsa</b>; i carichi submassimali e gli isometrici molto meno. Per questo split squat bulgaro, step-up e salti invece di circuiti leggeri. <a href="https://repositorio.unab.cl/handle/ria/62074">Llanos-Lagos et al., Sports Medicine 2024</a></li>
+    <li><b>Forza pesante e salti migliorano l'economia di corsa</b>; i carichi submassimali e gli isometrici molto meno. Per questo i salti ci sono ogni settimana: con i manubri a 25 kg gli esercizi per le gambe non sono carichi pesanti, e il loro compito è la massa muscolare, portata vicino al cedimento. <a href="https://repositorio.unab.cl/handle/ria/62074">Llanos-Lagos et al., Sports Medicine 2024</a></li>
     <li><b>Forza e corsa insieme</b> non frenano né la crescita muscolare né la forza massima; frenano un po' l'esplosività, soprattutto nella stessa seduta. Per questo i salti stanno il sabato, dopo un giorno di riposo e lontano dalle corse. <a href="https://researchonline.jcu.edu.au/71546/1/Schumann2021_Article_CompatibilityOfConcurrentAerob.pdf">Schumann et al., Sports Medicine 2022</a></li>
     <li><b>Vicino al cedimento</b> la crescita muscolare aumenta, la forza molto meno. <a href="https://rke.abertay.ac.uk/en/publications/exploring-the-dose-response-relationship-between-estimated-resist/">Robinson et al., Sports Medicine 2024</a>. Con carichi leggeri vicino al cedimento si cresce quanto con quelli pesanti, mentre la forza massima segue il carico (Schoenfeld et al., J Strength Cond Res 2017): da qui i 25 kg fissi più lo zaino che sale.</li>
     <li><b>Più serie, rendimenti decrescenti</b>, e per la forza calano prima: bastano ~10 serie settimanali per muscolo. <a href="https://bibbase.org/network/publication/joshuapelland-jacobremmert-zacrobinson-sethhinson-michaelzourdos-theresistancetrainingdoseresponsemetaregressionsexploringtheeectsofweeklyvolumeandfrequencyonmusclehypertrophyandstrengthgain-2024">Pelland et al., 2024</a> (preprint)</li>
