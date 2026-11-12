@@ -12,6 +12,7 @@ Obiettivo: scheda fissa con progressione automatica e app ridisegnata.
 - [x] Progressi con la forza stimata (Epley, indice concatenato): grafico generale, uno per
       esercizio (tocca e scorri), tendenza a 2 settimane, record; corsa con grafici. Provata a 375 px
 - [x] Pubblicata la nuova Progressi (push su `main`)
+- [x] Grafici e forza stimata visibili dalla prima seduta (punto di partenza 0%), pubblicato
 
 ## Backlog
 - [ ] Peso del manubrio scarico: se serve, calcolare i dischi esatti da togliere il sabato
