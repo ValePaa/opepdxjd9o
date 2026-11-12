@@ -9,6 +9,9 @@ Obiettivo: scheda fissa con progressione automatica e app ridisegnata.
 - [x] Pubblicata su GitHub Pages (push su `main`)
 - [x] Correzioni dopo la prova sul telefono: via la prontezza, tempo in mm:ss con passo medio,
       blocchi alternati spiegati, Progressi con barre e storico, soglia di salita sui vecchi diari
+- [x] Progressi con la forza stimata (Epley, indice concatenato): grafico generale, uno per
+      esercizio (tocca e scorri), tendenza a 2 settimane, record; corsa con grafici. Provata a 375 px
+- [x] Pubblicata la nuova Progressi (push su `main`)
 
 ## Backlog
 - [ ] Peso del manubrio scarico: se serve, calcolare i dischi esatti da togliere il sabato

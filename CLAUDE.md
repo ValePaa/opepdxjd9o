@@ -24,6 +24,9 @@ calcolata dal diario. Una pagina HTML statica pubblicata su GitHub Pages da usar
   ripetizione, conferma, +5 kg, bottiglie nello zaino, variante più difficile, settimana leggera
   o passo indietro. Le corse con `qPlan()` (ripetute 4 → 6, poi test) e `lPlan()` (lungo +5 min,
   tetto in km a +10% sulla corsa più lunga dei 30 giorni). La regola: decisione 0002.
+- Progressi mostra la **forza stimata** (`series()`): per serie carico × (1 + rip/30) di Epley,
+  media della settimana, come indice che parte da 0%; al cambio di variante resta piatto, le
+  settimane leggere non contano. Con lo zaino conta il corpo (`BW`, push-up `BWSH` 0,64).
 - I ritmi si calcolano con le formule VDOT di Daniels dal tempo sui 5 km (`VDOT_PROVV` finché
   non c'è il test).
 - Il diario sta nel `localStorage` del browser (chiave `scheda-fc-2026`), con esporta/importa

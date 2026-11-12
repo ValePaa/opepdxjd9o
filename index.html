@@ -182,17 +182,38 @@ details.how p{margin:0 0 14px;font-size:14.5px;color:var(--muted)}
 .pex .pt small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
 .pex .pt small b{color:var(--ink);font-weight:650}
 .pex[open]>summary{padding-bottom:6px}
-.spark{flex:none}
 .nd{color:var(--faint);flex:none}
 .pb{padding:0 16px 12px}
 .pb table{font-size:13.5px}
 .pb td{padding:7px 6px}
 .sec .dot{width:7px;height:7px;margin-right:7px;vertical-align:1px}
-.hist{display:flex;gap:6px;overflow-x:auto;margin-top:9px;scrollbar-width:none}
-.hist::-webkit-scrollbar{display:none}
-.hist span{flex:none;background:var(--fill);border-radius:10px;padding:5px 9px;font-size:13px;font-variant-numeric:tabular-nums;line-height:1.25}
-.hist span small{display:block;font-size:10.5px;color:var(--muted);font-weight:600}
-.hist span.cur{background:var(--accentfill)}
+.hero{background:var(--card);border-radius:var(--r);padding:16px;margin:0 0 12px}
+.hero .l{display:block;font-size:13px;color:var(--muted);font-weight:600}
+.big{font-size:42px;font-weight:760;letter-spacing:-.03em;line-height:1.05;margin-top:4px;font-variant-numeric:tabular-nums}
+.hs{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.chw{margin:12px 0 4px}
+.tip{font-size:13px;color:var(--muted);line-height:1.4;min-height:37px;margin:0 0 6px;font-variant-numeric:tabular-nums}
+.tip b{color:var(--ink);font-weight:700}
+svg.ch{width:100%;height:auto;touch-action:pan-y;overflow:visible;cursor:crosshair}
+svg.ch text{font-size:10.5px;fill:var(--muted);font-variant-numeric:tabular-nums}
+.lg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted);margin:8px 0 0}
+.lg span{display:inline-flex;align-items:center;gap:6px}
+.lg svg{width:13px;height:13px;overflow:visible}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
+.chip{font-size:13px;font-weight:600;padding:5px 10px;border-radius:99px;background:var(--fill);white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 0}
+.stats div{background:var(--fill);border-radius:12px;padding:9px 10px;min-width:0}
+.stats small{display:block;font-size:11.5px;color:var(--muted);font-weight:600}
+.stats b{display:block;font-size:18px;font-weight:720;letter-spacing:-.01em;margin-top:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.stats i{display:block;font-style:normal;font-size:11.5px;color:var(--muted);line-height:1.25;margin-top:1px}
+.mini{flex:none}
+.nw{white-space:nowrap}
+.dlt{flex:none;text-align:right;line-height:1.2;min-width:64px}
+.dlt b{display:block;font-size:16.5px;font-weight:720;font-variant-numeric:tabular-nums}
+.dlt small{display:block;font-size:11.5px;font-weight:650;white-space:nowrap;margin-top:1px}
+.st-up{color:var(--ok)} .st-down{color:var(--bad)} .st-flat{color:var(--muted)}
+.pb table{margin-top:12px}
+.pb td.num{white-space:nowrap}
 .empty{color:var(--faint);font-size:13.5px;margin-top:6px}
 
 /* guida */
@@ -628,41 +649,161 @@ function weekView(w){
 }
 
 // ---------- viste: progressi ----------
-function spark(vals,marks){
-  const W=vals.length*11-4,H=30,mx=Math.max(...vals,1);
-  return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true">${vals.map((v,i)=>{const h=Math.max(3,Math.round(v/mx*H));return `<rect x="${i*11}" y="${H-h}" width="7" height="${h}" rx="2" fill="${marks[i]?'var(--accent)':'var(--faint)'}"/>`}).join('')}</svg>`;
+// Forza stimata: per ogni serie carico × (1 + ripetizioni/30) (Epley), media delle serie della settimana.
+// Con lo zaino si sposta anche il corpo: trazioni, chin-up e dip quasi tutto, push-up il 64% (Wurm, Ebben 2010).
+const BWSH={pull:1,chin:1,dip:1,push:.64};
+function loadOf(id,L){const e=EX[id];
+  if(e.eq==='pack')return (BWSH[id]??1)*BW+(L.kg||0);
+  if(hasKg(e))return L.kg||e.kg0||1;
+  return 1}
+const epley=(kg,r)=>kg*(1+r/30);
+function strOf(id,L){const ld=loadOf(id,L),ss=L.sets.slice(0,EX[id].sets);return ss.reduce((a,s)=>a+epley(ld,s.r),0)/ss.length}
+// indice concatenato: 0% alla prima settimana; tra due settimane confrontabili cambia come la forza stimata.
+// Al cambio di variante non si sa di quanto sei salito: la linea resta piatta e riparte da lì. Le settimane leggere non contano.
+function series(id,w){
+  const pts=[];let v=100,prev=null;
+  for(let p=0;p<=w;p++){const L=logOf(p,id);if(!L)continue;
+    const s=strOf(id,L);let k='';
+    if(prev){
+      if(L.dl)k='dl';
+      else if(L.lv!==prev.lv)k=L.lv>prev.lv?'lv':'';
+      else{v=v*s/prev.s;k=L.kg>prev.kg?'kg':''}
+    }
+    pts.push({p,v,k,L});
+    if(!L.dl)prev={s,lv:L.lv,kg:L.kg};
+  }
+  return pts}
+// tendenza: confronto con due settimane prima (come la regola della settimana leggera)
+function trendOf(pts){
+  const real=pts.filter(x=>x.k!=='dl');if(real.length<2)return null;
+  const last=real[real.length-1],ref=real.filter(x=>x.p<=last.p-2).pop()||real[0];
+  const d=last.v/ref.v-1,stepped=real.some(x=>x.p>ref.p&&(x.k==='lv'||x.k==='kg'));
+  return {d,st:d>.01||stepped?'up':d<-.01?'down':'flat'}}
+const pctTxt=d=>{const r=Math.round(d*100);return r===0?'0%':(r>0?'+':'−')+Math.abs(r)+'%'};
+const ST={up:['▲','in crescita'],flat:['●','stabile'],down:['▼','in calo']};
+function overall(w){
+  const all=Object.keys(EX).map(id=>series(id,w)).filter(s=>s.length);if(!all.length)return [];
+  const weeks=[...new Set(all.flatMap(s=>s.map(x=>x.p)))].sort((a,b)=>a-b);
+  return weeks.map(p=>{const vs=all.map(s=>{const q=s.filter(x=>x.p<=p).pop();return q?q.v:null}).filter(v=>v!==null);
+    return {p,v:Math.exp(vs.reduce((a,v)=>a+Math.log(v),0)/vs.length),n:vs.length}})}
+
+// grafico a linea: un solo valore per settimana, tocca o scorri per leggere i punti
+let CH={},chN=0;
+function niceStep(x){if(!(x>0))return 1;const m=Math.pow(10,Math.floor(Math.log10(x))),f=x/m;return (f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10)*m}
+const MK={
+  n:(x,y)=>`<circle cx="${x}" cy="${y}" r="3.5" fill="var(--accent)" stroke="var(--card)" stroke-width="2"/>`,
+  kg:(x,y)=>`<circle cx="${x}" cy="${y}" r="5.5" fill="var(--accent)" stroke="var(--card)" stroke-width="2"/>`,
+  lv:(x,y)=>`<path d="M${x} ${y-6.5}L${x+6.5} ${y}L${x} ${y+6.5}L${x-6.5} ${y}Z" fill="var(--accent)" stroke="var(--card)" stroke-width="2"/>`,
+  dl:(x,y)=>`<circle cx="${x}" cy="${y}" r="4" fill="var(--card)" stroke="var(--faint)" stroke-width="2"/>`
+};
+const LG={kg:'più carico',lv:'variante più difficile',dl:'settimana leggera'};
+function legend(kinds){const ks=Object.keys(LG).filter(k=>kinds.includes(k));if(!ks.length)return '';
+  return `<div class="lg">${ks.map(k=>`<span><svg viewBox="-8 -8 16 16">${MK[k](0,0)}</svg>${LG[k]}</span>`).join('')}</div>`}
+function chart(pts,o){
+  const id='c'+(++chN),W=320,H=o.h||150,L=40,R=12,T=12,B=24;
+  const vs=pts.map(x=>x.v);let lo=Math.min(...vs),hi=Math.max(...vs);
+  if(o.base!=null){lo=Math.min(lo,o.base);hi=Math.max(hi,o.base)}
+  if(o.zero)lo=0;
+  if(hi-lo<1e-6){hi+=o.pad||1;lo-=o.pad||1}
+  const step=niceStep((hi-lo)/3);lo=Math.floor(lo/step+1e-9)*step;hi=Math.ceil(hi/step-1e-9)*step;
+  const p0=pts[0].p,p1=pts[pts.length-1].p;
+  const X=p=>p1===p0?(L+W-R)/2:L+(p-p0)/(p1-p0)*(W-L-R),Y=v=>T+(hi-v)/(hi-lo)*(H-T-B);
+  pts.forEach(q=>{q.x=Math.round(X(q.p)*10)/10;q.y=Math.round(Y(q.v)*10)/10});
+  let grid='';for(let v=lo;v<=hi+step/2;v+=step){const y=Y(v);
+    grid+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-width="1" ${o.base!=null&&Math.abs(v-o.base)<1e-6?'stroke-dasharray="3 3"':''}/><text x="${L-6}" y="${y+3.5}" text-anchor="end">${o.fy(v)}</text>`}
+  const xl=[pts[0]];if(pts.length>=5)xl.push(pts[Math.floor((pts.length-1)/2)]);if(pts.length>1)xl.push(pts[pts.length-1]);
+  const xt=xl.map((q,i)=>`<text x="${q.x}" y="${H-6}" text-anchor="${pts.length===1?'middle':i===0?'start':i===xl.length-1?'end':'middle'}">${fmt(dataDi(q.p,0))}</text>`).join('');
+  const line=pts.map((q,i)=>(i?'L':'M')+q.x+' '+q.y).join('');
+  const area=pts.length>1?`<path d="${line}L${pts[pts.length-1].x} ${H-B}L${pts[0].x} ${H-B}Z" fill="var(--accentfill)"/>`:'';
+  const marks=pts.map(q=>MK[q.k==='kg'||q.k==='lv'||q.k==='dl'?q.k:'n'](q.x,q.y)).join('');
+  CH[id]=pts.map(q=>({x:q.x,y:q.y,tip:o.tip(q)}));
+  const lastTip=o.hint||CH[id][CH[id].length-1].tip;
+  return `<div class="chw"><div class="tip">${lastTip}</div><svg class="ch" data-ch="${id}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.label||'Grafico')}">${grid}${xt}${area}<path d="${line}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><line class="xh" y1="${T}" y2="${H-B}" stroke="var(--muted)" stroke-width="1" style="display:none"/>${marks}<circle class="hp" r="7" fill="none" stroke="var(--ink)" stroke-width="2" style="display:none"/></svg>${legend(pts.map(q=>q.k))}</div>`;
 }
+function mini(pts){const W=52,H=26,vs=pts.map(x=>x.v),lo=Math.min(...vs),hi=Math.max(...vs),rg=hi-lo||1;
+  const P=pts.map((q,i)=>[2+i/(pts.length-1)*(W-6),3+(hi-q.v)/rg*(H-6)]);
+  const [lx,ly]=P[P.length-1];
+  return `<svg class="mini" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true"><polyline points="${P.map(p=>p.join(',')).join(' ')}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${lx}" cy="${ly}" r="3" fill="var(--accent)"/></svg>`}
+function scrub(ev){
+  const svg=ev.target.closest&&ev.target.closest('svg.ch');if(!svg)return;const pts=CH[svg.dataset.ch];if(!pts)return;
+  const r=svg.getBoundingClientRect(),vb=svg.viewBox.baseVal,x=(ev.clientX-r.left)/r.width*vb.width;
+  let b=0;pts.forEach((q,i)=>{if(Math.abs(q.x-x)<Math.abs(pts[b].x-x))b=i});
+  const q=pts[b],xh=svg.querySelector('.xh'),hp=svg.querySelector('.hp');
+  xh.setAttribute('x1',q.x);xh.setAttribute('x2',q.x);xh.style.display='';
+  hp.setAttribute('cx',q.x);hp.setAttribute('cy',q.y);hp.style.display='';
+  svg.parentNode.querySelector('.tip').innerHTML=q.tip;
+}
+
+const vdotOf=t=>vo2(5000/t)/pct(t);
 function progView(){
+  CH={};chN=0;
   const t=oggi(),w=Math.max(0,t.w);
+  const S_=Object.fromEntries(Object.keys(EX).map(id=>[id,series(id,w)]));
   let sessions=0;Object.keys(store).forEach(k=>{if(/^done\.w\d+\./.test(k)&&store[k])sessions++});
-  let ups=0;Object.keys(EX).forEach(id=>{const H=history(id,w+1).reverse();for(let i=1;i<H.length;i++)if(H[i].kg>H[i-1].kg||H[i].lv>H[i-1].lv)ups++});
+  const ups=Object.values(S_).reduce((a,s)=>a+s.filter(x=>x.k==='kg'||x.k==='lv').length,0);
+  const tr=Object.fromEntries(Object.keys(EX).map(id=>[id,trendOf(S_[id])]));
+  const cnt=k=>Object.values(tr).filter(x=>x&&x.st===k).length;
+
+  // in alto: la forza stimata di tutti gli esercizi insieme
+  const ov=overall(w);let hero;
+  if(ov.length>1){
+    const d=ov[ov.length-1].v/100-1;
+    hero=`<div class="hero"><small class="l">Forza stimata · media degli esercizi</small>
+      <div class="big">${pctTxt(d)}</div><p class="hs">dal ${fmtL(dataDi(ov[0].p,0))}, su ${ov[ov.length-1].n} esercizi</p>
+      ${chart(ov,{hint:'Tocca o scorri il grafico per leggere ogni settimana.',base:100,fy:v=>pctTxt(v/100-1),label:'Forza stimata media per settimana',tip:q=>`<b>${pctTxt(q.v/100-1)}</b> · settimana del ${fmt(dataDi(q.p,0))} · ${q.n} esercizi`})}
+      <div class="chips">${['up','flat','down'].map(k=>`<span class="chip"><span class="st-${k}">${ST[k][0]}</span> ${cnt(k)} ${k==='up'?'in crescita':k==='flat'?(cnt(k)===1?'stabile':'stabili'):'in calo'}</span>`).join('')}</div></div>`;
+  }else hero=`<div class="hero"><small class="l">Forza stimata</small><p class="hs" style="margin-top:6px">Il grafico compare dalla seconda settimana di diario: confronta ogni esercizio con la settimana prima.</p></div>`;
   const kpi=`<div class="kpis"><div class="kpi"><small>Sedute fatte</small><b>${sessions}</b></div><div class="kpi"><small>Passi avanti</small><b>${ups}</b></div><div class="kpi"><small>VDOT</small><b>${num(vdot().toFixed(1))}</b></div></div>`;
+
   const upNow=Object.keys(EX).filter(id=>pxOf(w,id).kind==='up');
   const hl=`<div class="sec">Questa settimana sali in</div><div class="list">${upNow.length?upNow.map(id=>{const e=EX[id],px=pxOf(w,id);
       return `<div class="row"><div class="rt"><b>${e.n}</b><small>${goalTxt(px)}${loadShort(e,px)?' · '+loadShort(e,px):''}${e.lv[px.lv]?' · '+e.lv[px.lv]:''}</small></div><span class="tag up">${esc(px.tag)}</span></div>`}).join('')
     :'<div class="row"><div class="rt"><b>Nessun aumento per ora</b><small>Si lavora sulle ripetizioni: quando chiudi il range, qui compare l’esercizio che sale.</small></div></div>'}</div>`;
+
   const row=id=>{
-    const e=EX[id],px=pxOf(w,id),H=history(id,w+1).slice(0,8).reverse();
-    const vals=H.map(h=>h.sets.reduce((a,s)=>a+s.r,0)),marks=H.map((h,i)=>i>0&&(h.kg>H[i-1].kg||h.lv>H[i-1].lv));
-    const tbl=H.length?`<table><tr><th>Settimana</th><th>Ripetizioni</th><th>Carico</th></tr>${H.slice().reverse().map(h=>`<tr><td>${fmt(dataDi(h.w,0))}</td><td class="num">${h.sets.map(s=>s.r).join(' · ')}</td><td>${loadShort(e,{kg:h.kg})||'—'}${e.lv[h.lv]?`<br><small class="muted">${e.lv[h.lv]}</small>`:''}</td></tr>`).join('')}</table>`:'<p class="empty">Ancora nessun dato: compare dopo la prima seduta.</p>';
-    return `<details class="pex"><summary><div class="pt"><b>${e.n}</b><small><b class="num">${goalTxt(px)}</b>${loadShort(e,px)?' · '+loadShort(e,px):''}${e.lv[px.lv]?' · '+e.lv[px.lv]:''}</small></div>${H.length>1?spark(vals,marks):''}</summary><div class="pb">${tbl}</div></details>`;
+    const e=EX[id],px=pxOf(w,id),pts=S_[id],T=tr[id];
+    const now=`<b class="num">${goalTxt(px)}</b>${loadShort(e,px)?` · <span class="nw">${loadShort(e,px)}</span>`:''}${e.lv[px.lv]?' · '+e.lv[px.lv]:''}`;
+    if(pts.length<2){
+      const tb=pts.length?`<table><tr><th>Settimana</th><th>Ripetizioni</th><th>Carico</th></tr>${tblRow(e,pts[0].L)}</table>`:'';
+      return `<details class="pex"><summary><div class="pt"><b>${e.n}</b><small>Ora: ${now}</small></div><span class="nd">—</span></summary><div class="pb"><p class="empty">${pts.length?'Il grafico compare dalla seconda settimana.':'Ancora nessun dato: compare dopo la prima seduta.'}</p>${tb}</div></details>`;
+    }
+    const tot=pts[pts.length-1].v/100-1;
+    const lvNow=pts[pts.length-1].L.lv;let best=null;pts.forEach(q=>{if(q.L.dl||q.L.lv!==lvNow)return;q.L.sets.forEach(s=>{const sc=epley(loadOf(id,q.L),s.r);if(!best||sc>best.sc)best={sc,r:s.r,L:q.L}})});if(!best)best={r:Math.max(...pts[pts.length-1].L.sets.map(s=>s.r)),L:pts[pts.length-1].L};
+    const bl=[loadShort(e,{kg:best.L.kg}),e.lv[best.L.lv]].filter(Boolean).join(' · ');
+    const stats=`<div class="stats"><div><small>Dall’inizio</small><b>${pctTxt(tot)}</b><i>${pts.length} settimane</i></div><div><small>Tendenza</small><b><span class="st-${T.st}">${ST[T.st][0]}</span> ${pctTxt(T.d)}</b><i>in 2 settimane</i></div><div><small>Record</small><b>${best.r} rip</b><i>${bl||'corpo libero'}</i></div></div>`;
+    const ch=chart(pts,{base:100,fy:v=>pctTxt(v/100-1),label:'Forza stimata di '+e.n,tip:q=>{const L=q.L,ld=[loadShort(e,{kg:L.kg}),e.lv[L.lv]].filter(Boolean).join(' · ');
+      const why=q.k==='kg'?' · più carico: le ripetizioni ripartono dal basso':q.k==='lv'?' · variante più difficile: da qui riparte':q.k==='dl'?' · settimana leggera, non conta':'';
+      return `<b>${pctTxt(q.v/100-1)}</b> · ${fmt(dataDi(q.p,0))}${why}<br>${L.sets.map(s=>s.r).join(' · ')} rip${ld?' · '+ld:''}`}});
+    const tb=`<table><tr><th>Settimana</th><th>Ripetizioni</th><th>Carico</th></tr>${pts.slice().reverse().map(q=>tblRow(e,q.L)).join('')}</table>`;
+    return `<details class="pex"><summary><div class="pt"><b>${e.n}</b><small>Ora: ${now}</small></div>${mini(pts)}<span class="dlt"><b>${pctTxt(tot)}</b><small class="st-${T.st}">${ST[T.st][0]} ${ST[T.st][1]}</small></span></summary><div class="pb">${stats}${ch}${tb}</div></details>`;
   };
   const sec=S=>`<div class="sec"><i class="dot" style="background:var(--${S})"></i>${SESS[S].title} · ${SESS[S].sub.toLowerCase()}</div><div class="list">${idsOf(S).map(row).join('')}</div>`;
+
+  // corsa
   const longs=[],qs=[],tests=[];
-  for(let p=Math.max(0,w-7);p<=w;p++){
-    const m=parseDur(store[`w${p+1}.l.min`]);if(m)longs.push([p,m,pnum(store[`w${p+1}.l.km`])]);
-    const n=pnum(store[`w${p+1}.q.n`]);if(n)qs.push([p,n,pnum(store[`w${p+1}.q.reps`])]);
+  for(let p=0;p<=w;p++){
+    const m=parseDur(store[`w${p+1}.l.min`]);if(m)longs.push({p,v:m,km:pnum(store[`w${p+1}.l.km`])});
+    const n=pnum(store[`w${p+1}.q.n`]);if(n)qs.push({p,v:pnum(store[`w${p+1}.q.reps`])??0,n});
+    const tv=store[`w${p+1}.q.t5k`];if(parseT(tv))tests.push({p,v:vdotOf(parseT(tv)),s:tv});
   }
-  for(let p=0;p<=w;p++){const v=store[`w${p+1}.q.t5k`];if(parseT(v))tests.push([p,v])}
-  if(parseT(store.t5k1))tests.unshift([0,store.t5k1]);
-  const rrow=(title,cur,vals,tbl)=>`<details class="pex"><summary><div class="pt"><b>${title}</b><small><b>${cur}</b></small></div>${vals.length>1?spark(vals,vals.map(()=>false)):''}</summary><div class="pb">${tbl||'<p class="empty">Ancora nessun dato.</p>'}</div></details>`;
+  if(parseT(store.t5k1)&&!tests.some(x=>x.p===0))tests.unshift({p:0,v:vdotOf(parseT(store.t5k1)),s:store.t5k1});
+  const rrow=(title,cur,pts,o,tbl)=>`<details class="pex"><summary><div class="pt"><b>${title}</b><small>${cur}</small></div>${pts.length>1?mini(pts):'<span class="nd">—</span>'}</summary><div class="pb">${pts.length>1?chart(pts,o):pts.length?'':'<p class="empty">Ancora nessun dato.</p>'}${tbl}</div></details>`;
   const run=`<div class="sec"><i class="dot" style="background:var(--run)"></i>Corsa</div><div class="list">
-    ${rrow('Qualità',runTitle(w,'q'),qs.map(x=>x[2]??0),qs.length?`<table><tr><th>Settimana</th><th>Al ritmo</th></tr>${qs.slice().reverse().map(([p,n,r])=>`<tr><td>${fmt(dataDi(p,0))}</td><td>${r??'—'} su ${n}</td></tr>`).join('')}</table>`:'')}
-    ${rrow('Lungo',lPlan(w).M+' min',longs.map(x=>x[1]),longs.length?`<table><tr><th>Settimana</th><th>Tempo</th><th>km</th></tr>${longs.slice().reverse().map(([p,m,km])=>`<tr><td>${fmt(dataDi(p,3))}</td><td>${fmtDur(m)}</td><td>${km?num(km):'—'}</td></tr>`).join('')}</table>`:'')}
-    ${rrow('Test 5 km',store.t5k?esc(store.t5k):'non ancora',[],tests.length?`<table><tr><th>Data</th><th>Tempo</th></tr>${tests.slice().reverse().map(([p,v])=>`<tr><td>${fmt(dataDi(p,0))}</td><td>${esc(v)}</td></tr>`).join('')}</table>`:'')}</div>`;
-  return `<header class="hd"><div class="eb">Dal tuo diario</div><h1>Progressi</h1></header>`+kpi+hl+sec('A')+sec('C')+sec('B')+run+
-    `<p class="foot">Tocca un esercizio per vedere le settimane. Le barre sono le ripetizioni totali di ogni settimana: in blu quelle in cui è salito il carico o la tecnica, quindi è normale che le ripetizioni calino.</p>`;
+    ${rrow('Lungo','Questa settimana: <b>'+lPlan(w).M+' min</b>',longs,{zero:false,pad:5,fy:v=>Math.round(v)+'′',label:'Durata del lungo',tip:q=>`<b>${fmtDur(q.v)}</b> · ${fmt(dataDi(q.p,3))}${q.km?` · ${num(q.km)} km · ${fmtDur(q.v/q.km)}/km`:''}`},
+      longs.length?`<table><tr><th>Data</th><th>Tempo</th><th>km</th><th>Passo</th></tr>${longs.slice().reverse().map(q=>`<tr><td>${fmt(dataDi(q.p,3))}</td><td class="num">${fmtDur(q.v)}</td><td class="num">${q.km?num(q.km):'—'}</td><td class="num">${q.km?fmtDur(q.v/q.km):'—'}</td></tr>`).join('')}</table>`:'')}
+    ${rrow('Qualità','Questa settimana: <b>'+runTitle(w,'q')+'</b>',qs,{zero:true,fy:v=>Math.round(v)+'',label:'Ripetute al ritmo',tip:q=>`<b>${q.v} su ${q.n}</b> al ritmo · ${fmt(dataDi(q.p,0))}`},
+      qs.length?`<table><tr><th>Data</th><th>Al ritmo</th></tr>${qs.slice().reverse().map(q=>`<tr><td>${fmt(dataDi(q.p,0))}</td><td class="num">${q.v} su ${q.n}</td></tr>`).join('')}</table>`:'')}
+    ${rrow('Test 5 km',store.t5k?'Ultimo: <b>'+esc(store.t5k)+'</b> · VDOT '+num(vdot().toFixed(1)):'Non ancora fatto',tests,{pad:1,fy:v=>num(Math.round(v*10)/10),label:'VDOT dai test sui 5 km',tip:q=>`<b>VDOT ${num(q.v.toFixed(1))}</b> · ${esc(q.s)} sui 5 km · ${fmt(dataDi(q.p,0))}`},
+      tests.length?`<table><tr><th>Data</th><th>Tempo</th></tr>${tests.slice().reverse().map(q=>`<tr><td>${fmt(dataDi(q.p,0))}</td><td class="num">${esc(q.s)}</td></tr>`).join('')}</table>`:'')}</div>`;
+
+  const how=`<details class="note"><summary><b>Come si calcola la forza stimata</b></summary>
+    <p>Per ogni serie: <b>carico × (1 + ripetizioni ÷ 30)</b>, la formula di Epley per stimare il massimale; poi la media delle serie della settimana. Così una ripetizione in più o 5 kg in più fanno salire la linea. Dopo un aumento di carico le ripetizioni ripartono dal basso con margine: un piccolo calo quella settimana è normale.</p>
+    <p>La prima settimana vale 0%: ogni punto dice di quanto sei più forte da lì. Quando passi a una <b>variante più difficile</b> non si sa di quanto sei salito, quindi la linea resta piatta e riparte da lì. Le <b>settimane leggere</b> non contano.</p>
+    <p>Con lo zaino conta anche il corpo (${BW} kg): trazioni, chin-up e dip tutto il corpo, push-up il 64% del corpo più tutto lo zaino, che sta sopra le mani. Sopra le 10 ripetizioni il massimale stimato è impreciso: guarda la direzione, non il numero.</p></details>`;
+  return `<header class="hd"><div class="eb">Dal tuo diario</div><h1>Progressi</h1></header>`+hero+kpi+hl+sec('A')+sec('C')+sec('B')+run+
+    `<div style="height:16px"></div>`+how+`<p class="foot">Tocca un esercizio per il grafico; tocca o scorri il grafico per leggere ogni settimana.</p>`;
 }
+function tblRow(e,L){return `<tr><td>${fmt(dataDi(L.w,0))}${L.dl?'<br><small class="muted">leggera</small>':''}</td><td class="num">${L.sets.map(s=>s.r).join(' · ')}</td><td>${loadShort(e,{kg:L.kg})||'—'}${e.lv[L.lv]?`<br><small class="muted">${e.lv[L.lv]}</small>`:''}</td></tr>`}
 
 // ---------- viste: guida ----------
 const g=(t,sub,body,open)=>`<details class="g" ${open?'open':''}><summary><span><b>${t}</b><small>${sub}</small></span></summary><div class="body">${body}</div></details>`;
@@ -722,6 +863,7 @@ function guideView(){
     <li><b>Le ripetute</b>: 4 × 4 min alla massima intensità sostenibile alzano il VO2max più della corsa continua (Helgerud et al., MSSE 2007). Aggiungere una ripetuta alla volta è <b>solo convenzione</b>: non ci sono studi che confrontino i modi di farle crescere.</li>
     <li><b>Senza salti</b>: pliometria e forza pesante migliorano l’economia di corsa; qui non ci sono per tua scelta. <a href="https://repositorio.unab.cl/handle/ria/62074">Llanos-Lagos et al., Sports Medicine 2024</a></li>
     <li><b>Forza e corsa insieme</b> non frenano crescita muscolare né forza massima. <a href="https://researchonline.jcu.edu.au/71546/1/Schumann2021_Article_CompatibilityOfConcurrentAerob.pdf">Schumann et al., Sports Medicine 2022</a>. <b>Esercizi alternati in blocchi</b>: sedute più brevi, stessi risultati. <a href="https://eprints.leedsbeckett.ac.uk/id/eprint/11908">Zhang et al., Sports Medicine 2025</a>. <b>Recuperi</b> oltre 60 s un po’ meglio, oltre 90 s non cambia. <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2024.1429789/abstract">Singer et al., Frontiers 2024</a></li>
+    <li><b>Forza stimata</b> (Progressi): formula di Epley, carico × (1 + ripetizioni ÷ 30), nata da una tabella di allenamento del 1985 e non da uno studio. Le stime del massimale sono affidabili fino a circa 10 ripetizioni: oltre, conta la direzione, non il numero. <a href="https://www.unm.edu/~rrobergs/478RMStrengthPrediction.pdf">Reynolds et al., JSCR 2006</a>. Nel push-up le mani reggono circa il 64% del peso corporeo. <a href="https://ojs.ub.uni-konstanz.de/cpa/article/view/4457">Wurm, Ebben et al., ISBS 2010</a>. Che lo zaino sulle spalle pesi quasi tutto sulle mani è una nostra stima.</li>
     <li><b>Ritmi</b>: formule VDOT di Jack Daniels. <b>Proteine</b>: Morton et al., BJSM 2018. <b>Sonno</b>: Craven et al., Sports Medicine 2022.</li></ul>`)+
   g('Il diario','Ultima copia: '+last,`<p>Quello che scrivi è salvato solo in questo browser, su questo dispositivo: non va su internet. Esporta ogni tanto una copia; con «Importa» la porti su un altro dispositivo.</p>
    <div style="display:flex;flex-wrap:wrap;gap:10px"><button class="btn sm" data-exp>Esporta il diario</button><label class="btn sm ghost" style="background:var(--fill)">Importa un diario<input type="file" data-imp accept="application/json" hidden></label></div>`)+
@@ -840,6 +982,8 @@ document.addEventListener('change',ev=>{
   if(ds.k&&/\.r$|\.kg$/.test(ds.k)&&S.tab!=='prog'){const m=ds.k.match(/^w(\d+)\.([ABC])\./);if(m&&isDone(+m[1]-1,m[2]))render(true);return}
   if(ds.imp!==undefined){const f=i.files[0];if(!f)return;f.text().then(t=>{try{const o=JSON.parse(t);if(!o||typeof o!=='object')throw 0;store=o;save();render(true);toast('Diario importato')}catch(x){toast('File non valido')}})}
 });
+document.addEventListener('pointerdown',scrub);
+document.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'||e.buttons)scrub(e)});
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&renderedDay!==isoOf(new Date())&&S.tab==='oggi')render(false)});
 
 // all'apertura: sempre la seduta di oggi
