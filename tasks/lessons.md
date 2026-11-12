@@ -8,6 +8,13 @@ Una voce per errore o correzione, la più recente in alto. Modello:
 **Regola:** cosa fare d'ora in poi per non ripeterlo.
 ```
 
+## [2026-11-12] Il carico va pensato anche come posizione, non solo come peso
+**Errore/correzione:** ho messo l'hip thrust con due manubri da 25 appoggiati sul bacino:
+Valerio dice che è impossibile da fare, perché due manubri sul corpo non stanno in equilibrio.
+**Regola:** per ogni esercizio con manubri chiedersi anche *dove* sta il peso e se si
+riesce a tenerlo fermo. Se il carico sul corpo è scomodo, meglio la versione a una gamba o con
+un solo manubrio.
+
 ## [2026-11-05] Un vincolo d'attrezzatura non giustifica un esercizio ineseguibile
 **Errore/correzione:** per rispettare i manubri fissi a 25 + 25 ho messo solo esercizi su una
 gamba con 50 kg (split squat bulgaro, step-up, stacco su una gamba): Valerio non riusciva a

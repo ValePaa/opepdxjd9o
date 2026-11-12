@@ -1,16 +1,13 @@
 # TODO — Allenamento
 
-## Sessione corrente (2026-11-03)
-Obiettivo: app più chiara e con funzioni intelligenti.
-- [x] Quattro viste (Oggi · Settimana · Ritmi · Guida), si apre sulla seduta di oggi
-- [x] Serie da spuntare, timer di recupero con «poi A2», schermo acceso durante la seduta
-- [x] Prontezza di Forma che adatta la seduta (<40 leggera, <30 riposo)
-- [x] La volta scorsa + ▲ quando il range è chiuso; zaino ripetuto tra le serie
-- [x] Il test dei 5 km registrato nella corsa aggiorna i ritmi da solo
-- [x] Promemoria di esportare il diario ogni 14 giorni
-- [x] 27 controlli in Chrome headless passati, screenshot a 390 px chiaro/scuro
-- [x] Pubblicata su GitHub Pages (push su `main`)
+## Sessione corrente (2026-11-12)
+Obiettivo: scheda fissa con progressione automatica e app ridisegnata.
+- [x] Ricerca sulle fonti primarie della regola di progressione (14 affermazioni verificate)
+- [x] Esercizi scelti con Valerio; ordine che minimizza i cambi di dischi
+- [x] Motore `prescribe()`: 16 casi di prova passati nel browser
+- [x] Nuova interfaccia: Oggi · Settimana · Progressi · Guida, verificata a 375 px
+- [ ] Pubblicare su GitHub Pages (push su `main`) quando Valerio lo chiede
 
 ## Backlog
-- [ ] Dopo il test dei 5 km (2/11): controllare che i ritmi ricalcolati siano sensati
-- [ ] Fine settimana 8: confrontare i test e preparare il blocco successivo
+- [ ] Peso del manubrio scarico: se serve, calcolare i dischi esatti da togliere il sabato
+- [ ] Dopo 3–4 settimane: controllare con il diario vero che le soglie non siano troppo lente
