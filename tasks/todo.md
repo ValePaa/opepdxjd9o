@@ -6,7 +6,9 @@ Obiettivo: scheda fissa con progressione automatica e app ridisegnata.
 - [x] Esercizi scelti con Valerio; ordine che minimizza i cambi di dischi
 - [x] Motore `prescribe()`: 16 casi di prova passati nel browser
 - [x] Nuova interfaccia: Oggi · Settimana · Progressi · Guida, verificata a 375 px
-- [ ] Pubblicare su GitHub Pages (push su `main`) quando Valerio lo chiede
+- [x] Pubblicata su GitHub Pages (push su `main`)
+- [x] Correzioni dopo la prova sul telefono: via la prontezza, tempo in mm:ss con passo medio,
+      blocchi alternati spiegati, Progressi con barre e storico, soglia di salita sui vecchi diari
 
 ## Backlog
 - [ ] Peso del manubrio scarico: se serve, calcolare i dischi esatti da togliere il sabato

@@ -73,18 +73,28 @@ details.note p{margin:8px 0 0;color:var(--muted)}
 details summary::-webkit-details-marker{display:none}
 
 /* esercizio */
-.pair{font-size:12.5px;font-weight:600;color:var(--muted);margin:22px 4px 8px;display:flex;gap:10px;align-items:center;text-transform:uppercase;letter-spacing:.05em}
-.pair::after{content:"";flex:1;height:1px;background:var(--line)}
+.blk{display:flex;gap:12px;align-items:flex-start;margin:28px 2px 10px}
+.blk .bn{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:14px;font-weight:720;flex:none}
+.blk b{display:block;font-size:16px;font-weight:680;letter-spacing:-.01em}
+.blk small{display:block;font-size:13.5px;color:var(--muted);line-height:1.35;margin-top:2px}
+.plates{background:var(--accentfill);border-radius:var(--r);padding:14px 16px;margin:24px 0 0}
+.plates b{display:block;font-size:15px}
+.plates ul{margin:8px 0 0;padding-left:18px;font-size:14.5px}
+.plates li{margin:3px 0}
 .ex{background:var(--card);border-radius:var(--r);padding:16px 16px 0;margin:0 0 10px}
 .exh{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
 .ex h3{margin:0;font-size:18px;line-height:1.25;letter-spacing:-.012em;font-weight:660}
 .load{margin:3px 0 0;color:var(--muted);font-size:14.5px}
 .tag{flex:none;font-size:12px;font-weight:650;padding:4px 10px;border-radius:99px;background:var(--fill);color:var(--muted);white-space:nowrap;margin-top:1px}
 .tag.up{background:var(--okfill);color:var(--ok)} .tag.dl{background:var(--warnfill);color:var(--warn)} .tag.new{background:var(--accentfill);color:var(--accent)}
-.goal{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:14px 0 0}
-.goal b{font-size:24px;font-weight:720;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.goal small{color:var(--muted);font-size:13.5px}
-.why{font-size:13.5px;color:var(--muted);margin:4px 0 0}
+.goal{display:flex;align-items:center;gap:8px;margin:10px 0 0}
+.goal b{font-size:26px;font-weight:740;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.goal small{color:var(--muted);font-size:13.5px;line-height:1.2}
+.goal .ld{margin-left:auto;font-size:15px;font-weight:640;background:var(--fill);padding:6px 11px;border-radius:10px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tech{display:inline-block;margin:10px 0 0;font-size:13.5px;font-weight:600;color:var(--accent);background:var(--accentfill);padding:5px 10px;border-radius:9px;line-height:1.3}
+.meta{font-size:13px;color:var(--muted);margin:10px 0 0}
+.lead{font-size:14.5px;color:var(--muted);margin:-6px 4px 14px}
+.why{font-size:13.5px;color:var(--ink);margin:6px 0 0;opacity:.82}
 .sets{display:grid;grid-template-columns:24px 1fr 1fr 48px;gap:8px 10px;align-items:center;margin:16px 0 6px}
 .sets.nokg{grid-template-columns:24px 1fr 48px}
 .sets .h{font-size:11px;color:var(--faint);font-weight:650;text-transform:uppercase;letter-spacing:.06em;text-align:center}
@@ -139,13 +149,6 @@ details.how p{margin:0 0 14px;font-size:14.5px;color:var(--muted)}
 .next b{display:block;margin-top:2px}
 .next svg{width:18px;height:18px;color:var(--faint)}
 
-/* prontezza */
-.rd{display:flex;align-items:center;gap:14px}
-.rd .rt small{font-size:13.5px}
-.rd .rt small.bad{color:var(--bad)}
-.rd .f{width:78px;flex:none}
-.sick{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line)}
-.sick input{width:20px;height:20px;accent-color:var(--accent);margin:0}
 
 /* corsa */
 .zrow{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
@@ -157,9 +160,10 @@ details.how p{margin:0 0 14px;font-size:14.5px;color:var(--muted)}
 .zrow b{font-size:18px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .zrow b small{font-size:12px;color:var(--muted);font-weight:500}
 .steps{list-style:none;margin:0;padding:0}
-.steps li{display:flex;gap:14px;padding:11px 0;border-top:1px solid var(--line)}
-.steps li:first-child{border-top:0;padding-top:2px}
-.steps .k{width:108px;flex:none;color:var(--muted);font-size:14px;padding-top:1px}
+.steps li{padding:11px 0;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps li:last-child{padding-bottom:0}
+.steps small{display:block;font-size:11.5px;color:var(--muted);font-weight:650;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 0}
 .grid2 label{font-size:12.5px;color:var(--muted);font-weight:600;display:block}
 .grid2 label .f{margin-top:5px}
@@ -170,11 +174,20 @@ details.how p{margin:0 0 14px;font-size:14.5px;color:var(--muted)}
 .kpi{background:var(--card);border-radius:18px;padding:14px}
 .kpi small{display:block;font-size:12px;color:var(--muted);font-weight:600}
 .kpi b{display:block;font-size:24px;font-weight:720;letter-spacing:-.02em;margin-top:4px;font-variant-numeric:tabular-nums}
-.prow{padding:14px 16px;border-top:1px solid var(--line)}
-.prow:first-child{border-top:0}
-.prow .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.prow .top b{font-weight:620}
-.prow .top span{font-size:13.5px;color:var(--muted);text-align:right}
+.pex{border-top:1px solid var(--line)}
+.pex:first-child{border-top:0}
+.pex>summary{list-style:none;display:flex;align-items:center;gap:14px;padding:13px 16px;cursor:pointer}
+.pex .pt{flex:1;min-width:0}
+.pex .pt>b{display:block;font-weight:620}
+.pex .pt small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
+.pex .pt small b{color:var(--ink);font-weight:650}
+.pex[open]>summary{padding-bottom:6px}
+.spark{flex:none}
+.nd{color:var(--faint);flex:none}
+.pb{padding:0 16px 12px}
+.pb table{font-size:13.5px}
+.pb td{padding:7px 6px}
+.sec .dot{width:7px;height:7px;margin-right:7px;vertical-align:1px}
 .hist{display:flex;gap:6px;overflow-x:auto;margin-top:9px;scrollbar-width:none}
 .hist::-webkit-scrollbar{display:none}
 .hist span{flex:none;background:var(--fill);border-radius:10px;padding:5px 9px;font-size:13px;font-variant-numeric:tabular-nums;line-height:1.25}
@@ -212,15 +225,16 @@ th{color:var(--muted);font-weight:650;font-size:11.5px;text-transform:uppercase;
 #timer .tx{flex:1;min-width:0;line-height:1.25}
 #timer .tx small{display:block;font-size:11.5px;opacity:.65;font-weight:650;text-transform:uppercase;letter-spacing:.05em}
 #timer .tx span{display:block;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.9}
-#timer button{height:40px;padding:0 13px;border-radius:12px;background:rgba(127,127,127,.28);font-weight:650;font-size:14px;color:inherit;flex:none}
+#timer button{height:40px;padding:0 12px;min-width:48px;border-radius:12px;background:rgba(127,127,127,.28);font-weight:650;font-size:14px;color:inherit;flex:none}
 #timer.go{background:var(--ok);color:#fff}
+@media (prefers-color-scheme: dark){#timer{background:#2c2c2e;color:#fff}}
 #toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top) + 12px);transform:translate(-50%,-140%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:14px;font-size:14.5px;font-weight:600;z-index:40;transition:transform .3s ease;max-width:calc(100% - 32px);text-align:center}
 #toast.on{transform:translate(-50%,0)}
 </style>
 </head>
 <body>
 <main id="view"></main>
-<div id="timer" hidden><div class="tc" id="tclock">0:00</div><div class="tx"><small id="tlab">Recupero</small><span id="tnext"></span></div><button id="tplus">+15 s</button><button id="tstop">Salta</button></div>
+<div id="timer" hidden><div class="tc" id="tclock">0:00</div><div class="tx"><small id="tlab">Recupero</small><span id="tnext"></span></div><button id="tplus">+15</button><button id="tstop">Salta</button></div>
 <div id="toast" role="status" aria-live="polite"></div>
 <nav class="tabs">
  <button data-tab="oggi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></svg>Oggi</button>
@@ -263,7 +277,15 @@ const Z={
   R:{n:'Allunghi',z:'',fc:'—',p:()=>pace(1.05),d:'veloce e sciolto, mai sprint',c:'var(--z5)'}
 };
 const zp=k=>`<b>${Z[k].p()}/km</b>`;
-function parseT(s){const m=String(s||'').trim().match(/^(\d{1,2})[:.,](\d{2})$/);if(!m)return null;const t=+m[1]+(+m[2])/60;return (t>=13&&t<=50)?t:null}
+// durate: «61:05», «61.05», «1:01:05» oppure solo cifre («6105» = 61:05, «60» = 60 minuti)
+function parseDur(s){s=String(s??'').trim();if(!s)return null;let m;
+  if((m=s.match(/^(\d{1,2})[:.,](\d{2})[:.,](\d{2})$/)))return +m[1]*60+(+m[2])+(+m[3])/60;
+  if((m=s.match(/^(\d{1,3})[:.,](\d{2})$/)))return +m[2]<60?+m[1]+(+m[2])/60:null;
+  if((m=s.match(/^(\d{1,3})$/)))return +m[1];
+  if((m=s.match(/^(\d{1,3})(\d{2})$/)))return +m[2]<60?+m[1]+(+m[2])/60:null;
+  return null}
+function fmtDur(min){const t=Math.round(min*60);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')}
+function parseT(s){const t=parseDur(s);return t!==null&&t>=13&&t<=50?t:null}
 function setVdotFrom(str){const t=parseT(str);if(!t)return false;store.vdot=vo2(5000/t)/pct(t);store.t5k=String(str).trim();save();return true}
 if(!store.vdot){const s=parseT(store.t5k8)?store.t5k8:store.t5k1;if(parseT(s))setVdotFrom(s)}
 
@@ -322,13 +344,13 @@ const EX={
   how:'Addome stretto e bacino in retroversione: fai rotolare la rotella in avanti finché la schiena resta neutra, poi torna. Se la schiena si inarca, la serie è finita.'}
 };
 const SESS={
- A:{title:'Forza A',sub:'Gambe e tirate',dur:'~50 min',groups:[['gsq','pull'],['rdl','dip'],['row1','tri']],
+ A:{title:'Forza A',sub:'Gambe e tirate',dur:'~50 min',warmT:'8 min',groups:[['gsq','pull'],['rdl','dip'],['row1','tri']],
     eq:'Manubri a 25 + 25 · zaino. Nessun cambio di dischi.',
     warm:'Bici 5 min in crescendo, 10 squat a corpo libero, 5 goblet squat leggeri, 5 trazioni scapolari.'},
- C:{title:'Forza C',sub:'Parte alta, corta',dur:'~25 min',groups:[['chin','push'],['rear','wheel']],
+ C:{title:'Forza C',sub:'Parte alta, corta',dur:'~25 min',warmT:'5 min',groups:[['chin','push'],['rear','wheel']],
     eq:'Zaino · coppia da 3 kg · rotella. I manubri non servono.',
     warm:'Bici 3 min, 10 circonduzioni delle braccia, 5 trazioni scapolari, 5 push-up. È il giorno dopo Forza A: se braccia e dorso sono stanchi, tieni una ripetizione di margine in più.'},
- B:{title:'Forza B',sub:'Spinta, spalle e braccia',dur:'~50 min',groups:[['bench','row'],'PLATES',['ohp','bcurl'],['bridge','lat']],
+ B:{title:'Forza B',sub:'Spinta, spalle e braccia',dur:'~50 min',warmT:'8 min',groups:[['bench','row'],'PLATES',['ohp','bcurl'],['bridge','lat']],
     eq:'Manubri a 25 + 25 → un solo cambio a metà → coppia da 3 kg.',
     warm:'Bici 5 min, 10 circonduzioni delle braccia, 10 push-up, una serie leggera di panca da 8.'}
 };
@@ -343,14 +365,6 @@ const ek=(w,S,id)=>`w${w+1}.${S}.${id}`;
 const doneKey=(w,k)=>`done.w${w+1}.${k}`;
 const isDone=(w,k)=>!!store[doneKey(w,k)];
 
-// prontezza di Forma: 0 normale · 1 giornata leggera · 2 riposo
-function readyLevel(iso){
-  const v=pnum(store['ready.'+iso]);
-  if(v!==null&&v<30)return 2;
-  if((v!==null&&v<40)||store['sick.'+iso])return 1;
-  return 0;
-}
-const lowFor=(w,k)=>readyLevel(isoOf(dataDi(w,dayOf(k))))>=1;
 
 // ---------- il motore della progressione ----------
 function logOf(w,id){
@@ -375,14 +389,17 @@ function prescribe(id,w,low){
   if(H.length){
     const L=Hn[0]||H[0];
     px.kg=L.kg;px.lv=L.lv;px.last=H[0];
-    const top=x=>x&&x.sets.length>=n&&x.sets.slice(0,n).every(s=>s.r>=e.hi);
+    // chiuso = tutte le serie al massimo del range (nelle prime due settimane il vecchio programma aveva una serie in meno)
+    const top=x=>x&&x.sets.length>=(x.w<2?Math.max(1,n-1):n)&&x.sets.slice(0,n).every(s=>s.r>=e.hi);
+    const minR=x=>Math.min(...x.sets.slice(0,n).map(s=>s.r));
     const same=(a,b)=>!!a&&!!b&&a.kg===b.kg&&a.lv===b.lv;
     const full=x=>x&&x.sets.length>=n;
     const tot=x=>x.sets.slice(0,n).reduce((t,s)=>t+s.r,0);
     const under=x=>x&&x.sets.slice(0,n).every(s=>s.r<e.lo-1);
     if(top(L)){
       const P=Hn[1];
-      if((L.rir!==null&&L.rir>=2)||(same(P,L)&&top(P)))stepUp(e,L,px,mid);
+      // si sale con margine 2+, con 2 ripetizioni oltre il range (il margine c'era), o al secondo range chiuso di fila
+      if((L.rir!==null&&L.rir>=2)||minR(L)>=e.hi+2||(same(P,L)&&top(P)))stepUp(e,L,px,mid);
       else{px.reps=fill(n,e.hi);px.kind='confirm';px.why=`Range chiuso, ma al limite${L.rir===null?' (o margine non segnato)':''}: questa settimana lo confermi, poi si sale.`}
     }else{
       const [a,b,c]=Hn, recentDl=H.slice(0,3).some(h=>h.dl);
@@ -429,7 +446,7 @@ function stepDown(e,L,px){
   if(!hasKg(e)&&L.lv>0){px.lv=L.lv-1;px.tag='Più facile';px.why='Due settimane sotto il range: la variante precedente, poi si risale.';return true}
   return false;
 }
-const pxOf=(w,id)=>prescribe(id,w,lowFor(w,EX[id].s));
+const pxOf=(w,id)=>prescribe(id,w,false);
 function loadLabel(e,px){
   const lv=e.lv[px.lv]||'';let a='';
   if(e.eq==='db1')a=`1 manubrio · ${num(px.kg)} kg`;
@@ -464,7 +481,7 @@ function lPlan(w){
   let M=60,why='Si parte da 60 min: ogni settimana 5 min in più, fino a 90.';
   for(let p=w-1;p>=0;p--){const b=`w${p+1}.l`,pres=pnum(store[b+'.pres']);
     if(!pres)continue;
-    const min=pnum(store[b+'.min'])??(store[`done.w${p+1}.l`]?pres:null);
+    const min=parseDur(store[b+'.min'])??(store[`done.w${p+1}.l`]?pres:null);
     if(min===null){M=pres;why='Durata della volta scorsa non registrata: stessa durata.'}
     else if(min>=pres-1){M=Math.min(90,pres+5);why=M===pres?'Sei a 90 min: il lungo resta qui.':'Fatto per intero la volta scorsa: +5 min.'}
     else{M=pres;why='La volta scorsa più corto del previsto: stessa durata.'}
@@ -483,36 +500,48 @@ function titleOf(w,k){return SESS[k]?`${SESS[k].title} · ${SESS[k].sub.toLowerC
 
 // ---------- viste: una seduta di forza ----------
 function progress(w,S){let tot=0,done=0;idsOf(S).forEach(id=>{const n=pxOf(w,id).sets;tot+=n;for(let i=1;i<=n;i++)if(store[sk(w,S,id,i)+'.ok'])done++});return {tot,done}}
+function loadShort(e,px){
+  if(e.eq==='db1')return `1 × ${num(px.kg)} kg`;
+  if(e.eq==='db2')return `2 × ${num(px.kg)} kg`;
+  if(e.eq==='bar')return `bilanciere ${num(px.kg)} kg`;
+  if(e.eq==='pack')return px.kg>0?`zaino ${num(px.kg)} kg`:'corpo libero';
+  if(e.eq==='fix')return '2 × 3 kg';
+  return '';
+}
 function exHTML(w,S,id){
-  const e=EX[id],px=pxOf(w,id),kgOn=hasKg(e),[tc,tt]=tagOf(px);
-  let last='';
-  if(px.last){const L=px.last;last=`<p class="why">La volta scorsa: <span class="num">${L.sets.map(s=>s.r).join(' · ')}</span>${kgOn&&L.kg!=null?' · '+(e.eq==='pack'?(L.kg?`zaino ${num(L.kg)} kg`:'corpo libero'):`${num(L.kg)} kg`):''}${e.lv.length>1&&e.lv[L.lv]?' · '+e.lv[L.lv]:''}</p>`}
-  let rows=`<span class="h">Serie</span>${kgOn?'<span class="h">Kg</span>':''}<span class="h">Ripetizioni</span><span></span>`, all=true;
+  const e=EX[id],px=pxOf(w,id),kgOn=hasKg(e),[tc,tt]=tagOf(px),tech=e.lv[px.lv]||'',ld=loadShort(e,px);
+  let all=true,rows=`<span class="h">Serie</span>${kgOn?'<span class="h">Kg</span>':''}<span class="h">Ripetizioni</span><span></span>`;
   for(let i=1;i<=px.sets;i++){
     const b=sk(w,S,id,i),on=!!store[b+'.ok'];if(!on)all=false;
     rows+=`<span class="n">${i}</span>${kgOn?`<input class="f" data-k="${b}.kg" inputmode="decimal" placeholder="${num(px.kg)}" value="${esc(store[b+'.kg'])}" aria-label="Kg, serie ${i}">`:''}<input class="f" data-k="${b}.r" inputmode="numeric" placeholder="${px.reps[i-1]}" value="${esc(store[b+'.r'])}" aria-label="Ripetizioni, serie ${i}"><button class="ck${on?' on':''}" data-ok="${w}|${S}|${id}|${i}" aria-label="Serie ${i} fatta">${ICON.check}</button>`;
   }
   const rv=store[ek(w,S,id)+'.rir'];
-  const rir=`<div class="rir"><span>Ripetizioni di margine<br>nell’ultima serie</span><div class="seg">${['0','1','2','3+'].map((l,v)=>`<button class="${rv!=null&&rv!==''&&+rv===v?'on':''}" data-rir="${w}|${S}|${id}|${v}">${l}</button>`).join('')}</div></div>`;
+  const last=px.last?` · ultima volta <span class="num">${px.last.sets.map(s=>s.r).join(' · ')}</span>`:'';
   return `<article class="ex${all?' complete':''}" id="ex-${id}">
-   <div class="exh"><div><h3>${e.n}</h3><p class="load">${loadLabel(e,px)}${e.unit?' · '+e.unit:''}</p></div>${tt?`<span class="tag ${tc}">${esc(tt)}</span>`:''}</div>
-   <div class="goal"><b>${goalTxt(px)}</b><small>range ${e.lo}–${e.hi} · recupero ${e.rest} s</small></div>
-   <p class="why">${px.why}${px.low?' <b>Prontezza bassa:</b> una serie in meno e una ripetizione di margine in più.':''}</p>${last}
-   <div class="sets${kgOn?'':' nokg'}">${rows}</div>${rir}
+   <div class="exh"><h3>${e.n}</h3>${tt?`<span class="tag ${tc}">${esc(tt)}</span>`:''}</div>
+   <div class="goal"><b>${goalTxt(px)}</b>${e.unit?`<small>${e.unit}</small>`:''}${ld?`<span class="ld">${ld}</span>`:''}</div>
+   ${tech?`<div class="tech">${e.eq==='bw'?'Variante':'Tecnica'} · ${tech}</div>`:''}
+   <p class="meta">Range ${e.lo}–${e.hi} · recupero ${e.rest} s${last}</p>
+   ${px.kind!=='reps'?`<p class="why">${px.why}</p>`:''}
+   <div class="sets${kgOn?'':' nokg'}">${rows}</div>
+   <div class="rir"><span>Quante ne avevi ancora<br>nell’ultima serie?</span><div class="seg">${['0','1','2','3+'].map((l,v)=>`<button class="${rv!=null&&rv!==''&&+rv===v?'on':''}" data-rir="${w}|${S}|${id}|${v}">${l}</button>`).join('')}</div></div>
    <details class="how"><summary>Come si fa</summary><p>${e.how}</p></details></article>`;
 }
 function platesHTML(w){
   const o=pxOf(w,'ohp').kg,c=pxOf(w,'bcurl').kg,off=25-o,add=c-16;
-  let t=off>0?`Porta i due manubri da 25 a <b>${num(o)} kg</b>: togli ${num(off/2)} kg per lato a ciascuno.`:'I manubri restano a 25 kg.';
-  t+=add>0?` Sul bilanciere metti <b>${num(add/2)} kg per lato</b> (${num(c)} kg in tutto)${off*2>=add?', presi da quelli che hai tolto':''}.`:' Il bilanciere resta a 16 kg.';
-  return `<div class="note info"><b>Cambio dischi, una volta sola.</b> ${t} A fine seduta rimonta i manubri a 25: martedì si riparte da lì.</div>`;
+  const li=[];
+  li.push(off>0?`Manubri da 25 a <b>${num(o)} kg</b>: togli ${num(off/2)} kg per lato a ciascuno.`:'Manubri: restano a 25 kg.');
+  li.push(add>0?`Bilanciere a <b>${num(c)} kg</b>: metti ${num(add/2)} kg per lato${off*2>=add?', presi da quelli tolti':''}.`:'Bilanciere: resta a 16 kg.');
+  li.push('A fine seduta rimonta i manubri a 25: martedì si riparte da lì.');
+  return `<div class="plates"><b>Cambio dischi · una volta sola</b><ul>${li.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
 }
 function strBody(w,S){
-  const m=SESS[S];let gi=0;
-  let h=`<details class="note"><summary><span><b>Riscaldamento</b> · <span class="muted">${m.eq}</span></span></summary><p>${m.warm}</p></details>`;
+  const m=SESS[S];let bi=0;
+  let h=`<details class="note"><summary><span><b>Riscaldamento</b> <span class="muted">· ${m.warmT}</span></span></summary><p>${m.warm}</p><p>${m.eq}</p></details>`;
   m.groups.forEach(g=>{
-    if(g==='PLATES'){h+=`<div style="height:10px"></div>`+platesHTML(w);return}
-    gi++;h+=`<div class="pair">${g.length>1?`Coppia ${gi} · alterna i due`:`Esercizio ${gi}`}</div>`+g.map(id=>exHTML(w,S,id)).join('');
+    if(g==='PLATES'){h+=platesHTML(w);return}
+    bi++;const [a,b]=g.map(x=>EX[x].sh),n=Math.max(...g.map(x=>pxOf(w,x).sets));
+    h+=`<div class="blk"><span class="bn">${bi}</span><div><b>${a} + ${b}</b><small>Alterna: 1 serie di ${a}, recupero, 1 serie di ${b}, recupero. Ripeti ${n} volte.</small></div></div>`+g.map(id=>exHTML(w,S,id)).join('');
   });
   return h;
 }
@@ -524,38 +553,29 @@ function nextWeekHTML(w,S){
 
 // ---------- viste: una corsa ----------
 function zoneRows(zs){return `<div class="card">${zs.map(z=>`<div class="zrow"><i style="background:${Z[z].c}"></i><div class="zt"><span>${Z[z].n}</span><small>${z==='E'?'comanda la FC · '+Z[z].fc:z==='R'?Z[z].d:'comanda il ritmo · FC '+Z[z].fc}</small></div><b>${Z[z].p()}<small>/km</small></b></div>`).join('')}</div>`}
-function stepsHTML(st){return `<div class="card"><ul class="steps">${st.map(([a,b])=>`<li><span class="k">${a}</span><span>${b}</span></li>`).join('')}</ul></div>`}
+function stepsHTML(st){return `<div class="card"><ol class="steps">${st.map(([a,b])=>`<li><small>${a}</small><span>${b}</span></li>`).join('')}</ol></div>`}
+const tin=(k,ph)=>`<input class="f" data-k="${k}" data-time placeholder="${ph}" inputmode="decimal" value="${esc(store[k])}">`;
+function paceTxt(b){const t=parseDur(store[b+'.min']),km=pnum(store[b+'.km']);
+  return t&&km?`Passo medio <b>${fmtDur(t/km)}/km</b> su ${num(km)} km.`:'Per il tempo bastano le cifre: 6105 diventa 61:05. Con tempo e km calcolo il passo medio.'}
 const inp=(k,ph,mode,cls='')=>`<input class="f ${cls}" data-k="${k}" placeholder="${ph}" inputmode="${mode}" value="${esc(store[k])}">`;
-function runBody(w,k,lvl){
-  const b=`w${w+1}.${k}`;let h='';
+function runBody(w,k){
+  const b=`w${w+1}.${k}`,why=t=>`<p class="lead">${t}</p>`;
   if(k==='q'){
     const q=qPlan(w);
-    if(lvl>=1){
-      h+=`<div class="note bad">Prontezza bassa: oggi la qualità diventa <b>30 min facili</b>, a ${zp('E')} (FC ${Z.E.fc}).</div>`;
-      return h+`<div class="sec">Com’è andata</div><div class="card"><div class="grid2"><label>km${inp(b+'.km','km','decimal')}</label><label>FC media${inp(b+'.fc','bpm','numeric')}</label><label class="full">Note${inp(b+'.note','sensazioni','text','l')}</label></div></div>`;
-    }
-    if(q.test){
-      h+=`<p class="why" style="margin:0 4px 12px">${q.why}</p>`+stepsHTML([['Riscaldamento',RISC],['Test','5 km a tutta, su un percorso piatto che puoi ripetere. Il primo km non più veloce del secondo: finisci in crescendo.'],['Defaticamento','10 min molto facile']]);
-      return h+`<div class="sec">Com’è andata</div><div class="card"><div class="grid2"><label class="full">Tempo sui 5 km${inp(b+'.t5k','mm:ss','numeric')}</label><label>km totali${inp(b+'.km','km','decimal')}</label><label>FC media${inp(b+'.fc','bpm','numeric')}</label></div><p class="why">Il tempo aggiorna da solo i ritmi di tutta l’app.</p></div>`;
-    }
-    h+=`<p class="why" style="margin:0 4px 12px">${q.why}</p>`+zoneRows(['I','E','R'])+stepsHTML([['Riscaldamento',RISC],['Ripetute',`<b>${q.N} × 4 min</b> a ritmo ripetute, ${zp('I')} · recupero 3 min corricchiando`],['Defaticamento','10 min molto facile']]);
+    if(q.test)return why(q.why)+stepsHTML([['Riscaldamento',RISC],['Test','5 km a tutta, su un percorso piatto che puoi ripetere. Il primo km non più veloce del secondo: finisci in crescendo.'],['Defaticamento','10 min molto facile']])+
+      `<div class="sec">Com’è andata</div><div class="card"><div class="grid2"><label class="full">Tempo sui 5 km${tin(b+'.t5k','26:30')}</label><label>km totali${inp(b+'.km','km','decimal')}</label><label>FC media${inp(b+'.fc','bpm','numeric')}</label></div><p class="why">Il tempo aggiorna i ritmi di tutta l’app. Bastano le cifre: 2630 diventa 26:30.</p></div>`;
     const rv=store[b+'.reps'];
-    return h+`<div class="sec">Com’è andata</div><div class="card"><div class="rir stack" style="margin-top:0"><span>Ripetute chiuse al ritmo</span><div class="seg">${Array.from({length:q.N+1},(_,v)=>`<button class="${rv!=null&&rv!==''&&+rv===v?'on':''}" data-qr="${w}|${v}">${v}</button>`).join('')}</div></div>
+    return why(q.why)+zoneRows(['I','E','R'])+stepsHTML([['Riscaldamento',RISC],['Ripetute',`<b>${q.N} × 4 min</b> a ${zp('I')} · recupero 3 min corricchiando`],['Defaticamento','10 min molto facile']])+
+      `<div class="sec">Com’è andata</div><div class="card"><div class="rir stack" style="margin-top:0"><span>Quante ripetute hai chiuso al ritmo?</span><div class="seg">${Array.from({length:q.N+1},(_,v)=>`<button class="${rv!=null&&rv!==''&&+rv===v?'on':''}" data-qr="${w}|${v}">${v}</button>`).join('')}</div></div>
       <div class="grid2"><label>km${inp(b+'.km','km','decimal')}</label><label>FC media${inp(b+'.fc','bpm','numeric')}</label><label class="full">Note${inp(b+'.note','sensazioni','text','l')}</label></div></div>`;
   }
   const l=lPlan(w);
-  h+=`<p class="why" style="margin:0 4px 12px">${l.why}</p>`+zoneRows(['E'])+stepsHTML([['Corsa',`<b>${l.M} min</b> in zona facile, ${zp('E')}. Se la FC supera 150, rallenta anche se il ritmo sembra ridicolo.`]]);
-  if(l.cap)h+=`<div class="note warn">Non oltre <b>${num(l.cap)} km</b>: il 10% in più della corsa più lunga degli ultimi 30 giorni. Se ci arrivi prima del tempo, ti fermi.</div>`;
-  return h+`<div class="sec">Com’è andata</div><div class="card"><div class="grid2"><label>Minuti${inp(b+'.min',String(l.M),'numeric')}</label><label>km${inp(b+'.km','km','decimal')}</label><label>FC media${inp(b+'.fc','bpm','numeric')}</label><label>Note${inp(b+'.note','—','text','l')}</label></div></div>`;
+  return why(l.why)+zoneRows(['E'])+stepsHTML([['Corsa',`<b>${l.M} min</b> in zona facile, ${zp('E')}. Se la FC supera 150, rallenta anche se il ritmo sembra ridicolo.`]])+
+    (l.cap?`<div class="note warn">Non oltre <b>${num(l.cap)} km</b>: il 10% in più della corsa più lunga degli ultimi 30 giorni. Se ci arrivi prima del tempo, ti fermi.</div>`:'')+
+    `<div class="sec">Com’è andata</div><div class="card"><div class="grid2"><label>Tempo${tin(b+'.min',l.M+':00')}</label><label>km${inp(b+'.km','km','decimal')}</label><label>FC media${inp(b+'.fc','bpm','numeric')}</label><label>Note${inp(b+'.note','—','text','l')}</label></div><p class="why" data-pace="${b}">${paceTxt(b)}</p></div>`;
 }
 
 // ---------- viste: un giorno ----------
-function readyCard(iso){
-  const v=store['ready.'+iso]||'',l=readyLevel(iso);
-  const msg=v===''&&!store['sick.'+iso]?'Il valore di Forma di stamattina: la seduta si adatta.':l===2?'Sotto 30: oggi riposo.':l===1?'Giornata leggera, già applicata qui sotto.':'Via libera: seduta piena.';
-  return `<div class="card"><div class="rd"><div class="rt"><b>Prontezza</b><small class="${l?'bad':''}">${msg}</small></div><input class="f" data-ready="${iso}" inputmode="numeric" placeholder="—" value="${esc(v)}" aria-label="Prontezza di Forma"></div>
-   <label class="sick"><input type="checkbox" data-sick="${iso}" ${store['sick.'+iso]?'checked':''}>Ho due segnali di malessere</label></div>`;
-}
 function nextCard(w,d){
   const t=oggi();let x=w*7+d+1;
   for(let j=0;j<14;j++,x++){const ww=Math.floor(x/7),dd=x%7;
@@ -564,21 +584,15 @@ function nextCard(w,d){
   return '';
 }
 function dayHTML(w,d,fromWeek){
-  const x=dataDi(w,d),t=oggi(),isT=t.raw===w*7+d,ks=PLAN[d],iso=isoOf(x);
+  const x=dataDi(w,d),t=oggi(),isT=t.raw===w*7+d,ks=PLAN[d];
   const back=fromWeek?`<button class="back" data-back>${ICON.left}Settimana</button>`:'';
   const eb=`${isT?'Oggi · ':''}${GGL[d]} ${fmtL(x)}`;
   if(!ks.length)return back+`<header class="hd"><div class="eb">${eb}</div><h1>Riposo</h1><p class="sub">Il recupero fa parte dell’allenamento. Se vuoi muoverti, una camminata.</p></header>`+nextCard(w,d)+(isT?exportReminder():'');
-  const k=ks[0],lvl=readyLevel(iso),done=isDone(w,k);
-  let head,body;
+  const k=ks[0],done=isDone(w,k);
+  let h=back;
   if(SESS[k]){const m=SESS[k],p=progress(w,k);
-    head=`<header class="hd"><div class="eb">${eb}</div><h1>${m.title}</h1><p class="sub">${m.sub} · ${m.dur} · <span data-prog="${w}|${k}">${p.done} di ${p.tot} serie</span></p><div class="bar"><i data-bar="${w}|${k}" style="width:${p.tot?p.done/p.tot*100:0}%"></i></div></header>`;
-    body=strBody(w,k);
-  }else{
-    head=`<header class="hd"><div class="eb">${eb}</div><h1>${lvl>=1&&k==='q'?'Corsa facile':runTitle(w,k)}</h1><p class="sub">${k==='q'?'Corsa · qualità · ~50 min':'Corsa · lungo facile'}</p></header>`;
-    body=runBody(w,k,lvl);
-  }
-  let h=back+head+(isT?readyCard(iso):'');
-  h+=lvl===2?`<details class="note"><summary><b>Mostra comunque la seduta</b></summary></details>`+`<div hidden data-anyway>${body}</div>`:body;
+    h+=`<header class="hd"><div class="eb">${eb}</div><h1>${m.title}</h1><p class="sub">${m.sub} · ${m.dur} · <span data-prog="${w}|${k}">${p.done} di ${p.tot} serie</span></p><div class="bar"><i data-bar="${w}|${k}" style="width:${p.tot?p.done/p.tot*100:0}%"></i></div></header>`+strBody(w,k);
+  }else h+=`<header class="hd"><div class="eb">${eb}</div><h1>${runTitle(w,k)}</h1><p class="sub">${k==='q'?'Corsa · qualità · ~50 min':'Corsa · lungo facile'}</p></header>`+runBody(w,k);
   h+=`<button class="btn ${done?'done':''}" data-done="${w}|${k}">${done?ICON.check+'Seduta fatta · tocca per annullare':'Concludi la seduta'}</button>`;
   if(done&&SESS[k])h+=nextWeekHTML(w,k);
   if(isT)h+=nextCard(w,d)+exportReminder();
@@ -614,23 +628,40 @@ function weekView(w){
 }
 
 // ---------- viste: progressi ----------
+function spark(vals,marks){
+  const W=vals.length*11-4,H=30,mx=Math.max(...vals,1);
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true">${vals.map((v,i)=>{const h=Math.max(3,Math.round(v/mx*H));return `<rect x="${i*11}" y="${H-h}" width="7" height="${h}" rx="2" fill="${marks[i]?'var(--accent)':'var(--faint)'}"/>`}).join('')}</svg>`;
+}
 function progView(){
   const t=oggi(),w=Math.max(0,t.w);
   let sessions=0;Object.keys(store).forEach(k=>{if(/^done\.w\d+\./.test(k)&&store[k])sessions++});
   let ups=0;Object.keys(EX).forEach(id=>{const H=history(id,w+1).reverse();for(let i=1;i<H.length;i++)if(H[i].kg>H[i-1].kg||H[i].lv>H[i-1].lv)ups++});
   const kpi=`<div class="kpis"><div class="kpi"><small>Sedute fatte</small><b>${sessions}</b></div><div class="kpi"><small>Passi avanti</small><b>${ups}</b></div><div class="kpi"><small>VDOT</small><b>${num(vdot().toFixed(1))}</b></div></div>`;
-  const sec=S=>`<div class="sec">${SESS[S].title} · ${SESS[S].sub.toLowerCase()}</div><div class="list">${idsOf(S).map(id=>{
-    const e=EX[id],px=pxOf(w,id),H=history(id,w+1).slice(0,6).reverse();
-    const chips=H.length?`<div class="hist">${H.map(h=>`<span class="${h.w===w?'cur':''}"><small>${fmt(dataDi(h.w,0))}</small>${h.sets.map(s=>s.r).join('·')}${hasKg(e)&&h.kg?` @${num(h.kg)}`:''}${!hasKg(e)||e.lv.length>1?(h.lv?` · L${h.lv+1}`:''):''}</span>`).join('')}</div>`:'<p class="empty">Ancora nessun dato.</p>';
-    return `<div class="prow"><b>${e.n}</b><div class="why" style="margin:1px 0 0">Questa settimana: <b class="num" style="color:var(--ink)">${goalTxt(px)}</b> · ${loadLabel(e,px)}</div>${chips}</div>`}).join('')}</div>`;
-  const tests=[];for(let p=0;p<=w;p++){const v=store[`w${p+1}.q.t5k`];if(parseT(v))tests.push([p,v])}
+  const upNow=Object.keys(EX).filter(id=>pxOf(w,id).kind==='up');
+  const hl=`<div class="sec">Questa settimana sali in</div><div class="list">${upNow.length?upNow.map(id=>{const e=EX[id],px=pxOf(w,id);
+      return `<div class="row"><div class="rt"><b>${e.n}</b><small>${goalTxt(px)}${loadShort(e,px)?' · '+loadShort(e,px):''}${e.lv[px.lv]?' · '+e.lv[px.lv]:''}</small></div><span class="tag up">${esc(px.tag)}</span></div>`}).join('')
+    :'<div class="row"><div class="rt"><b>Nessun aumento per ora</b><small>Si lavora sulle ripetizioni: quando chiudi il range, qui compare l’esercizio che sale.</small></div></div>'}</div>`;
+  const row=id=>{
+    const e=EX[id],px=pxOf(w,id),H=history(id,w+1).slice(0,8).reverse();
+    const vals=H.map(h=>h.sets.reduce((a,s)=>a+s.r,0)),marks=H.map((h,i)=>i>0&&(h.kg>H[i-1].kg||h.lv>H[i-1].lv));
+    const tbl=H.length?`<table><tr><th>Settimana</th><th>Ripetizioni</th><th>Carico</th></tr>${H.slice().reverse().map(h=>`<tr><td>${fmt(dataDi(h.w,0))}</td><td class="num">${h.sets.map(s=>s.r).join(' · ')}</td><td>${loadShort(e,{kg:h.kg})||'—'}${e.lv[h.lv]?`<br><small class="muted">${e.lv[h.lv]}</small>`:''}</td></tr>`).join('')}</table>`:'<p class="empty">Ancora nessun dato: compare dopo la prima seduta.</p>';
+    return `<details class="pex"><summary><div class="pt"><b>${e.n}</b><small><b class="num">${goalTxt(px)}</b>${loadShort(e,px)?' · '+loadShort(e,px):''}${e.lv[px.lv]?' · '+e.lv[px.lv]:''}</small></div>${H.length>1?spark(vals,marks):''}</summary><div class="pb">${tbl}</div></details>`;
+  };
+  const sec=S=>`<div class="sec"><i class="dot" style="background:var(--${S})"></i>${SESS[S].title} · ${SESS[S].sub.toLowerCase()}</div><div class="list">${idsOf(S).map(row).join('')}</div>`;
+  const longs=[],qs=[],tests=[];
+  for(let p=Math.max(0,w-7);p<=w;p++){
+    const m=parseDur(store[`w${p+1}.l.min`]);if(m)longs.push([p,m,pnum(store[`w${p+1}.l.km`])]);
+    const n=pnum(store[`w${p+1}.q.n`]);if(n)qs.push([p,n,pnum(store[`w${p+1}.q.reps`])]);
+  }
+  for(let p=0;p<=w;p++){const v=store[`w${p+1}.q.t5k`];if(parseT(v))tests.push([p,v])}
   if(parseT(store.t5k1))tests.unshift([0,store.t5k1]);
-  const longs=[];for(let p=Math.max(0,w-7);p<=w;p++){const m=pnum(store[`w${p+1}.l.min`]),km=pnum(store[`w${p+1}.l.km`]);if(m||km)longs.push([p,m,km])}
-  const run=`<div class="sec">Corsa</div><div class="list">
-    <div class="prow"><div class="top"><b>Qualità</b><span>${runTitle(w,'q')}</span></div></div>
-    <div class="prow"><div class="top"><b>Lungo</b><span>${lPlan(w).M} min</span></div>${longs.length?`<div class="hist">${longs.map(([p,m,km])=>`<span class="${p===w?'cur':''}"><small>${fmt(dataDi(p,3))}</small>${m?m+' min':''}${m&&km?' · ':''}${km?num(km)+' km':''}</span>`).join('')}</div>`:'<p class="empty">Ancora nessun dato.</p>'}</div>
-    <div class="prow"><div class="top"><b>Test 5 km</b><span>${store.t5k?esc(store.t5k):'non ancora'}</span></div>${tests.length?`<div class="hist">${tests.map(([p,v])=>`<span><small>${fmt(dataDi(p,0))}</small>${esc(v)}</span>`).join('')}</div>`:''}</div></div>`;
-  return `<header class="hd"><div class="eb">Dal tuo diario</div><h1>Progressi</h1><p class="sub">Per ogni esercizio: l’obiettivo di questa settimana e le ultime volte (ripetizioni · kg · livello).</p></header>`+kpi+sec('A')+sec('C')+sec('B')+run;
+  const rrow=(title,cur,vals,tbl)=>`<details class="pex"><summary><div class="pt"><b>${title}</b><small><b>${cur}</b></small></div>${vals.length>1?spark(vals,vals.map(()=>false)):''}</summary><div class="pb">${tbl||'<p class="empty">Ancora nessun dato.</p>'}</div></details>`;
+  const run=`<div class="sec"><i class="dot" style="background:var(--run)"></i>Corsa</div><div class="list">
+    ${rrow('Qualità',runTitle(w,'q'),qs.map(x=>x[2]??0),qs.length?`<table><tr><th>Settimana</th><th>Al ritmo</th></tr>${qs.slice().reverse().map(([p,n,r])=>`<tr><td>${fmt(dataDi(p,0))}</td><td>${r??'—'} su ${n}</td></tr>`).join('')}</table>`:'')}
+    ${rrow('Lungo',lPlan(w).M+' min',longs.map(x=>x[1]),longs.length?`<table><tr><th>Settimana</th><th>Tempo</th><th>km</th></tr>${longs.slice().reverse().map(([p,m,km])=>`<tr><td>${fmt(dataDi(p,3))}</td><td>${fmtDur(m)}</td><td>${km?num(km):'—'}</td></tr>`).join('')}</table>`:'')}
+    ${rrow('Test 5 km',store.t5k?esc(store.t5k):'non ancora',[],tests.length?`<table><tr><th>Data</th><th>Tempo</th></tr>${tests.slice().reverse().map(([p,v])=>`<tr><td>${fmt(dataDi(p,0))}</td><td>${esc(v)}</td></tr>`).join('')}</table>`:'')}</div>`;
+  return `<header class="hd"><div class="eb">Dal tuo diario</div><h1>Progressi</h1></header>`+kpi+hl+sec('A')+sec('C')+sec('B')+run+
+    `<p class="foot">Tocca un esercizio per vedere le settimane. Le barre sono le ripetizioni totali di ogni settimana: in blu quelle in cui è salito il carico o la tecnica, quindi è normale che le ripetizioni calino.</p>`;
 }
 
 // ---------- viste: guida ----------
@@ -650,7 +681,7 @@ function guideView(){
    <p style="margin-top:12px">Quando i manubri sono già a 25 kg si sale con la variante: discesa in 3 s, poi pausa, poi ripetizioni 1½. Con lo zaino, se vai molto oltre il range, l’app aggiunge più bottiglie insieme (stima: circa 1 ripetizione ogni 3% di carico).</p>
    <p class="small muted">Cosa è evidenza e cosa è convenzione: lo trovi in «Le evidenze».</p>`,true)+
   g('Ritmi e zone','Dal test dei 5 km, con le formule di Daniels',`<p>FC massima 190 (la più alta registrata), FC a riposo 43. ${store.vdot?`Ritmi calcolati dal tuo 5 km in <b>${esc(store.t5k)}</b> (VDOT ${num(store.vdot.toFixed(1))}).`:`Ritmi stimati (VDOT ${num(VDOT_PROVV)}) finché non registri un test.`}</p>
-   <div class="grid2" style="margin:0 0 14px;align-items:end"><label>Tempo sui 5 km<input class="f" id="t5k" placeholder="26:30" inputmode="numeric" value="${esc(store.t5k)}"></label><button class="btn sm" data-calc style="height:44px">Ricalcola</button></div>
+   <div class="grid2" style="margin:0 0 14px;align-items:end"><label>Tempo sui 5 km<input class="f" id="t5k" placeholder="26:30" inputmode="decimal" value="${esc(store.t5k)}"></label><button class="btn sm" data-calc style="height:44px">Ricalcola</button></div>
    ${Object.values(Z).map(z=>`<div class="zrow"><i style="background:${z.c}"></i><div class="zt"><span>${z.n}${z.z?' · '+z.z:''}</span><small>FC ${z.fc} · ${z.d}</small></div><b>${z.p()}<small>/km</small></b></div>`).join('')}
    <p class="small muted" style="margin-top:12px">Nel lungo comanda la <b>FC</b>; nelle ripetute il <b>ritmo</b>, perché la FC arriva in ritardo. Da gennaio a ottobre la FC media delle tue corse era 160–170: sempre in soglia. Per questo il lungo è davvero facile e la corsa dura è una sola.</p>`)+
   g('La settimana','Cosa si fa ogni giorno e come spostare le sedute',`<table>
@@ -670,9 +701,9 @@ function guideView(){
     <li><b>Coppia da 3 kg.</b> Alzate laterali e posteriori, vicino al cedimento.</li>
     <li><b>Rotella e sbarra, parallele, panca.</b> La rotella sostituisce il rollout con il bilanciere.</li>
     <li><b>Bici.</b> 5 min all’inizio delle sedute di forza. Sostituisce il lungo se hai un fastidio da impatto: stessa durata, stessa FC.</li></ul>`)+
-  g('Regole che valgono sempre','Coppie, prontezza, dolore, sonno',`<ul>
-    <li><b>Le coppie.</b> Si alternano: primo esercizio, recupero, secondo, recupero, di nuovo il primo. Quando spunti una serie parte il timer e ti dice cosa viene dopo. Se spunti senza scrivere, l’app registra l’obiettivo.</li>
-    <li><b>Prontezza di Forma.</b> <b>Sotto 40</b>, o con due segnali di malessere: una serie in meno e un margine in più nella forza, e la qualità diventa 30 min facili. <b>Sotto 30</b>: riposo.</li>
+  g('Regole che valgono sempre','Blocchi, giornate no, dolore, sonno',`<ul>
+    <li><b>I blocchi.</b> Gli esercizi sono in blocchi da due. In un blocco alterni: 1 serie del primo, recupero, 1 serie del secondo, recupero, e ripeti finché finisci le serie. Poi passi al blocco dopo. Quando spunti una serie parte il timer e ti dice cosa tocca. Se spunti senza scrivere, l’app registra l’obiettivo.</li>
+    <li><b>Giornata no.</b> Se sei malato o hai dormito pochissimo, salta la seduta: si riparte dalla successiva, e l’app ripropone lo stesso obiettivo.</li>
     <li><b>Dolore.</b> Un fastidio che resta uguale o cala correndo si monitora. Uno che <b>peggiora correndo</b> ferma la corsa: per 3–5 giorni la bici, con stessa durata e stessa FC.</li>
     <li><b>Sonno e proteine.</b> Sotto le 7 ore calano forza, resistenza e recupero: a ottobre eri a 6,4. Proteine: almeno 1,6 g/kg al giorno (circa 110 g); i tuoi 140 g sono dentro il margine utile.</li></ul>`)+
   g('Le evidenze','Cosa è dimostrato e cosa è convenzione',`<ul>
@@ -690,8 +721,8 @@ function guideView(){
     <li><b>Il lungo</b>: il rischio di infortunio sale quando un’uscita supera di oltre il 10% la più lunga degli ultimi 30 giorni; la «regola del 10% a settimana» invece non protegge. <a href="https://doi.org/10.1136/bjsports-2024-109380">Frandsen et al., BJSM 2025</a>; <a href="https://doi.org/10.1177/0363546507307505">Buist et al., AJSM 2008</a></li>
     <li><b>Le ripetute</b>: 4 × 4 min alla massima intensità sostenibile alzano il VO2max più della corsa continua (Helgerud et al., MSSE 2007). Aggiungere una ripetuta alla volta è <b>solo convenzione</b>: non ci sono studi che confrontino i modi di farle crescere.</li>
     <li><b>Senza salti</b>: pliometria e forza pesante migliorano l’economia di corsa; qui non ci sono per tua scelta. <a href="https://repositorio.unab.cl/handle/ria/62074">Llanos-Lagos et al., Sports Medicine 2024</a></li>
-    <li><b>Forza e corsa insieme</b> non frenano crescita muscolare né forza massima. <a href="https://researchonline.jcu.edu.au/71546/1/Schumann2021_Article_CompatibilityOfConcurrentAerob.pdf">Schumann et al., Sports Medicine 2022</a>. <b>Esercizi in coppia</b>: sedute più brevi, stessi risultati. <a href="https://eprints.leedsbeckett.ac.uk/id/eprint/11908">Zhang et al., Sports Medicine 2025</a>. <b>Recuperi</b> oltre 60 s un po’ meglio, oltre 90 s non cambia. <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2024.1429789/abstract">Singer et al., Frontiers 2024</a></li>
-    <li><b>Ritmi</b>: formule VDOT di Jack Daniels. <b>Prontezza</b>: seguire la HRV dà un piccolo vantaggio sul VO2max (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7663087/">Granero-Gallegos et al., 2020</a>). <b>Proteine</b>: Morton et al., BJSM 2018. <b>Sonno</b>: Craven et al., Sports Medicine 2022.</li></ul>`)+
+    <li><b>Forza e corsa insieme</b> non frenano crescita muscolare né forza massima. <a href="https://researchonline.jcu.edu.au/71546/1/Schumann2021_Article_CompatibilityOfConcurrentAerob.pdf">Schumann et al., Sports Medicine 2022</a>. <b>Esercizi alternati in blocchi</b>: sedute più brevi, stessi risultati. <a href="https://eprints.leedsbeckett.ac.uk/id/eprint/11908">Zhang et al., Sports Medicine 2025</a>. <b>Recuperi</b> oltre 60 s un po’ meglio, oltre 90 s non cambia. <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2024.1429789/abstract">Singer et al., Frontiers 2024</a></li>
+    <li><b>Ritmi</b>: formule VDOT di Jack Daniels. <b>Proteine</b>: Morton et al., BJSM 2018. <b>Sonno</b>: Craven et al., Sports Medicine 2022.</li></ul>`)+
   g('Il diario','Ultima copia: '+last,`<p>Quello che scrivi è salvato solo in questo browser, su questo dispositivo: non va su internet. Esporta ogni tanto una copia; con «Importa» la porti su un altro dispositivo.</p>
    <div style="display:flex;flex-wrap:wrap;gap:10px"><button class="btn sm" data-exp>Esporta il diario</button><label class="btn sm ghost" style="background:var(--fill)">Importa un diario<input type="file" data-imp accept="application/json" hidden></label></div>`)+
   `<p class="foot">Scheda costruita sui dati di Forma e sui tuoi carichi. Non sostituisce un parere medico.</p>`;
@@ -798,17 +829,15 @@ document.addEventListener('click',ev=>{
     }else save();
   }
 });
-document.addEventListener('click',ev=>{const s=ev.target.closest('details.note summary');if(s&&s.parentElement.nextElementSibling&&s.parentElement.nextElementSibling.hasAttribute('data-anyway')){s.parentElement.nextElementSibling.hidden=false;s.parentElement.remove()}});
 document.addEventListener('input',ev=>{const i=ev.target,k=i.dataset&&i.dataset.k;if(!k)return;
   if(i.value==='')delete store[k];else store[k]=i.value;
-  const m=k.match(/^w(\d+)\.(q|l)\./);if(m)snapRun(+m[1]-1,m[2]);
+  const m=k.match(/^w(\d+)\.(q|l)\./);if(m){snapRun(+m[1]-1,m[2]);const pe=document.querySelector(`[data-pace="w${m[1]}.l"]`);if(pe&&m[2]==='l')pe.innerHTML=paceTxt(`w${m[1]}.l`)}
   save()});
 document.addEventListener('change',ev=>{
   const i=ev.target,ds=i.dataset||{};
+  if(ds.time!==undefined&&ds.k){const d=parseDur(i.value);if(d!==null){i.value=fmtDur(d);store[ds.k]=i.value;save()}else if(i.value.trim())toast('Scrivi il tempo come 61:05 o 6105')}
   if(ds.k&&/\.q\.t5k$/.test(ds.k)){if(setVdotFrom(i.value)){toast(`Ritmi aggiornati dal test · VDOT ${num(store.vdot.toFixed(1))}`);render(true)}return}
   if(ds.k&&/\.r$|\.kg$/.test(ds.k)&&S.tab!=='prog'){const m=ds.k.match(/^w(\d+)\.([ABC])\./);if(m&&isDone(+m[1]-1,m[2]))render(true);return}
-  if(ds.ready!==undefined){store['ready.'+ds.ready]=i.value.trim();save();render(true);return}
-  if(ds.sick!==undefined){if(i.checked)store['sick.'+ds.sick]=1;else delete store['sick.'+ds.sick];save();render(true);return}
   if(ds.imp!==undefined){const f=i.files[0];if(!f)return;f.text().then(t=>{try{const o=JSON.parse(t);if(!o||typeof o!=='object')throw 0;store=o;save();render(true);toast('Diario importato')}catch(x){toast('File non valido')}})}
 });
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&renderedDay!==isoOf(new Date())&&S.tab==='oggi')render(false)});

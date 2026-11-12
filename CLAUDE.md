@@ -31,8 +31,9 @@ calcolata dal diario. Una pagina HTML statica pubblicata su GitHub Pages da usar
   delle serie (`w1.A.gsq.1.r`, `.kg`), gli id degli esercizi e i test (`t5k1`…) non si
   rinominano: romperebbero i diari già salvati e la progressione. Per esercizio e settimana:
   `.lv` (variante usata), `.rir` (margine), `.dl` (settimana leggera). Corse: `w3.q.n`, `.reps`,
-  `.test`, `.t5k`, `w3.l.pres`, `.min`, `.km`. Le altre: `.ok` (serie spuntata), `done.w1.A`
-  (seduta fatta), `ready.AAAA-MM-GG` e `sick.…` (prontezza), `lastExport`, `vdot`.
+  `.test`, `.t5k`, `w3.l.pres`, `.min`, `.km`. I tempi (`.min`, `.t5k`) si scrivono
+  `mm:ss` e si leggono con `parseDur()`. Le altre: `.ok` (serie spuntata), `done.w1.A` (seduta
+  fatta), `lastExport`, `vdot`.
 
 ## Vincoli specifici
 - Attrezzatura di Valerio: manubri regolabili fino a 25 kg per mano, coppia fissa da 3 kg,
